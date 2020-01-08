@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background: #fff;
+}
+
+.site-header-top {
+  justify-content: center;
+  background-color: #555;
+  color: #CACACA;
+  height: 38px;
+}
+
+.site-header-bottom {
+  height: 99px;
+  background: #eee;
+}
+
+a {
+  color: #CACACA;
+}
+
+.home-content-adspot {
+  height: 450px;
+  background: black;
+  background-image: url("fine-dining.jpg");
+}

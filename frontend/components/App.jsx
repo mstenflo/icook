@@ -15,7 +15,7 @@ const App = () => (
         {/* </Link> */}
       <GreetingContainer />
       </div>
-      <img src="home-button.jpg" alt="home"/>
+      {/* <img src="home-button.jpg" alt="home"/> */}
       <div className="site-header-bottom">
 
       </div>

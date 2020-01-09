@@ -1,0 +1,56 @@
+.site-header-top {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  background-color: #555;
+  height: 38px;
+  justify-content: space-between;
+}
+
+.site-header-top img {
+  max-height: 25px;
+  width: auto;
+}
+
+.site-header-top ul {
+  display: flex;
+  align-items: center;
+}
+
+.site-header-top li {
+  padding: 10px;
+  color: #CACACA;
+  font-size: 0.8em;
+}
+
+.site-header-top a {
+  color: #CACACA;
+  text-decoration: none;
+}
+
+.site-header-right {
+  display: flex;
+  align-items: center;
+  // font-size: 0.75em;
+  display: flex;
+  color: #CACACA;
+  padding: 5px;
+}
+
+.site-header-bottom {
+  display: flex;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.6em;
+  font-weight: 900;
+  height: 88px;
+  background: #eee;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.home-content-adspot {
+  height: 450px;
+  background: black;
+  background-image: url("fine-dining.jpg");
+  background-position: center;
+}

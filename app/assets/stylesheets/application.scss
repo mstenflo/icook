@@ -14,28 +14,10 @@
  *= require_self
  */
 
-body {
-  background: #fff;
-}
+ // CSS Reset
+ @import "base/reset.scss";
 
-.site-header-top {
-  justify-content: center;
-  background-color: #555;
-  color: #CACACA;
-  height: 38px;
-}
+ // Components
+ @import "api/navbar.scss";
+ @import "api/login_form.scss";
 
-.site-header-bottom {
-  height: 99px;
-  background: #eee;
-}
-
-a {
-  color: #CACACA;
-}
-
-.home-content-adspot {
-  height: 450px;
-  background: black;
-  background-image: url("fine-dining.jpg");
-}

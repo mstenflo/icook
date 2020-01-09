@@ -1,13 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { login } from '../../actions/session_actions';
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      email: '',
       username: '',
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   update(field) {
@@ -22,6 +26,24 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    // const demoUser = {
+    //   username: 'demoUser',
+    //   password: 'demodemo',
+    //   email: 'demo@email.com',
+    // };
+    // debugger
+    this.setState({
+      username: 'demoUser',
+      password: 'demodemo',
+      email: 'demo@email.com',
+    })
+    // () => this.props.processForm(this.state)
+    //   .then(this.props.history.push('/')));
+      // debugger
+  }
+  
   renderErrors() {
     return(
       <ul>
@@ -38,29 +60,51 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to iCook!
           <br/>
-          Please {this.props.formType} or {this.props.navLink}
-          {this.renderErrors()}
           <div className="login-form">
+            <button className="login-demo-user" onClick={this.demoLogin}>Demo User</button>
             <br/>
-            <label>Username:
+            <p>
+              -------------------- OR --------------------
+            </p>
+            <br/>
+            <label>
               <input type="text"
+                placeholder="Email"
+                value={this.state.email}
+                onChange={this.update('email')}
+                className="login-input"
+              />
+            </label>
+            <br/>
+            <label>
+              <input type="text"
+                placeholder="Username"
                 value={this.state.username}
                 onChange={this.update('username')}
                 className="login-input"
               />
             </label>
             <br/>
-            <label>Password:
+            <label>
               <input type="password"
+                placeholder="Password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="login-input"
               />
             </label>
             <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <br/>
+            <p>
+              By clicking "Sign Me Up you agree to our Terms and to our Privacy Statement."
+            </p>
+            <input className="session-submit" type="submit" value="Sign Me Up!" />
+            <br/>
+            <p>
+              Already a member? 
+              <Link to="/login">Login</Link>
+            </p>
           </div>
         </form>
       </div>

@@ -6,6 +6,7 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      email: '',
       username: '',
       password: ''
     };
@@ -30,9 +31,12 @@ class SessionForm extends React.Component {
     this.setState({
       username: 'demoUser',
       password: 'demodemo',
-      email: 'demo@email.com',
-    })
-    // () => this.props.processForm(this.state)
+      // email: 'demo@email.com',
+    }, () => this.props.processForm(this.state)
+      .then(this.props.history.push('/')));
+    // const user = Object.assign({}, this.state);
+    // this.props.processForm(user);
+    // return (() => this.props.processForm(this.state)
     //   .then(this.props.history.push('/')));
       // debugger
   }
@@ -80,14 +84,11 @@ class SessionForm extends React.Component {
             </label>
             <br/>
             <br/>
-            <p>
-              By clicking "Sign Me Up you agree to our Terms and to our Privacy Statement."
-            </p>
-            <input className="session-submit" type="submit" value="Sign Me Up!" />
+            <input className="session-submit" type="submit" value="Login" />
             <br/>
             <p>
-              Already a member? 
-              <Link to="/login">Login</Link>
+              New to iCook? 
+              <Link to="/signup">Sign Up</Link>
             </p>
           </div>
         </form>

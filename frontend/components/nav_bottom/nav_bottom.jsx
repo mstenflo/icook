@@ -5,6 +5,7 @@ class NavBottom extends Component {
     return (
       <div className="site-header-bottom">
         iCook
+        <button />
       </div>
     );
   }

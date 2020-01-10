@@ -44,22 +44,54 @@
 
 .site-header-bottom {
   display: flex;
+  background: #eee;
+  justify-content: space-between;
+}
+
+.site-header-bottom-left {
   font-family: 'PT Sans', sans-serif;
+  display: flex;
   font-size: 1.6em;
   font-weight: 900;
   height: 88px;
-  background: #eee;
   align-items: center;
   padding: 0 20px;
 }
 
-.site-header-bottom button {
-  
+.site-header-bottom-left a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  color: black;
 }
 
-.home-content-adspot {
-  height: 450px;
-  background: black;
-  background-image: image-url("fine-dining.jpg");
-  background-position: center;
+.site-header-bottom-left button {
+  display: flex;
+  margin: 30px;
+  padding: 10px 20px;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.55em;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.site-header-bottom-left img {
+  height: 50px;
+  padding: 10px;
+}
+
+.site-header-bottom-right {
+  display: flex;
+  font-size: 0.8em;
+  color: #333;
+  align-items: center;
+  margin: 20px;
+}
+
+.site-header-bottom-right a {
+  color: #333;
+  text-decoration: none;
 }

@@ -1,0 +1,27 @@
+.home-content-adspot {
+  height: 450px;
+  background-image: image-url("fine-dining.jpg");
+  background-position: center;
+}
+
+.home-content-adspot hr {
+  width: 90%;
+}
+
+.adspot-text {
+  display: flex;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 3em;
+  padding: 100px;
+}
+
+.adspot-text hr {
+  width: 100%;
+  border: 1px solid white;
+}
+
+.adspot-text p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.45em;
+}

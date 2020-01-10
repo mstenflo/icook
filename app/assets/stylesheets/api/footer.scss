@@ -1,0 +1,33 @@
+.footer {
+  height: 246px;
+  background-color: #555;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer h1 {
+  margin-top: 30px;
+  margin-right: 50px;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.footer li {
+  margin-top: 10px;
+  color: #bbb;
+}
+
+.footer img {
+  margin-top: 70px;
+  margin-left: 120px;
+  margin-bottom: 20px;
+}
+
+.footer hr {
+  justify-content: center;
+  border: 0.5px solid #bbb;
+  width: 90%;
+}

@@ -1,7 +1,7 @@
 .home-content-adspot {
   height: 450px;
-  background-image: image-url("fine-dining.jpg");
-  background-position: center;
+  background-image: image-url("cutting_board.png");
+  background-size: cover;
 }
 
 .home-content-adspot hr {
@@ -9,19 +9,26 @@
 }
 
 .adspot-text {
-  display: flex;
   color: white;
-  font-family: 'PT Sans', sans-serif;
+  width: 400px;
+  position: relative;
+  top: 80px;
+  left: 120px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  font-family: 'Open Sans', sans-serif;
   font-size: 3em;
-  padding: 100px;
+  padding: 30px 0;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
 
-.adspot-text hr {
-  width: 100%;
-  border: 1px solid white;
+.adspot-text h1 {
+  font-size: 60px;
+  font-weight: 700;
 }
 
 .adspot-text p {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.45em;
+  font-size: 18px;
+  line-height: 1.4;
 }

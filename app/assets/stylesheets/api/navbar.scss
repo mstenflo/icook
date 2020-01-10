@@ -31,10 +31,10 @@
 .site-header-right {
   display: flex;
   align-items: center;
-  font-size: 0.75em;
+  font-size: 0.8em;
   display: flex;
   color: #CACACA;
-  padding: 5px;
+  padding: 10px;
 }
 
 .site-header-right a {
@@ -49,7 +49,7 @@
 }
 
 .site-header-bottom-left {
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   display: flex;
   font-size: 1.6em;
   font-weight: 900;
@@ -94,4 +94,8 @@
 .site-header-bottom-right a {
   color: #333;
   text-decoration: none;
+}
+
+.site-header-bottom-right a:hover {
+  text-decoration: underline;
 }

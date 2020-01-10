@@ -5,10 +5,9 @@ import { Route, Switch, Link } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 import Navbar from "./navbar/navbar";
 import NavBottom from "./nav_bottom/nav_bottom";
-import SplashImage from './splash_image/splash_image';
-import SplashInfo from "./splash_info/splash_info";
 import Footer from './footer/footer'
 import CreateRecipe from "./create_recipe/create_recipe";
+import SplashContent from "./splash-content/splash-content";
 
 
 const App = () => (
@@ -26,15 +25,12 @@ const App = () => (
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         {/* <AuthRoute exact path="/create" component={CreateRecipe} /> */}
       </Switch>
-      <div className="home-content-adspot">
-        <div className="adspot-text">
-          <SplashImage />
-        </div>
-        <br/>
-        <SplashInfo />
-        <hr/>
+      <Route exact path="/" component={SplashContent} />
+      <Route exact path="/create" component={CreateRecipe} />
+      <br/>
+      <footer className="footer">
         <Footer />
-      </div>
+      </footer>
     </div>
     // </body>
   // </div>

@@ -1,6 +1,6 @@
 .home-content-adspot {
   height: 450px;
-  background-image: image-url("cutting_board.png");
+  background-image: image-url("cooking.gif");
   background-size: cover;
 }
 
@@ -16,19 +16,25 @@
   left: 120px;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
-  font-family: 'Open Sans', sans-serif;
   font-size: 3em;
   padding: 30px 0;
   text-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
 
 .adspot-text h1 {
-  font-size: 60px;
+  font-family: 'BenchNine', sans-serif;
+  font-size: 44pt;
+  letter-spacing: 0,02em;
   font-weight: 700;
 }
 
 .adspot-text p {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 1.4;
+}
+
+.adspot-image {
+  height: 450px;
+  background-size: cover;
+  background-image: image-url("cutting_board.png");
 }

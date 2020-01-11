@@ -13,6 +13,7 @@ class CreateRecipe extends Component {
               <span className="fileset_textTainer">Click to add images</span>
             </div>
             <button className="navBarButtons">Add</button>
+            <button className="navBarButtons">More</button>
           </div>
         </div>
       </div>

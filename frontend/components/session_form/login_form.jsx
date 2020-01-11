@@ -32,14 +32,8 @@ class SessionForm extends React.Component {
     this.setState({
       username: 'demoUser',
       password: 'demodemo',
-      // email: 'demo@email.com',
     }, () => this.props.processForm(this.state)
       .then(this.props.history.push('/')));
-    // const user = Object.assign({}, this.state);
-    // this.props.processForm(user);
-    // return (() => this.props.processForm(this.state)
-    //   .then(this.props.history.push('/')));
-      // debugger
   }
   
   renderErrors() {
@@ -60,38 +54,43 @@ class SessionForm extends React.Component {
         <div className="login-form-container">
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <br/>
+            <p>
+            {this.renderErrors()}
+            </p>
             <div className="login-form">
-              <button className="login-demo-user" onClick={this.demoLogin}>Demo User</button>
+              <div className="centering-div">
+                <button className="login-demo-user" onClick={this.demoLogin}>Demo User</button>
+              </div>
               <br/>
-              <p>
-                -------------------- OR --------------------
-              </p>
-              <br/>
-              <label>
-                <input type="text"
-                  placeholder="Username"
-                  value={this.state.username}
-                  onChange={this.update('username')}
-                  className="login-input"
-                />
-              </label>
-              <br/>
-              <label>
-                <input type="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  className="login-input"
-                />
-              </label>
+              <span><hr/>&nbsp; OR &nbsp;<hr/></span>
               <br/>
               <br/>
-              <input className="session-submit" type="submit" value="Login" />
-              <br/>
-              <p>
-                New to iCook? 
-                <Link to="/signup">Sign Up</Link>
-              </p>
+              <div className="centering-div">
+                <label>
+                  <input type="text"
+                    placeholder="Username"
+                    value={this.state.username}
+                    onChange={this.update('username')}
+                    className="input-text"
+                  />
+                </label>
+                <label>
+                  <input type="password"
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    className = "input-text"
+                  />
+                </label>
+                <div className="submit-button">
+                  <input className="session-submit" type="submit" value="Login" />
+                </div>
+                <p>
+                  New to iCook? 
+                  &nbsp;
+                  <Link to="/signup">Sign Up</Link>
+                </p>
+              </div>
             </div>
           </form>
         </div>

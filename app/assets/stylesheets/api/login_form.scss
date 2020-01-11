@@ -9,43 +9,70 @@
   margin-left: 50px;
 }
 
+.login-form hr {
+  border-top: 1 px solid #fff;
+  width: 34%;
+  display: inline-block;
+}
+
+.login-form {
+  margin-bottom: 10px;
+}
+
+.login-form span {
+  position: relative;
+  text-align: center;
+  color: white;
+  top: -7px;
+  font-size: 14px;
+  padding: 0 30px;
+}
+
 .login-form-box {
   padding: 80px 30px;
 }
 
 .login-form-box input {
-  display: flex;
-  justify-content: center;
-  width: 80%;
-  padding: 0 10px;
-  font-size: 17.5px;
+  width: 85%;
+  // padding: 0 10px;
+  font-size: 16px;
   height: 35px;
-  margin: 3px 0;
+  // margin: 10px 0;
   border-radius: 5px;
   border: 1px solid lightgrey;
 }
 
 .login-form-box p {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   font-size: 0.75em;
 }
 
+.centering-div {
+  text-align: center;
+}
+
 .login-demo-user {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
+  text-align: center;
   background-color: #008ae6;
   cursor: pointer;
   border: none;
+  margin-bottom: 20px;
   color: white;
   font-size: 1.1em;
-  border-radius: 10px;
-  width: 170px;
+  border-radius: 5px;
+  width: 60%;
   height: 42px;
 }
 
 .login-demo-user:hover {
   background: #31B0D5;
+}
+
+.input-text {
+  padding-left: 10px;
+  margin-bottom: 15px;
 }
 
 ::placeholder {
@@ -55,6 +82,13 @@
 .session-submit {
   background: #f9ac17;
   color: white;
+  margin-bottom: 15px;
+}
+
+.submit-button {
+  // padding: 10px 0;
+  // display: block;
+  // width: 100%;
 }
 
 .session-submit:hover {

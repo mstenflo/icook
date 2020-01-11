@@ -64,43 +64,46 @@ class SessionForm extends React.Component {
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <br/>
             <div className="login-form">
-              <label>
-                <input type="text"
-                  placeholder="Email"
-                  value={this.state.email}
-                  onChange={this.update('email')}
-                  className="login-input"
-                />
-              </label>
-              <br/>
-              <label>
-                <input type="text"
-                  placeholder="Username"
-                  value={this.state.username}
-                  onChange={this.update('username')}
-                  className="login-input"
-                />
-              </label>
-              <br/>
-              <label>
-                <input type="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  className="login-input"
-                />
-              </label>
-              <br/>
-              <br/>
-              <p>
-                By clicking "Sign Me Up you agree to our Terms and to our Privacy Statement."
-              </p>
-              <input className="session-submit" type="submit" value="Sign Me Up!" />
-              <br/>
-              <p>
-                Already a member? 
-                <Link to="/login">Login</Link>
-              </p>
+              <div className="centering-div">
+                <label>
+                  <input type="text"
+                    placeholder="Email"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                    className = "input-text"
+                  />
+                </label>
+                <br/>
+                <label>
+                  <input type="text"
+                    placeholder="Username"
+                    value={this.state.username}
+                    onChange={this.update('username')}
+                    className = "input-text"
+                  />
+                </label>
+                <br/>
+                <label>
+                  <input type="password"
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    className = "input-text"
+                  />
+                </label>
+                <br/>
+                <br/>
+                <p>
+                  By clicking "Sign Me Up you agree to our Terms and to our Privacy Statement."
+                </p>
+                <br/>
+                <input className="session-submit" type="submit" value="Sign Me Up!" />
+                <br/>
+                <p>
+                  Already a member? 
+                  <Link to="/login">Login</Link>
+                </p>
+              </div>
             </div>
           </form>
         </div>

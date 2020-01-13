@@ -10,7 +10,11 @@ class NavBottom extends Component {
             <img src={window.spoonURL} />
             iCook
           </Link>
-          <button>Recipes</button>
+          <button>
+            <Link to='/recipes'>
+              Recipes
+            </Link>
+          </button>
         </div>
         <div className="site-header-bottom-right">
           <Link to='/create'>

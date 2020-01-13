@@ -12,6 +12,10 @@ class SignupForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  
+  componentDidMount() {
+    this.props.clearErrors();
+  }
 
   update(field) {
     return e => this.setState({
@@ -79,12 +83,14 @@ class SignupForm extends React.Component {
                 <p>
                   By clicking "Sign Me Up you agree to our Terms and to our Privacy Statement."
                 </p>
+                <br/>
                 {this.renderErrors()}
                 <br/>
                 <input className="session-submit" type="submit" value="Sign Me Up!" />
                 <br/>
                 <p>
                   Already a member? 
+                  &nbsp;
                   <Link to="/login">Login</Link>
                 </p>
               </div>

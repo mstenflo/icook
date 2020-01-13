@@ -8,31 +8,26 @@ import NavBottom from "./nav_bottom/nav_bottom";
 import Footer from './footer/footer'
 import CreateRecipe from "./create_recipe/create_recipe";
 import SplashContent from "./splash-content/splash-content";
+import RecipeIndex from './recipes/recipe_index';
 
 
 const App = () => (
-  // <div>
-    // <body>
-    <div>
-      <header>
-        <Navbar />
-        <NavBottom />
-      </header>
-      {/* <Route path="/login" component={LoginFormContainer} />
-      <Route path="/signup" component={SignupFormContainer} /> */}
-      <Switch>
-        <AuthRoute exact path="/login" component={LoginFormContainer} />
-        <AuthRoute exact path="/signup" component={SignupFormContainer} />
-        {/* <AuthRoute exact path="/create" component={CreateRecipe} /> */}
-      </Switch>
-      <Route exact path="/" component={SplashContent} />
-      <Route exact path="/create" component={CreateRecipe} />
-      <footer className="footer">
-        <Footer />
-      </footer>
-    </div>
-    // </body>
-  // </div>
+  <div>
+    <header>
+      <Navbar />
+      <NavBottom />
+    </header>
+    <Switch>
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+    </Switch>
+    <Route exact path="/" component={SplashContent} />
+    <Route exact path="/create" component={CreateRecipe} />
+    <Route exact path="/recipes" component={RecipeIndex} />
+    <footer className="footer">
+      <Footer />
+    </footer>
+  </div>
 );
 
 export default App;

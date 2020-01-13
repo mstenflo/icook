@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { login } from '../../actions/session_actions';
 import SplashImageNoText from '../splash-content/splash_image/splash-image-no-text';
 
-class SessionForm extends React.Component {
+class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +11,6 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.demoLogin = this.demoLogin.bind(this);
   }
 
   update(field) {
@@ -27,35 +25,20 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
-  demoLogin(e) {
-    e.preventDefault();
-    // const demoUser = {
-    //   username: 'demoUser',
-    //   password: 'demodemo',
-    //   email: 'demo@email.com',
-    // };
-    // debugger
-    this.setState({
-      username: 'demoUser',
-      password: 'demodemo',
-      email: 'demo@email.com',
-    })
-    // () => this.props.processForm(this.state)
-    //   .then(this.props.history.push('/')));
-      // debugger
-  }
-  
   renderErrors() {
+    if (this.props.errors.length > 0) {
     return(
-      <ul>
+      <div className="centering-div">
+      <ul className="errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
           </li>
         ))}
       </ul>
+      </div>
     );
-  }
+  }}
 
   render() {
     return (
@@ -96,6 +79,7 @@ class SessionForm extends React.Component {
                 <p>
                   By clicking "Sign Me Up you agree to our Terms and to our Privacy Statement."
                 </p>
+                {this.renderErrors()}
                 <br/>
                 <input className="session-submit" type="submit" value="Sign Me Up!" />
                 <br/>
@@ -113,4 +97,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default SignupForm;

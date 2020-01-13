@@ -8,9 +8,9 @@ class Footer extends Component {
         <div>
           <h1>Categories</h1>
           <ul>
-            <li>Appetizers</li>
-            <li>Main Dishes</li>
-            <li>Desserts</li>
+            <li>Appetizer</li>
+            <li>Main Dish</li>
+            <li>Dessert</li>
           </ul>
         </div>
         <div>

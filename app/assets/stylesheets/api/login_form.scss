@@ -1,5 +1,5 @@
 .login-form-container {
-  height: 440px;
+  // height: 120%;
   background-color: rgba(255, 255, 255, 0.3);
   width: 400px;
   position: absolute;
@@ -32,19 +32,22 @@
   padding: 80px 30px;
 }
 
-.login-form-box input {
+.input-text {
   width: 85%;
-  // padding: 0 10px;
   font-size: 16px;
   height: 35px;
-  // margin: 10px 0;
   border-radius: 5px;
   border: 1px solid lightgrey;
 }
 
 .login-form-box p {
   text-align: center;
-  font-size: 0.75em;
+  font-size: 14px;
+  color: #fff;
+}
+
+.login-form-box a {
+  color: #fff;
 }
 
 .centering-div {
@@ -52,8 +55,6 @@
 }
 
 .login-demo-user {
-  // display: flex;
-  // justify-content: center;
   text-align: center;
   background-color: #008ae6;
   cursor: pointer;
@@ -80,18 +81,28 @@
 }
 
 .session-submit {
+  width: 90%;
+  font-size: 16px;
+  height: 35px;
+  border-radius: 5px;
   background: #f9ac17;
+  border: 1px solid #e5991e;
   color: white;
   margin-bottom: 15px;
-}
-
-.submit-button {
-  // padding: 10px 0;
-  // display: block;
-  // width: 100%;
 }
 
 .session-submit:hover {
   background: #e68a00;
   cursor: pointer;
+}
+
+.errors {
+  box-sizing: border-box;
+  background-color: red;
+  list-style: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 10pt;
 }

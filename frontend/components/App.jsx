@@ -27,7 +27,6 @@ const App = () => (
       </Switch>
       <Route exact path="/" component={SplashContent} />
       <Route exact path="/create" component={CreateRecipe} />
-      <br/>
       <footer className="footer">
         <Footer />
       </footer>

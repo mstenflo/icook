@@ -14,7 +14,7 @@ class Navbar extends Component {
             </Link>
           </li>
           <li>Appetizer</li>
-          <li>Main dish</li>
+          <li>Main Dish</li>
           <li>Dessert</li>
         </ul>
         <GreetingContainer />

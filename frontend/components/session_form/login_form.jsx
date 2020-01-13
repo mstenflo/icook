@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { login } from '../../actions/session_actions';
 import SplashImageNoText from '../splash-content/splash_image/splash-image-no-text';
 
-class SessionForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +12,13 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
+
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+  
 
   update(field) {
     return e => this.setState({
@@ -37,15 +42,17 @@ class SessionForm extends React.Component {
   }
   
   renderErrors() {
-    return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    if (this.props.errors.length > 0) {
+      return(
+        <ul className="errors">
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    } else return null;
   }
 
   render() {
@@ -55,7 +62,6 @@ class SessionForm extends React.Component {
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <br/>
             <p>
-            {this.renderErrors()}
             </p>
             <div className="login-form">
               <div className="centering-div">
@@ -82,13 +88,14 @@ class SessionForm extends React.Component {
                     className = "input-text"
                   />
                 </label>
+                {this.renderErrors()}
                 <div className="submit-button">
                   <input className="session-submit" type="submit" value="Login" />
                 </div>
                 <p>
                   New to iCook? 
                   &nbsp;
-                  <Link to="/signup">Sign Up</Link>
+                  <Link to="/signup">Sign Up »</Link>
                 </p>
               </div>
             </div>
@@ -100,4 +107,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default LoginForm;

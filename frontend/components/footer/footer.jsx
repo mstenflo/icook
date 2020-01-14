@@ -4,7 +4,7 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer-flex">
-        <img src={window.spoonURL} />
+        <img src={window.logoURL} />
         <div>
           <h1>Categories</h1>
           <ul>

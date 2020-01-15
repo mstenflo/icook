@@ -1,6 +1,7 @@
 class Api::RecipesController < ApplicationController
     def index
         @recipes = Recipe.all
+        render :index
     end
 
     def new
@@ -35,11 +36,12 @@ class Api::RecipesController < ApplicationController
     end
 
     def show
-        @recipe = Recipe.find(params[id])
+        @recipe = Recipe.find(params[:id])
+        render :show
     end
 
     def destroy
-        @recipe = Recipe.find(params[id])
+        @recipe = Recipe.find(params[:id])
         @recipe.destroy
         render :index
     end

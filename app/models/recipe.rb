@@ -1,7 +1,11 @@
 class Recipe < ApplicationRecord
   validates :title, :body, :category, presence: true
 
-  belongs_to :user
-  has_one_attached :photo
+  belongs_to :author,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: 'User'
+
+  has_many_attached :photo
   
 end

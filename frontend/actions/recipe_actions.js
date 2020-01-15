@@ -4,14 +4,14 @@ export const RECEIVE_ALL_RECIPES = 'RECEIVE_ALL_RECIPES';
 export const RECEIVE_RECIPE = 'RECEIVE_RECIPE';
 export const REMOVE_RECIPE = 'REMOVE_RECIPE';
 
-const receiveRecipe = recipe => ({
-  type: RECEIVE_RECIPE,
-  recipe
-});
-
 const receiveRecipes = recipes => ({
   type: RECEIVE_ALL_RECIPES,
   recipes
+});
+
+const receiveRecipe = recipe => ({
+  type: RECEIVE_RECIPE,
+  recipe
 });
 
 const removeRecipe = recipeId => ({

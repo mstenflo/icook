@@ -9,7 +9,10 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :recipes
+  has_many :recipes,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: 'Recipe'
   
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

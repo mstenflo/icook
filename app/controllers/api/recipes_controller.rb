@@ -11,7 +11,8 @@ class Api::RecipesController < ApplicationController
     def create
         @recipe = Recipe.new(recipe_params)
         if @recipe.save
-            render :show
+            return null
+            # render :show
         else
             render json: @recipe.errors.full_messages, status: 422
         end
@@ -37,7 +38,7 @@ class Api::RecipesController < ApplicationController
 
     def show
         @recipe = Recipe.find(params[:id])
-        render :show
+        # render :show
     end
 
     def destroy

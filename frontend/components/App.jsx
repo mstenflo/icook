@@ -8,6 +8,7 @@ import NavBottom from "./nav_bottom/nav_bottom";
 import Footer from './footer/footer'
 import CreateRecipe from "./create_recipe/create_recipe";
 import SplashContent from "./splash-content/splash-content";
+import RecipeShowContainer from './recipes/recipe_show_container';
 import RecipeIndexContainer from './recipes/recipe_index_container';
 
 
@@ -24,6 +25,7 @@ const App = () => (
     <Route exact path="/" component={SplashContent} />
     <Route exact path="/create" component={CreateRecipe} />
     <Route exact path="/recipes" component={RecipeIndexContainer} />
+    <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
     <footer className="footer">
       <Footer />
     </footer>

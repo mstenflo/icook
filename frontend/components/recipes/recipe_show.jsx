@@ -9,26 +9,35 @@ class RecipeShow extends React.Component {
 
   componentDidMount() {
     this.props.requestRecipe(this.props.match.params.recipeId);
+    // this.props.reqestSteps(this.props.match.params.recipeId);
   }
   
   
   render () {
     if (!this.props.recipe) return null;
+    const { recipe, steps } = this.props;
     return (
       <div className="recipe-full-wrapper">
         <header className="article-header">
           <h1 className="header-title">
-            {this.props.recipe.title}
+            {recipe.title}
           </h1>
           <div className="sub-header">
             By &nbsp;
-            <Link to="/" className="recipe-author">{this.props.recipe.author.username}</Link>
+            <Link to="/" className="recipe-author">{recipe.username}</Link>
             &nbsp; in &nbsp;
-            <Link to="/" className="recipe-category">{this.props.recipe.category}</Link>
+            <Link to="/" className="recipe-category">{recipe.category}</Link>
           </div>
         </header>
         <div className="article-body">
-          <p>{this.props.recipe.body}</p>
+          <p>{recipe.body}</p>
+          <div>
+            {/* {
+              steps.map(step => (
+                step.title
+              ))
+            } */}
+          </div>
         </div>
       </div>
     );

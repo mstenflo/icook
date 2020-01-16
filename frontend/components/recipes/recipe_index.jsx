@@ -13,6 +13,7 @@ class RecipeIndex extends React.Component {
   
   render () {
     const { recipes, users } = this.props;
+    if (!recipes) return null;
     return (
       <div className="recipe-index">
         {

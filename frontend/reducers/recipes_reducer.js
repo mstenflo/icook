@@ -12,7 +12,8 @@ const RecipesReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_RECIPES:
       return action.recipes;
     case RECEIVE_RECIPE:
-      nextState[action.recipe.id] = action.recipe;
+      // debugger
+      nextState[action.payload.recipe.id] = action.payload.recipe;
       return nextState;
     case REMOVE_RECIPE:
       delete nextState[action.recipeId]

@@ -1,6 +1,7 @@
 class Api::RecipesController < ApplicationController
     def index
         @recipes = Recipe.all
+        @steps = Step.all
         render :index
     end
 
@@ -38,7 +39,8 @@ class Api::RecipesController < ApplicationController
 
     def show
         @recipe = Recipe.find(params[:id])
-        # render :show
+        # steps = Step.all
+        # @steps = Step.where(params[:id] === steps.recipe_id)
     end
 
     def destroy

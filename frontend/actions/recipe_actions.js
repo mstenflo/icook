@@ -9,9 +9,9 @@ const receiveRecipes = recipes => ({
   recipes
 });
 
-const receiveRecipe = recipe => ({
+const receiveRecipe = payload => ({
   type: RECEIVE_RECIPE,
-  recipe
+  payload
 });
 
 const removeRecipe = recipeId => ({

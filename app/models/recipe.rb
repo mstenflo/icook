@@ -6,6 +6,8 @@ class Recipe < ApplicationRecord
     foreign_key: :author_id,
     class_name: 'User'
 
+  has_many :steps
+
   has_many_attached :photo
   
 end

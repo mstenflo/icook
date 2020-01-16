@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import StepListItem from '../steps/step_list_item';
+// import StepList from '../steps/step_list';
 
 class RecipeShow extends React.Component {
   constructor(props) {
@@ -9,13 +11,15 @@ class RecipeShow extends React.Component {
 
   componentDidMount() {
     this.props.requestRecipe(this.props.match.params.recipeId);
-    // this.props.reqestSteps(this.props.match.params.recipeId);
+    // this.props.requestSteps(this.props.match.params.recipeId);
   }
   
   
   render () {
+    // debugger
     if (!this.props.recipe) return null;
-    const { recipe, steps } = this.props;
+    const { recipe } = this.props;
+    const steps = Object.values(this.props.steps)
     return (
       <div className="recipe-full-wrapper">
         <header className="article-header">
@@ -32,11 +36,13 @@ class RecipeShow extends React.Component {
         <div className="article-body">
           <p>{recipe.body}</p>
           <div>
-            {/* {
+            {/* <StepList /> */}
+            {/* {this.props.steps[0].title} */}
+            {
               steps.map(step => (
-                step.title
+                <StepListItem step={step} idx={step.id % steps[0].id} key={step.id} />
               ))
-            } */}
+            }
           </div>
         </div>
       </div>

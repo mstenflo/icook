@@ -1,6 +1,6 @@
 import * as StepAPIUtil from "../util/step_api_util";
 
-export const RECEIVE_ALL_STEPS = "RECEIVE_STEPS";
+export const RECEIVE_ALL_STEPS = "RECEIVE_ALL_STEPS";
 export const RECEIVE_STEP = "RECEIVE_STEP";
 export const REMOVE_STEP = "REMOVE_STEP";
 
@@ -19,8 +19,8 @@ const removeStep = stepId => ({
   stepId
 });
 
-export const requestSteps = () => dispatch =>
-  StepAPIUtil.fetchSteps(projectId).then(steps => dispatch(receiveAllSteps(steps)));
+export const requestSteps = (recipeId) => dispatch =>
+  StepAPIUtil.fetchSteps(recipeId).then(steps => dispatch(receiveAllSteps(steps)));
 
 export const createStep = (step) => dispatch =>
   StepAPIUtil.createStep(step).then(step =>

@@ -15,7 +15,7 @@ class RecipeIndexItem extends React.Component {
           <div className="recipe-info">
             <Link to={`/recipes/${this.props.recipe.id}`} className="recipe-title">{this.props.recipe.title}</Link>
             &nbsp; by &nbsp;
-            <Link to="/recipes" className="recipe-author">{this.props.recipe.username}</Link>
+            <Link to="/recipes" className="recipe-author">{this.props.recipe.author.username}</Link>
             &nbsp; in &nbsp;
             <Link to="/recipes" className="recipe-category">{this.props.recipe.category}</Link>
           </div>

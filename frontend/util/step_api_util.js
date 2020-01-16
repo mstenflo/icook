@@ -1,7 +1,7 @@
 export const fetchSteps = (recipeId) =>
   $.ajax({
     method: "GET",
-    url: `/api/recipes/${recipeId}`
+    url: `/api/recipes/${recipeId}/steps`
   });
 
 export const createStep = (step) =>

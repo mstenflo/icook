@@ -17,7 +17,7 @@ class RecipeShow extends React.Component {
   
   
   render () {
-    // debugger
+    debugger
     if (!this.props.recipe) return null;
     if (!this.props.recipe.ingredients) return null;
     const { recipe } = this.props;
@@ -38,6 +38,7 @@ class RecipeShow extends React.Component {
         <div className="article-body">
           <p>{recipe.body}</p>
           <div>
+            <img src={this.props.photourl} />
             <h2>Ingredients: </h2>
             <br />
             <ul>

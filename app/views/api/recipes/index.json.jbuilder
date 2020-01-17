@@ -3,7 +3,7 @@
         json.extract! recipe, :id, :title, :category, :body, :author_id
 
         json.extract! recipe.author, :username
-        json.photoURL url_for(recipe.photo)
+        json.photourl url_for(recipe.photo)
 
         @steps.each do |step|
             json.steps do

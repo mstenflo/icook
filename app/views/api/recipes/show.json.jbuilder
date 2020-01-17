@@ -3,6 +3,9 @@ json.recipe do
     json.extract! @recipe, :id, :title, :body, :category, :ingredients, :author_id
   # end
     json.extract! @recipe.author, :username
+    # json.set! @recipe.id do
+    json.photourl url_for(@recipe.photo)
+    # end
 end
 
 json.steps do

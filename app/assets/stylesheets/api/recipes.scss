@@ -81,7 +81,7 @@
 }
 
 .recipe-full-wrapper {
-  padding: 20px;
+  padding: 50px;
 }
 
 .article-header {
@@ -111,6 +111,33 @@
   color: #333;
   font-size: 20px;
   line-height: 32px;
+}
+
+.article-photo-container {
+  // padding: 80px;
+  // border: 2px solid red;
+  // height: 100%;
+  // object-fit: cover;
+  // margin-left: auto;
+  // margin-right: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.article-photo-container img {
+  border-radius: 10px;
+  // max-width: 100%;
+  width: 100%;
+  max-height: 500px;
+  object-fit: none;
+  // object-position: 50% 50%;
+  // object-fit: contain;
+  // object-position: center;
+  // position: relative;
+  // padding: 50px;
+  // max-width: 933.333px;
+  // margin: 40px;
+  // vertical-align: middle;
 }
 
 .article-body p {

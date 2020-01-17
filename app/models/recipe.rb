@@ -8,6 +8,6 @@ class Recipe < ApplicationRecord
 
   has_many :steps
 
-  has_many_attached :photo
+  has_one_attached :photo
   
 end

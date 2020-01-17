@@ -10,12 +10,12 @@ class RecipeIndexItem extends React.Component {
   render () {
     return (
         <div className="recipe-index-item">
-          <img src={window.indexURL} />
+          <img src={this.props.recipe.photoURL} />
           {/* {this.props.recipe.photo_url} */}
           <div className="recipe-info">
             <Link to={`/recipes/${this.props.recipe.id}`} className="recipe-title">{this.props.recipe.title}</Link>
             &nbsp; by &nbsp;
-            <Link to="/recipes" className="recipe-author">{this.props.recipe.author.username}</Link>
+            <Link to="/recipes" className="recipe-author">{this.props.recipe.username}</Link>
             &nbsp; in &nbsp;
             <Link to="/recipes" className="recipe-category">{this.props.recipe.category}</Link>
           </div>

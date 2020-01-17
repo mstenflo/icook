@@ -1,6 +1,6 @@
 json.recipe do
   # json.set! @recipe.id do
-    json.extract! @recipe, :id, :title, :body, :category, :author_id
+    json.extract! @recipe, :id, :title, :body, :category, :ingredients, :author_id
   # end
     json.extract! @recipe.author, :username
 end

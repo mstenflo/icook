@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import StepListItem from '../steps/step_list_item';
+import IngredientList from './ingredient_list';
 // import StepList from '../steps/step_list';
 
 class RecipeShow extends React.Component {
@@ -18,6 +19,7 @@ class RecipeShow extends React.Component {
   render () {
     // debugger
     if (!this.props.recipe) return null;
+    if (!this.props.recipe.ingredients) return null;
     const { recipe } = this.props;
     const steps = Object.values(this.props.steps)
     return (
@@ -36,8 +38,15 @@ class RecipeShow extends React.Component {
         <div className="article-body">
           <p>{recipe.body}</p>
           <div>
-            {/* <StepList /> */}
-            {/* {this.props.steps[0].title} */}
+            <h2>Ingredients: </h2>
+            <br />
+            <ul>
+                {
+                  recipe.ingredients.map((ingredient, idx) => (
+                    <IngredientList ingredient={ingredient} key={idx} />
+                  ))
+                }
+            </ul>
             {
               steps.map(step => (
                 <StepListItem step={step} idx={step.id % steps[0].id} key={step.id} />

@@ -2,9 +2,8 @@
     json.set! recipe.id do
         json.extract! recipe, :id, :title, :category, :body, :author_id
 
-        json.author do
-            json.extract! recipe.author, :username
-        end
+        json.extract! recipe.author, :username
+        json.photoURL url_for(recipe.photo)
 
         @steps.each do |step|
             json.steps do

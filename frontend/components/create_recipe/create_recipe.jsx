@@ -10,11 +10,15 @@ class CreateRecipe extends Component {
           <div className="attachedImages">
             <div className="fileset_placeholder">
               <span className="plus">+ </span>
-              <span className="fileset_textTainer">Click to add images</span>
+              <span className="fileset_textTainer">Click to add an image</span>
             </div>
-            <button className="navBarButtons">Add</button>
-            <button className="navBarButtons">More</button>
           </div>
+        </div>
+        <div className="stepDetailBox">
+          <div className="stepTitleWrapper">
+            <input className="stepTitleInput"></input>
+          </div>
+          <textarea className="textEditor"></textarea>
         </div>
       </div>
     );

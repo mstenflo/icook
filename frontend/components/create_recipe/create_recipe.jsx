@@ -12,6 +12,10 @@ class CreateRecipe extends Component {
               <span className="plus">+ </span>
               <span className="fileset_textTainer">Click to add an image</span>
             </div>
+            <div className="navBarButtons">
+              <button className="stepButton"><span className="addPlus">+ </span>Add Step</button>
+              <button className="publishButton">Publish</button>
+            </div>
           </div>
         </div>
         <div className="stepDetailBox">

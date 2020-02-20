@@ -2,7 +2,7 @@ import React from "react";
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import { Route, Switch, Link } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Navbar from "./navbar/navbar";
 import NavBottom from "./nav_bottom/nav_bottom";
 import Footer from './footer/footer'
@@ -23,7 +23,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
     </Switch>
     <Route exact path="/" component={SplashContent} />
-    <Route exact path="/create" component={CreateRecipe} />
+    <ProtectedRoute exact path="/create" component={CreateRecipe} />
     <Route exact path="/recipes" component={RecipeIndexContainer} />
     <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
     <footer className="footer">

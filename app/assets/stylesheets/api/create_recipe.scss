@@ -47,7 +47,18 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.addPlus {
+  font-size: 20px;
+  line-height: 20px;
+  color: #b0b0b0;
+}
+
 .navBarButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stepButton {
   -webkit-border-radius: 4px;
   font-size: 14px;
   background-color: #f6f6f6;
@@ -56,7 +67,25 @@
   padding: 6px 12px;
   border-color: #dedede;
   cursor: pointer;
-  display: inline-block;
+}
+
+.stepButton:hover {
+  background-color: #eee;
+}
+
+.publishButton {
+  background-color: #f6f6f6;
+  -webkit-border-radius: 4px;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.publishButton:hover {
+  color: #fff;
+  border-color: #cf6000;
+  background-color: #e86c00;
 }
 
 .stepDetailBox {
@@ -88,4 +117,5 @@
   border: 1px solid #ddd;
   height: 90%;
   margin: 0 12px 12px 12px;
+  resize: none;
 }

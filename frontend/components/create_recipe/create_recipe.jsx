@@ -5,7 +5,7 @@ class CreateRecipe extends Component {
   constructor(props) {
     super(props);
   
-    this.state = this.props;
+    this.state = {steps: {}};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,7 +17,6 @@ class CreateRecipe extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
     this.props.action(this.state);
   }
 
@@ -41,16 +40,16 @@ class CreateRecipe extends Component {
           </div>
           <div className="stepDetailBox">
             <div className="stepTitleWrapper">
-              <label for="title">
+              <label htmlFor="title">
                 <input 
                   className="stepTitleInput" 
                   type="text"
-                  value={this.state.title}
+                  // value={this.state.title}
                   onChange={this.update("title")}
                 />
               </label>
             </div>
-            <label for="body">
+            <label htmlFor="body">
               <textarea
                 className="textEditor"
                 onChange={this.update("body")}

@@ -2,7 +2,11 @@ import React from 'react';
 import StepListItem from './step_list_item';
 
 class StepList extends React.Component {
-  debugger
+  constructor(props) {
+    super(props);
+    
+  }
+  
   render() {
     if (!this.props.steps) return null;
     const steps = Object.values(this.props.steps)

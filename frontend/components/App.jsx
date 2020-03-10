@@ -6,7 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Navbar from "./navbar/navbar";
 import NavBottom from "./nav_bottom/nav_bottom";
 import Footer from './footer/footer'
-import CreateRecipe from "./create_recipe/create_recipe";
+import PublishRecipe from "./create_recipe/create_recipe";
 import SplashContent from "./splash-content/splash-content";
 import RecipeShowContainer from './recipes/recipe_show_container';
 import RecipeIndexContainer from './recipes/recipe_index_container';
@@ -23,7 +23,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
     </Switch>
     <Route exact path="/" component={SplashContent} />
-    <ProtectedRoute exact path="/create" component={CreateRecipe} />
+    <ProtectedRoute exact path="/create" component={PublishRecipe} />
     <Route exact path="/recipes" component={RecipeIndexContainer} />
     <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
     <footer className="footer">

@@ -17,7 +17,6 @@ class RecipeShow extends React.Component {
   
   
   render () {
-    // debugger
     if (!this.props.recipe) return null;
     if (!this.props.recipe.ingredients) return null;
     const { recipe } = this.props;

@@ -4,7 +4,7 @@ import { createRecipe } from '../../actions/recipe_actions';
 
 const mapSTP = state => ({
   currentUser: state.entities.users[state.session.id],
-  recipes: {
+  recipe: {
     title: "",
     body: "",
     author_id: state.session.id,
@@ -12,7 +12,7 @@ const mapSTP = state => ({
 });
 
 const mapDTP = dispatch => ({
-  createRecipe: (recipe) => dispatch(createRecipe(recipe)),
+  action: (recipe) => dispatch(createRecipe(recipe)),
 });
 
 export default connect(mapSTP, mapDTP)(newRecipe);

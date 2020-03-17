@@ -2,9 +2,9 @@ class Api::StepsController < ApplicationController
   def create
     step = Step.new(step_params)
     if step.save
-        render json: step
+      render json: step
     else
-        render json: step.errors.full_messages, status: 422
+      render json: step.errors.full_messages, status: 422
     end
   end
 
@@ -16,10 +16,10 @@ class Api::StepsController < ApplicationController
   def update
     step = Step.find(params[:id])
     if step
-        step.update(step_params)
-        render json: step
+      step.update(step_params)
+      render json: step
     else
-        render json: { message: 'Step not found', status: 404 }
+      render json: { message: 'Step not found', status: 404 }
     end
   end
 

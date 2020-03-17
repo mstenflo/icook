@@ -12,7 +12,7 @@ class Api::RecipesController < ApplicationController
     def create
         @recipe = Recipe.new(recipe_params)
         if @recipe.save
-            return null
+            render '/api/recipes/newrecipe', status: 200
             # render :show
         else
             render json: @recipe.errors.full_messages, status: 422
@@ -20,10 +20,10 @@ class Api::RecipesController < ApplicationController
     end
 
     def update
-        @recipe = current_user.recipes.find(params[:id])
+        @recipe = Recipe.find(params[:id])
         if @recipe
             if @recipe.update(recipe_params)
-                render :show
+                render '/api/recipes/newrecipe', status: 200
             else
                 render json: @recipe.errors.full_messages, status: 422
             end
@@ -34,6 +34,7 @@ class Api::RecipesController < ApplicationController
 
     def edit
         @recipe = current_user.recipes.find(params[:id])
+        @steps = @recipe.steps
         render :edit
     end
 
@@ -52,6 +53,6 @@ class Api::RecipesController < ApplicationController
     private
 
     def recipe_params
-        params.require(:recipe).permit(:title, :body, :category, :author_id)
+        params.require(:recipe).permit(:id, :title, :body, :category, :author_id)
     end
 end

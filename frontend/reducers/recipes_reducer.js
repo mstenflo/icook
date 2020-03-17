@@ -1,8 +1,4 @@
-import {
-  RECEIVE_ALL_RECIPES,
-  RECEIVE_RECIPE,
-  REMOVE_RECIPE
-} from "../actions/recipe_actions";
+import { RECEIVE_ALL_RECIPES, RECEIVE_RECIPE, REMOVE_RECIPE } from "../actions/recipe_actions";
 
 const RecipesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -12,8 +8,8 @@ const RecipesReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_RECIPES:
       return action.recipes;
     case RECEIVE_RECIPE:
-      nextState[action.payload.recipe.id] = action.payload.recipe;
-      return nextState;
+      const newRecipe = action.project;
+      return Object.assign({}, oldState, newRecipe);
     case REMOVE_RECIPE:
       delete nextState[action.recipeId]
       return nextState;

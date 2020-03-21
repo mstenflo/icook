@@ -8,16 +8,19 @@ class StepList extends React.Component {
   }
   
   render() {
+    console.log('step: ', this)
     if (!this.props.steps) return null;
     const steps = Object.values(this.props.steps)
 
     return (
       <div>
-        <ul className="step-list">
+      hello
+      {steps}
+        {/* <ul className="step-list">
           {steps.map((step, idx) => (
             <StepListItem step={step} key={step.id} idx={idx}/>
           ))}
-        </ul>
+        </ul> */}
       </div>
     );
   }

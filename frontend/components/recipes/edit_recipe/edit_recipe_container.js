@@ -5,7 +5,7 @@ import { requestSteps, createStep, clearSteps, destroyStep } from '../../../acti
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
-  // recipe: state.entities.recipes[ownProps.match.params.recipeId],
+  recipe: state.entities.recipes[ownProps.match.params.recipeId],
   steps: state.entities.steps
 })
 

@@ -5,7 +5,7 @@ import RecipeShow from "./recipe_show";
 
 const mapStateToProps = (state, ownProps) => ({
   recipe: state.entities.recipes[ownProps.match.params.recipeId],
-  steps: state.entities.steps
+  step: state.entities.steps,
 });
 
 const mapDispatchToProps = dispatch => ({

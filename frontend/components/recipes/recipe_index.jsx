@@ -9,6 +9,7 @@ class RecipeIndex extends React.Component {
   componentDidMount() {
     this.props.requestRecipes();
     this.props.requestUsers();
+    console.log(this.props)
   }
   
   render () {

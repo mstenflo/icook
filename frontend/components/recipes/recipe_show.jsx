@@ -7,20 +7,25 @@ import IngredientList from './ingredient_list';
 class RecipeShow extends React.Component {
   constructor(props) {
     super(props);
-    
+
+    this.state = {}
   }
 
   componentDidMount() {
-    this.props.requestRecipe(this.props.match.params.recipeId);
-    // this.props.requestSteps(this.props.match.params.recipeId);
-  }
-  
-  
-  render () {
-    if (!this.props.recipe) return null;
-    if (!this.props.recipe.ingredients) return null;
-    const { recipe } = this.props;
-    const steps = Object.values(this.props.steps)
+    this.props.requestRecipe(this.props.match.params.recipeId)
+      .then(response => {
+        this.setState({recipe: response.recipe})
+      });
+      // this.props.requestSteps(this.props.match.params.recipeId);
+    }
+    
+    
+    render () {
+      if (!this.state.recipe) return null;
+      if (!this.state.recipe.ingredients) return null;
+      const { recipe } = this.state;
+      const steps = Object.values(recipe.steps)
+      console.log(steps)
     return (
       <div className="recipe-full-wrapper">
         <header className="article-header">
@@ -37,7 +42,7 @@ class RecipeShow extends React.Component {
         <div className="article-body">
           <p>{recipe.body}</p>
           <div className="article-photo-container">
-            <img src={this.props.recipe.photourl} />
+            <img src={recipe.photourl} />
           </div>
           <div>
             <p>Ingredients: </p>

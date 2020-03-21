@@ -1,12 +1,15 @@
-json.recipe do
+# json.recipe do
   # json.set! @recipe.id do
     json.extract! @recipe, :id, :title, :body, :category, :ingredients, :author_id
   # end
     json.extract! @recipe.author, :username
     # json.set! @recipe.id do
-    json.photourl url_for(@recipe.photo)
-    # end
-end
+    if @recipe.photo.attached?
+      json.photourl url_for(@recipe.photo)
+    # else
+    #   json.photourl nil
+    end
+# end
 
 json.steps do
     @recipe.steps.each do |step|

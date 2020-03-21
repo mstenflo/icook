@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 // import EditRecipeContainer from '../edit_recipe/edit_recipe_container';
 import CreateStep from '../../steps/create_step';
+import StepList from '../../steps/step_list';
 
 class CreateRecipe extends Component {
 
   constructor(props) {
     super(props);
   
-    this.state = {
-      recipe: this.props.recipe,
-      steps: {}
-    };
+    this.state = this.props.recipe;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
+    console.log('state', this.state)
     return e => this.setState({
       [field]: e.currentTarget.value
     })
@@ -22,10 +21,21 @@ class CreateRecipe extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state)
     this.props.createRecipe(this.state);
+    this.setState({
+      recipe: {
+        title: this.state.title,
+        body: this.state.body
+      }
+    })
+    console.log('state submit: ', this.state)
   }
   
   componentDidMount() {
+    console.log('state', this.state)
+    console.log('props', this.props)
+    console.log('this', this)
   }
   
 
@@ -67,14 +77,15 @@ class CreateRecipe extends Component {
                 onChange={this.update("body")}
               />
             </label>
-            <CreateStep recipe={this.props.recipe}
-                          // step={step} 
-                          // key={step.id} 
-                          // idx={idx}
-                          // destroyStep={this.props.destroyStep} 
+            {/* <StepList steps={this.props.steps} /> */}
+            {/* <CreateStep recipe={this.props.recipe}
+                          step={this.props.step} 
+                          key={step.id} 
+                          idx={idx}
+                          destroyStep={this.props.destroyStep} 
 
                           />
-            
+             */}
             {/* <div className="bottom-buttons">
               <button className="submit-button" onClick={() => this.props.createStep(emptyStep)}>Add Step</button>
               <input className="submit-button" type="submit" value="Submit" />

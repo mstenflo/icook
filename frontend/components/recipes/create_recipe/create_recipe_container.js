@@ -10,7 +10,8 @@ const mapSTP = (state) => ({
     body: "",
     category: "new",
     author_id: state.session.id,
-  }
+  },
+  steps: ['step', 'another step']
 });
 
 const mapDTP = dispatch => ({

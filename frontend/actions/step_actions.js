@@ -23,12 +23,14 @@ export const requestSteps = (recipeId) => dispatch =>
   StepAPIUtil.fetchSteps(recipeId).then(steps => dispatch(receiveAllSteps(steps)));
 
 export const createStep = (step) => dispatch =>
-  StepAPIUtil.createStep(step).then(step =>
-    dispatch(receiveStep(step))
-  );
+  StepAPIUtil.createStep(step)
+  .then(step => dispatch(receiveStep(step))
+);
 
 export const updateStep = step => dispatch =>
-  StepAPIUtil.updateStep(step).then(step => dispatch(receiveStep(step)));
+  StepAPIUtil.updateStep(step)
+  .then(step => dispatch(receiveStep(step)));
 
 export const destroyStep = step => dispatch =>
-  StepAPIUtil.destroyStep(step).then(step => dispatch(removeStep(step)));
+  StepAPIUtil.destroyStep(step)
+  .then(step => dispatch(removeStep(step)));

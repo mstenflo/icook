@@ -8,10 +8,11 @@ const mapSTP = (state) => ({
   recipe: {
     title: "",
     body: "",
+    ingredients: ['none'],
     category: "new",
     author_id: state.session.id,
   },
-  steps: ['step', 'another step']
+  steps: [{title: 'title', body: 'body'}]
 });
 
 const mapDTP = dispatch => ({

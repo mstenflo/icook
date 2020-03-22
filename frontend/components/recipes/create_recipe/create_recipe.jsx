@@ -13,7 +13,6 @@ class CreateRecipe extends Component {
   }
 
   update(field) {
-    console.log('state', this.state)
     return e => this.setState({
       [field]: e.currentTarget.value
     })
@@ -21,7 +20,6 @@ class CreateRecipe extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state)
     this.props.createRecipe(this.state);
     this.setState({
       recipe: {
@@ -29,18 +27,11 @@ class CreateRecipe extends Component {
         body: this.state.body
       }
     })
-    console.log('state submit: ', this.state)
   }
   
-  componentDidMount() {
-    console.log('state', this.state)
-    console.log('props', this.props)
-    console.log('this', this)
-  }
-  
-
   render() {
-    const emptyStep = { title: "", body: "", recipe_id: this.props.match.params.recipeId }
+    console.log('state: ', this.state)
+    const emptyStep = { title: "title", body: "body", recipe_id: this.props.match.params.recipeId }
     return (
       <div>
         <br/>
@@ -77,7 +68,7 @@ class CreateRecipe extends Component {
                 onChange={this.update("body")}
               />
             </label>
-            {/* <StepList steps={this.props.steps} /> */}
+            <StepList steps={this.props.steps} />
             {/* <CreateStep recipe={this.props.recipe}
                           step={this.props.step} 
                           key={step.id} 
@@ -92,9 +83,9 @@ class CreateRecipe extends Component {
             </div> */}
           {/* <EditRecipeContainer /> */}
             <div className="bottom-buttons">
-              <button className="submit-button" onClick={() => this.props.createStep(emptyStep)}>
+              <div className="submit-button" onClick={() => this.props.createStep(emptyStep)}>
                   Add Step
-              </button>
+              </div>
               <div className="submit-button" onClick={this.handleSubmit}>Submit</div>
             </div>
           </div>

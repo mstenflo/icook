@@ -10,7 +10,7 @@ import CreateRecipeContainer from './recipes/create_recipe/create_recipe_contain
 import SplashContent from "./splash-content/splash-content";
 import RecipeShowContainer from './recipes/recipe_show_container';
 import RecipeIndexContainer from './recipes/recipe_index_container';
-
+import NotFound from './not_found/not_found';
 
 const App = () => (
   <div>
@@ -21,11 +21,12 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route exact path="/" component={SplashContent} />
+      <ProtectedRoute exact path="/create" component={CreateRecipeContainer} />
+      <Route exact path="/recipes" component={RecipeIndexContainer} />
+      <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
+      <Route component={NotFound}/>
     </Switch>
-    <Route exact path="/" component={SplashContent} />
-    <ProtectedRoute exact path="/create" component={CreateRecipeContainer} />
-    <Route exact path="/recipes" component={RecipeIndexContainer} />
-    <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
     <footer className="footer">
       <Footer />
     </footer>

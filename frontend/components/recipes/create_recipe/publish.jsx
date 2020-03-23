@@ -5,7 +5,10 @@ class Publish extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+        author_id: this.props.recipe.author_id,
+        body: "Enter a description"
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -21,13 +24,13 @@ class Publish extends React.Component {
     this.setState({
       recipe: {
         title: this.state.title,
-        body: this.state.body,
         category: this.state.category
       }
     })
   }
 
   render() {
+    console.log(this)
     return(
       <div>
         <div className="new-recipe-image">

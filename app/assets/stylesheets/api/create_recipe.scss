@@ -85,6 +85,10 @@
   cursor: pointer;
 }
 
+.title {
+  color: black;
+}
+
 .submit-button:hover {
   color: #fff;
   border-color: #cf6000;
@@ -121,11 +125,13 @@
   border-radius: 12px;
 }
 
-.stepTitleWrapper {
+.new-recipe-title {
   margin: 12px 12px 0 12px;
+  font-weight: 700;
   height: 33px;
   line-height: 26px;
   opacity: 100%;
+  text-align: center;
 }
 
 .stepTitleInput {

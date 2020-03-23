@@ -6,8 +6,8 @@
     # json.set! @recipe.id do
     if @recipe.photo.attached?
       json.photourl url_for(@recipe.photo)
-    # else
-    #   json.photourl nil
+    else
+      json.photourl nil
     end
 # end
 

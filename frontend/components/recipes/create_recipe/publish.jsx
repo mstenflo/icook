@@ -7,7 +7,9 @@ class Publish extends React.Component {
     super(props);
     this.state = {
         author_id: this.props.recipe.author_id,
-        body: "Enter a description"
+        body: "Enter a description",
+        ingredients: [],
+        steps: {}
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -27,10 +29,10 @@ class Publish extends React.Component {
         category: this.state.category
       }
     })
+    this.props.history.push(`/create`)
   }
 
   render() {
-    console.log(this)
     return(
       <div>
         <div className="new-recipe-image">
@@ -72,11 +74,11 @@ class Publish extends React.Component {
                 </p>
               </div>
             </div>
-            <Link to='/projects/new'>
+            {/* <Link to='/projects/new'> */}
               <button className="publishButton" onClick={this.handleSubmit}>
                 Create Recipe
               </button>
-            </Link>
+            {/* </Link> */}
           </form>
         </div>
       </div>

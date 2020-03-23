@@ -24,6 +24,8 @@ class RecipeShow extends React.Component {
       if (!this.state.recipe) return null;
       if (!this.state.recipe.ingredients) return null;
       const { recipe } = this.state;
+      if (!recipe.steps) return <div>no step</div>;
+
       const steps = Object.values(recipe.steps)
       console.log(steps)
     return (

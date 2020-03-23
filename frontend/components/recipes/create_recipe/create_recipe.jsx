@@ -8,7 +8,9 @@ class CreateRecipe extends Component {
   constructor(props) {
     super(props);
   
-    this.state = this.props.recipe;
+    // this.state = this.props.recipe;
+    this.state = {};
+    // this.state = {recipe: {}};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,6 +19,17 @@ class CreateRecipe extends Component {
       [field]: e.currentTarget.value
     })
   }
+
+  componentDidMount() {
+    this.props.requestRecipes()
+      .then((res) => { 
+        const recipeIdArray = Object.keys(res.recipes);
+        const lastRecipeId = recipeIdArray[recipeIdArray.length - 1];
+        const lastRecipe = res.recipes[lastRecipeId];
+        this.setState(lastRecipe)
+      })
+  }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -30,7 +43,6 @@ class CreateRecipe extends Component {
   }
   
   render() {
-    console.log('state: ', this.state)
     const emptyStep = { title: "title", body: "body", recipe_id: this.props.match.params.recipeId }
     return (
       <div>
@@ -51,15 +63,16 @@ class CreateRecipe extends Component {
           </div> */}
          
           <div className="stepDetailBox">
-            <div className="stepTitleWrapper">
-              <label htmlFor="title">
+            <div className="new-recipe-title">
+              <h1>{this.state.title}</h1>
+              {/* <label htmlFor="title">
                 <input 
                   className="stepTitleInput" 
                   type="text"
                   placeholder="Recipe Title"
                   onChange={this.update("title")}
                 />
-              </label>
+              </label> */}
             </div>
             <label htmlFor="body">
               <textarea

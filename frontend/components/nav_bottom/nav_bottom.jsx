@@ -17,7 +17,7 @@ class NavBottom extends Component {
           </button>
         </div>
         <div className="site-header-bottom-right">
-          <Link to='/create'>
+          <Link to='/publish'>
             PUBLISH
           </Link>
         </div>

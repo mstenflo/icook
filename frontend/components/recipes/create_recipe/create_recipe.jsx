@@ -28,6 +28,7 @@ class CreateRecipe extends Component {
         const lastRecipe = res.recipes[lastRecipeId];
         this.setState(lastRecipe)
       })
+    // this.props.createStep(this.state.step)
   }
 
 
@@ -81,7 +82,7 @@ class CreateRecipe extends Component {
                 onChange={this.update("body")}
               />
             </label>
-            <StepList steps={this.props.steps} />
+            {/* <StepList steps={this.props.steps} /> */}
             {/* <CreateStep recipe={this.props.recipe}
                           step={this.props.step} 
                           key={step.id} 

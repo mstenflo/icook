@@ -4,10 +4,10 @@ export const fetchSteps = (recipeId) =>
     url: `/api/recipes/${recipeId}/steps`
   });
 
-export const createStep = (step) =>
+export const createStep = (step, recipeId) =>
   $.ajax({
     method: "POST",
-    url: `/api/steps`,
+    url: `/api/recipes/${recipeId}/steps`,
     data: {
       step
     }

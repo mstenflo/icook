@@ -6,7 +6,7 @@ import { createStep } from '../../../actions/step_actions';
 const mapSTP = (state) => ({
   currentUser: state.entities.users[state.session.id],
   recipe: state.entities.recipes,
-  steps: [{title: 'title', body: 'body'}]
+  step: {title: 'title', body: 'body'}
 });
 
 const mapDTP = dispatch => ({

@@ -9,7 +9,7 @@ class Publish extends React.Component {
         author_id: this.props.recipe.author_id,
         body: "Enter a description",
         ingredients: [],
-        steps: {}
+        steps: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -33,6 +33,7 @@ class Publish extends React.Component {
   }
 
   render() {
+    console.log('this: ', this)
     return(
       <div>
         <div className="new-recipe-image">

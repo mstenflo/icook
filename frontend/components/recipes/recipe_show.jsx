@@ -24,9 +24,11 @@ class RecipeShow extends React.Component {
       if (!this.state.recipe) return null;
       if (!this.state.recipe.ingredients) return null;
       const { recipe } = this.state;
-      if (!recipe.steps) return <div>no step</div>;
+      let steps = [];
+      if (recipe.steps) {
+        steps = Object.values(recipe.steps)
+      }
 
-      const steps = Object.values(recipe.steps)
       console.log(steps)
     return (
       <div className="recipe-full-wrapper">
@@ -47,7 +49,7 @@ class RecipeShow extends React.Component {
             <img src={recipe.photourl} />
           </div>
           <div>
-            <p>Ingredients: </p>
+            <h1>Ingredients: </h1>
             <br />
             <ul>
                 {

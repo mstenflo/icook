@@ -11,8 +11,8 @@ const mapSTP = (state) => ({
     ingredients: ['none'],
     category: "new",
     author_id: state.session.id,
+    steps: []
   },
-  steps: [{title: 'title', body: 'body'}]
 });
 
 const mapDTP = dispatch => ({

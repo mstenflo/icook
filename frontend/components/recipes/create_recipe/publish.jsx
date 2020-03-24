@@ -7,7 +7,7 @@ class Publish extends React.Component {
     super(props);
     this.state = {
         author_id: this.props.recipe.author_id,
-        body: "Enter a description",
+        body: "Empty Body",
         ingredients: [],
         steps: []
     };
@@ -33,7 +33,6 @@ class Publish extends React.Component {
   }
 
   render() {
-    console.log('this: ', this)
     return(
       <div>
         <div className="new-recipe-image">

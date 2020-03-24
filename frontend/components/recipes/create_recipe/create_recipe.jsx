@@ -21,6 +21,10 @@ class CreateRecipe extends Component {
   }
 
   componentDidMount() {
+    // const recipeIdArray = Object.keys(this.props.recipes);
+    // const lastRecipeId = recipeIdArray[recipeIdArray.length - 1];
+    // const lastRecipe = this.props.recipes[lastRecipeId];
+    // this.setState(lastRecipe);
     this.props.requestRecipes()
       .then((res) => { 
         const recipeIdArray = Object.keys(res.recipes);
@@ -34,17 +38,19 @@ class CreateRecipe extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createRecipe(this.state);
+    this.props.updateRecipe(this.state);
     this.setState({
       recipe: {
         title: this.state.title,
         body: this.state.body
       }
     })
+    this.props.history.push(`/recipes/${this.state.id}`)
   }
   
   render() {
-    const emptyStep = { title: "title", body: "body", recipe_id: this.props.match.params.recipeId }
+    const emptyStep = { title: "empty", body: "empty", recipe_id: this.state.id }
+    console.log(this.state)
     return (
       <div>
         <br/>
@@ -82,6 +88,7 @@ class CreateRecipe extends Component {
                 onChange={this.update("body")}
               />
             </label>
+            
             {/* <StepList steps={this.props.steps} /> */}
             {/* <CreateStep recipe={this.props.recipe}
                           step={this.props.step} 

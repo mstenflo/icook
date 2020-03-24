@@ -1,7 +1,7 @@
 class Api::StepsController < ApplicationController
   def create
     step = Step.new(step_params)
-    recipe_id = Recipe.find(params[:id])
+    # recipe_id = Recipe.find(params[:id])
     if step.save
       render json: step
     else

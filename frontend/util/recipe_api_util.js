@@ -22,7 +22,7 @@ export const createRecipe = recipe => (
 
 export const updateRecipe = recipe => (
   $.ajax({
-    url: `/api/recipe/${recipe.id}`,
+    url: `/api/recipes/${recipe.id}`,
     method: 'PATCH',
     data: {
       recipe

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import EditRecipeContainer from '../edit_recipe/edit_recipe_container';
 import CreateStep from '../../steps/create_step';
 import CreateStepList from '../../recipes/create_steps/create_step_list';
+import NewStep from '../../steps/new_step';
 
 class CreateRecipe extends Component {
 
@@ -51,8 +52,8 @@ class CreateRecipe extends Component {
   handleStep(e) {
     e.preventDefault();
     const emptyStep = {
-      title: "empty",
-      body: "empty",
+      title: "",
+      body: "",
       recipe_id: this.state.id
     }
     this.props.createStep(emptyStep)
@@ -67,6 +68,12 @@ class CreateRecipe extends Component {
   render() {
     
     console.log('state: ', this.state)
+    let stepList = [];
+    if (this.state.steps) {
+      stepList = Object.values(this.state.steps)
+    }
+    // const stepList = Object.values(this.state.steps)
+    console.log('steplist: ', stepList)
     return (
       <div>
         <br/>
@@ -84,7 +91,27 @@ class CreateRecipe extends Component {
               />
             </label>
             
-            <CreateStepList steps={this.state.steps} />
+            {/* <CreateStepList steps={this.state.steps} /> */}
+            <ul>
+          {/* {stepList.map((step, idx) => (
+            
+            <CreateStepListItem step={step} key={step.id} idx={idx}/>
+          ))} */}
+        {/* <NewStep step={step} key={idx} /> */}
+        {/* console.log('stepsss: ', step) */}
+         { stepList.map((step, idx) => (
+           <div>
+            <h2 className="recipe-step-title">Step {idx + 1}:
+              <label htmlFor="stepTitle">
+                <input type="text" value={step.title} onChange={this.update("stepTitle")} /> 
+              </label>
+            </h2>
+            <div className="recipe-step-body">
+              <textarea className="textEditor" placeholder="Step Description" onChange={this.update("body")} />
+            </div>
+           </div>
+      ))}
+        </ul>
             <div className="bottom-buttons">
               <div className="submit-button" onClick={ this.handleStep }>
                   Add Step

@@ -4,7 +4,7 @@ class CreateStepListItem extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = this.props.step;
   }
   
 
@@ -15,15 +15,16 @@ class CreateStepListItem extends React.Component {
   }
 
   render() {
+    console.log('sli props: ', this.props)
     if (!this.props.step) return null;
-    // console.log('state: ', this.state)
+    console.log('state: ', this.state)
     
     const stepNo = this.props.idx + 1
         return (
           <div>
           {/* <div className="recipe-step"> */}
             <h2 className="recipe-step-title">Step {stepNo}:
-              <input placeholder="Step Title" onChange={this.update("title")} /> 
+              <input type="text" value={this.state.title} placeholder="Step Title" onChange={this.update("title")} /> 
             </h2>
             <div className="recipe-step-body">
               <textarea className="textEditor" placeholder="Step Description" onChange={this.update("body")} />

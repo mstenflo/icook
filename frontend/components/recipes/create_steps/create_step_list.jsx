@@ -1,24 +1,16 @@
 import React from 'react';
 import CreateStepListItem from './create_step_list_item';
 
-class CreateStepList extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
-
-  componentDidMount() {
-    console.log('this: ', this)
-  }
+const CreateStepList = (steps) => {
   
-  
-  render() {
-    if (!this.props.steps) return null;
-    const steps = Object.values(this.props.steps)
+    if (!steps) return null;
+    // const steps = Object.values(this.props.steps)
     // console.log('steps; ', steps, this.props.steps)
 
+    console.log('this: ', Object.values(steps))
     return (
       <div>
+      test
         <ul>
           {steps.map((step, idx) => (
             <CreateStepListItem step={step} key={step.id} idx={idx}/>
@@ -27,7 +19,5 @@ class CreateStepList extends React.Component {
       </div>
     );
   }
-
-}
 
 export default CreateStepList;

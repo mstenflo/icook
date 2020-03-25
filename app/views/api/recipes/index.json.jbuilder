@@ -7,11 +7,11 @@
             json.photourl url_for(recipe.photo)
         end
 
-        @steps.each do |step|
-            json.steps do
-                json.extract! step, :id, :title, :body, :recipe_id
-            end
-        end
+        # @steps.each do |step|
+        #     json.steps do
+        #         json.extract! step, :id, :title, :body, :recipe_id
+        #     end
+        # end
         # json.@steps do
         #     json.extract! recipe.steps, :body
         # end

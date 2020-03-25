@@ -32,9 +32,9 @@ export const requestRecipe = recipeId => dispatch => (
 export const createRecipe = recipe => dispatch => (
   RecipeAPIUtil.createRecipe(recipe)
     .then(recipe => dispatch(receiveRecipe(recipe)))
-    .fail(errors => {
-      return dispatch(receiveErrors(errors));
-    })
+    // // .fail(errors => {
+    // //   return dispatch(receiveErrors(errors));
+    // })
 );
 
 export const updateRecipe = recipe => dispatch => (

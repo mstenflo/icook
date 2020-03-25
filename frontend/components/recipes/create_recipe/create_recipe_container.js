@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import CreateRecipe from './create_recipe';
-import { createRecipe, requestRecipes, updateRecipe } from '../../../actions/recipe_actions';
-import { createStep } from '../../../actions/step_actions';
+import { createRecipe, requestRecipes, updateRecipe, requestRecipe } from '../../../actions/recipe_actions';
+import { createStep, requestSteps } from '../../../actions/step_actions';
 
 const mapSTP = (state) => ({
   currentUser: state.entities.users[state.session.id],
@@ -13,7 +13,9 @@ const mapDTP = dispatch => ({
   createRecipe: (recipe) => dispatch(createRecipe(recipe)),
   updateRecipe: (recipe) => dispatch(updateRecipe(recipe)),
   createStep: (step) => dispatch(createStep(step)),
-  requestRecipes: () => dispatch(requestRecipes())
+  requestRecipe: (recipeId) => dispatch(requestRecipe(recipeId)),
+  requestRecipes: () => dispatch(requestRecipes()),
+  requestSteps: (recipeId) => dispatch(requestSteps(recipeId))
 });
 
 export default connect(mapSTP, mapDTP)(CreateRecipe);

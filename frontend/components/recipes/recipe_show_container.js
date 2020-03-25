@@ -5,12 +5,11 @@ import RecipeShow from "./recipe_show";
 
 const mapStateToProps = (state, ownProps) => ({
   recipe: state.entities.recipes[ownProps.match.params.recipeId],
-  step: state.entities.steps,
 });
 
 const mapDispatchToProps = dispatch => ({
   requestRecipe: recipeId => dispatch(requestRecipe(recipeId)),
-  requestSteps: () => dispatch(requestSteps())
+  // requestSteps: () => dispatch(requestSteps())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeShow);

@@ -21,6 +21,7 @@ class RecipeShow extends React.Component {
     
     
     render () {
+      console.log('this: ', this)
       if (!this.state.recipe) return null;
       if (!this.state.recipe.ingredients) return null;
       const { recipe } = this.state;

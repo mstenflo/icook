@@ -23,13 +23,7 @@ class Publish extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createRecipe(this.state);
-    this.setState({
-      recipe: {
-        title: this.state.title,
-        category: this.state.category
-      }
-    })
-    this.props.history.push(`/create`)
+    this.props.history.push(`/create`);
   }
 
   render() {

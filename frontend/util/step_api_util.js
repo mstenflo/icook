@@ -28,8 +28,8 @@ export const updateStep = step =>
     }
   });
 
-export const destroyStep = step =>
+export const destroyStep = stepId =>
   $.ajax({
     method: "DELETE",
-    url: `/api/recipes/${step.recipe_id}/steps/${step.id}`
+    url: `/api/steps/${stepId}`
   });

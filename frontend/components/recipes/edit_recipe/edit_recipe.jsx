@@ -11,6 +11,7 @@ class EditRecipe extends React.Component {
         this.state = {};
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleStep = this.handleStep.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
@@ -61,6 +62,16 @@ class EditRecipe extends React.Component {
         this.props.history.push(`/recipes/${this.state.id}`)
     }
 
+    handleDelete(stepId) {
+        return e => {
+        e.preventDefault();
+        console.log('delete: ', this)
+        this.props.destroyStep(stepId).then(
+        this.props.requestRecipe(this.state.id)
+            .then(res => this.setState(res.recipe)))
+
+    }}
+
     handleStep(e) {
         e.preventDefault();
         const emptyStep = {
@@ -103,8 +114,9 @@ class EditRecipe extends React.Component {
             
             <ul>
          { stepList.map((step, idx) => (
-            <div key={step.id}>
+            <div key={step.id} className="step-edit-container">
               <StepListItem history={this.props.history} deleteStep={this.props.destroyStep} step={step} number={idx + 1} />
+              <div className="delete-step" onClick={this.handleDelete(step.id)}>x</div>
             </div>
       ))}
         </ul>

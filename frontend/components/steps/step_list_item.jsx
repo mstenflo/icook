@@ -6,19 +6,6 @@ class StepListItem extends React.Component {
     super(props);
     this.state = {};
     this.handleClick = this.handleClick.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({});
-  }
-  
-  
-  handleDelete(e) {
-    e.preventDefault();
-    console.log(this.props.step.id)
-    this.props.deleteStep(this.props.step)
-    .then(this.setState(this.props));
   }
 
   handleClick(e) {
@@ -35,14 +22,14 @@ class StepListItem extends React.Component {
     
     const stepNo = this.props.number
         return (
-          <div className="step-edit-container">
+          // <div className="step-edit-container">
           <div className="step-box">
             <div onClick={this.handleClick}>
               <h2 className="recipe-step-title">Step {stepNo}: {step.title}</h2>
             </div>
           </div>
-            <div className="delete-step" onClick={this.handleDelete}>x</div>
-          </div>
+            
+          // {/* </div> */}
         );
 
     }

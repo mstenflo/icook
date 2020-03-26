@@ -21,7 +21,6 @@ class RecipeShow extends React.Component {
     
     
     render () {
-      console.log('this: ', this)
       if (!this.state.recipe) return null;
       if (!this.state.recipe.ingredients) return null;
       const { recipe } = this.state;
@@ -30,7 +29,6 @@ class RecipeShow extends React.Component {
         steps = Object.values(recipe.steps)
       }
 
-      console.log(steps)
     return (
       <div className="recipe-full-wrapper">
         <header className="article-header">
@@ -43,6 +41,9 @@ class RecipeShow extends React.Component {
             &nbsp; in &nbsp;
             <Link to="/" className="recipe-category">{recipe.category}</Link>
           </div>
+          <Link to={`/recipes/${this.state.recipe.id}/edit`} className="edit-recipe-link">
+            <p className="edit-recipe-button">Edit Recipe</p>
+          </Link>
         </header>
         <div className="article-body">
           <p>{recipe.body}</p>

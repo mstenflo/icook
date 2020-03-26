@@ -1,7 +1,5 @@
 import React from 'react';
-// import RecipeEditBoxContainer from './recipe_edit_box_container';
-// import StepEditBoxList from './step_edit_box_list'
-import StepListItem from '../../steps/step_list_item';
+import EditStepListItem from '../../steps/edit_step_list_item';
 
 
 class EditRecipe extends React.Component {
@@ -20,27 +18,6 @@ class EditRecipe extends React.Component {
             .then(res => this.setState(res.recipe));
     }
 
-
-
-    // noRecipeComponent() {
-    //     return (
-    //         <div className="edit-box">
-    //             <div className="edit-box-left">
-    //                 <div className="image-box-holder image-box no-redirect">
-    //                     Click to Add Image
-    //                 </div>
-    //             </div>
-    //             <div className="edit-box-right">
-    //                 <div className="step-box-title">
-    //                     Intro + Supplies: (Click to Edit)
-    //                 </div>
-    //                 <img src={window.caret} />
-
-    //             </div>
-    //         </div>
-    //     )
-    // }
-
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -49,8 +26,6 @@ class EditRecipe extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // this.props.clearSteps();
-        // this.props.history.push(`/recipes/${this.props.match.params.recipeId}`)
         this.props.updateRecipe(this.state);
         this.setState({
             recipe: {
@@ -115,7 +90,7 @@ class EditRecipe extends React.Component {
             <ul>
          { stepList.map((step, idx) => (
             <div key={step.id} className="step-edit-container">
-              <StepListItem history={this.props.history} deleteStep={this.props.destroyStep} step={step} number={idx + 1} />
+              <EditStepListItem history={this.props.history} deleteStep={this.props.destroyStep} step={step} number={idx + 1} />
               <div className="delete-step" onClick={this.handleDelete(step.id)}>x</div>
             </div>
       ))}
@@ -130,22 +105,6 @@ class EditRecipe extends React.Component {
 
         </form>
                 <div>
-                    {/* <div>
-                        {(localStorage.getItem('newRecipeId') > 0 || this.props.location.recipeId) ?
-                            <RecipeEditBoxContainer recipeId={this.props.match.params.recipeId} /> :
-                        this.noRecipeComponent()}
-                    </div> */}
-                    {/* <StepEditBoxList
-                        recipe={this.props.recipe}
-                        steps={this.props.steps}
-                        destroyStep={this.props.destroyStep}
-                    /> */}
-                    {/* <div className="bottom-buttons">
-                      <button className="submit-button" onClick={() => this.props.createStep(emptyStep)}>
-                          Add Step
-                      </button>
-                      <div className="submit-button" onClick={this.handleSubmit}>Submit</div>
-                    </div> */}
                 </div>
             </div>
         )

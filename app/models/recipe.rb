@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
-  validates :title, :body, :category, presence: true
+  validates :title, :category, presence: true
 
   belongs_to :author,
     primary_key: :id,

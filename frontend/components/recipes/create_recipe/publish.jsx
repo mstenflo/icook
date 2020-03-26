@@ -7,7 +7,7 @@ class Publish extends React.Component {
     super(props);
     this.state = {
         author_id: this.props.recipe.author_id,
-        body: "Empty Body",
+        body: "",
         ingredients: [],
         steps: []
     };
@@ -22,8 +22,8 @@ class Publish extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createRecipe(this.state);
-    this.props.history.push(`/create`);
+    this.props.createRecipe(this.state)
+      .then(res => this.props.history.push(`/recipes/${res.recipe.id}/edit`));
   }
 
   render() {

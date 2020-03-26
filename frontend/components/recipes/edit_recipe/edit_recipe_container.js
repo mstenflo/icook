@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import EditRecipe from "./edit_recipe";
-import { requestRecipe } from '../../../actions/recipe_actions';
-import { requestSteps, createStep, clearSteps, destroyStep } from '../../../actions/step_actions';
+import { createRecipe, requestRecipes, updateRecipe, requestRecipe } from '../../../actions/recipe_actions';
+import { createStep, requestSteps, destroyStep } from '../../../actions/step_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
@@ -10,11 +10,12 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  action: (recipe) => dispatch(updateRecipe(recipe)),
+  createRecipe: (recipe) => dispatch(createRecipe(recipe)),
   createStep: (step) => dispatch(createStep(step)),
+  updateRecipe: (recipe) => dispatch(updateRecipe(recipe)),
   requestRecipe: (recipeId) => dispatch(requestRecipe(recipeId)),
+  requestRecipes: () => dispatch(requestRecipes()),
   requestSteps: (recipeId) => dispatch(requestSteps(recipeId)),
-  clearSteps: () => dispatch(clearSteps()),
   destroyStep: (stepId) => dispatch(destroyStep(stepId))
 });
 

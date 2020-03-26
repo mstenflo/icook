@@ -1,25 +1,22 @@
 import React from 'react';
 // import RecipeEditBoxContainer from './recipe_edit_box_container';
 // import StepEditBoxList from './step_edit_box_list'
+import StepListItem from '../../steps/step_list_item';
 
 
 class EditRecipe extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {};
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state = {
-            recipe: this.props.recipe,
-            steps: {}
-        }
+        this.handleStep = this.handleStep.bind(this);
     }
 
     componentDidMount() {
         // this.props.clearSteps();
-        // this.props.requestRecipe(this.props.match.params.recipeId);
-        // this.props.requestSteps(this.props.match.params.recipeId);
-        console.log(this.state)
-        console.log(this.props)
+        this.props.requestRecipe(this.props.match.params.recipeId)
+            .then(res => this.setState(res.recipe));
     }
 
 
@@ -43,17 +40,83 @@ class EditRecipe extends React.Component {
     //     )
     // }
 
+    update(field) {
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        })
+    }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.clearSteps();
-        this.props.history.push(`/recipes/${this.props.match.params.recipeId}`)
+        // this.props.clearSteps();
+        // this.props.history.push(`/recipes/${this.props.match.params.recipeId}`)
+        this.props.updateRecipe(this.state);
+        this.setState({
+            recipe: {
+                title: this.state.title,
+                body: this.state.body,
+                steps: this.state.steps
+            }
+        })
+        this.props.history.push(`/recipes/${this.state.id}`)
+    }
+
+    handleStep(e) {
+        e.preventDefault();
+        const emptyStep = {
+            title: "",
+            body: "",
+            recipe_id: this.state.id
+        }
+        this.props.createStep(emptyStep)
+            .then(res => {
+                console.log('recipe_id: ', this.state)
+                const recipeId = res.step.recipe_id
+                this.props.requestRecipe(recipeId)
+                    .then(res => this.setState(res.recipe))
+            })
     }
 
     render() {
-        // let emptyStep = { title: "", body: "", recipe_id: this.props.match.params.recipeId }
+        let stepList = [];
+        if (this.state.steps) {
+            stepList = Object.values(this.state.steps)
+        }
+        console.log('state: ', this.state)
+        console.log('props: ', this.props)
         return (
             <div className="new-edit-container">
+            <br/>
+        <br/>
+        <form onSubmit={this.handleSubmit}>
+          <div className="stepDetailBox">
+            <div className="new-recipe-title">
+              <h1>{this.state.title}</h1>
+            </div>
+            <label htmlFor="body">
+              <textarea
+                className="textEditor"
+                placeholder="Description of the Recipe"
+                onChange={this.update("body")}
+              />
+            </label>
+            
+            <ul>
+         { stepList.map((step, idx) => (
+            <div key={step.id}>
+              <StepListItem history={this.props.history} deleteStep={this.props.destroyStep} step={step} number={idx + 1} />
+            </div>
+      ))}
+        </ul>
+            <div className="bottom-buttons">
+              <div className="submit-button" onClick={ this.handleStep }>
+                  Add Step
+              </div>
+              <div className="submit-button" onClick={this.handleSubmit}>Submit</div>
+            </div>
+          </div>
+
+        </form>
                 <div>
                     {/* <div>
                         {(localStorage.getItem('newRecipeId') > 0 || this.props.location.recipeId) ?
@@ -65,12 +128,12 @@ class EditRecipe extends React.Component {
                         steps={this.props.steps}
                         destroyStep={this.props.destroyStep}
                     /> */}
-                    <div className="bottom-buttons">
+                    {/* <div className="bottom-buttons">
                       <button className="submit-button" onClick={() => this.props.createStep(emptyStep)}>
                           Add Step
                       </button>
                       <div className="submit-button" onClick={this.handleSubmit}>Submit</div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )

@@ -23,7 +23,7 @@ export const requestSteps = (recipeId) => dispatch =>
   StepAPIUtil.fetchSteps(recipeId).then(steps => dispatch(receiveAllSteps(steps)));
 
 export const requestStep = stepId => dispatch => (
-  RecipeAPIUtil.fetchStep(stepId)
+  StepAPIUtil.fetchStep(stepId)
   .then(step => dispatch(receiveStep(step)))
 );
   

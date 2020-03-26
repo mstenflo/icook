@@ -25,6 +25,7 @@ class Api::StepsController < ApplicationController
   end
 
   def show
+    @step = Step.find(params[:id])
   end
 
   def index

@@ -11,8 +11,9 @@ import SplashContent from "./splash-content/splash-content";
 import RecipeShowContainer from './recipes/recipe_show_container';
 import RecipeIndexContainer from './recipes/recipe_index_container';
 import NotFound from './not_found/not_found';
-import Publish from "./recipes/create_recipe/publish";
 import PublishContainer from "./recipes/create_recipe/publish_container";
+import EditRecipeContainer from './recipes/edit_recipe/edit_recipe_container';
+import StepEditContainer from './steps/step_edit_container';
 
 const App = () => (
   <div>
@@ -26,6 +27,8 @@ const App = () => (
       <Route exact path="/" component={SplashContent} />
       <ProtectedRoute exact path="/create" component={CreateRecipeContainer} />
       <ProtectedRoute exact path="/publish" component={PublishContainer} />
+      <ProtectedRoute exact path="/steps/:stepId/edit" component={StepEditContainer} />
+      <ProtectedRoute exact path="/recipes/:recipeId/edit" component={EditRecipeContainer} />
       <Route exact path="/recipes" component={RecipeIndexContainer} />
       <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
       <Route component={NotFound}/>

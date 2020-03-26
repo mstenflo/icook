@@ -4,6 +4,12 @@ export const fetchSteps = (recipeId) =>
     url: `/api/recipes/${recipeId}/steps`
   });
 
+export const fetchStep = (stepId) =>
+  $.ajax({
+    method: "GET",
+    url: `/api/steps/${stepId}`
+  });
+
 export const createStep = (step) =>
   $.ajax({
     method: "POST",
@@ -25,5 +31,5 @@ export const updateStep = step =>
 export const destroyStep = step =>
   $.ajax({
     method: "DELETE",
-    url: `/api/steps/${step.id}`
+    url: `/api/recipes/${step.recipe_id}/steps/${step.id}`
   });

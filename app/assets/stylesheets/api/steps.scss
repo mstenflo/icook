@@ -17,6 +17,11 @@
   padding-top: 20px;
 }
 
+.recipe-step-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .recipe-step-title input {
   font-size: 18px;
   margin: 10px;
@@ -29,4 +34,30 @@
   list-style: disc;
   line-height: 36px;
   overflow: initial;
+}
+
+.step-box {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 15px;
+  width: 88%;
+  background-color: white;
+}
+
+.step-edit-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-step {
+  color: rgb(139, 139, 139);
+  font-size: 24px;
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+.delete-step:hover {
+  color: red;
+  cursor: pointer;
 }

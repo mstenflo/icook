@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import CreateStep from '../../steps/create_step';
 import CreateStepList from '../../recipes/create_steps/create_step_list';
 import NewStep from '../../steps/new_step';
+import StepListItem from '../../steps/step_list_item';
 
 class CreateRecipe extends Component {
 
@@ -67,13 +68,13 @@ class CreateRecipe extends Component {
   
   render() {
     
-    console.log('state: ', this.state)
+    console.log('props: ', this.props)
     let stepList = [];
     if (this.state.steps) {
       stepList = Object.values(this.state.steps)
     }
     // const stepList = Object.values(this.state.steps)
-    console.log('steplist: ', stepList)
+    // console.log('steplist: ', stepList)
     return (
       <div>
         <br/>
@@ -91,25 +92,11 @@ class CreateRecipe extends Component {
               />
             </label>
             
-            {/* <CreateStepList steps={this.state.steps} /> */}
             <ul>
-          {/* {stepList.map((step, idx) => (
-            
-            <CreateStepListItem step={step} key={step.id} idx={idx}/>
-          ))} */}
-        {/* <NewStep step={step} key={idx} /> */}
-        {/* console.log('stepsss: ', step) */}
          { stepList.map((step, idx) => (
-           <div>
-            <h2 className="recipe-step-title">Step {idx + 1}:
-              <label htmlFor="stepTitle">
-                <input type="text" value={step.title} onChange={this.update("stepTitle")} /> 
-              </label>
-            </h2>
-            <div className="recipe-step-body">
-              <textarea className="textEditor" placeholder="Step Description" onChange={this.update("body")} />
+            <div key={step.id}>
+              <StepListItem history={this.props.history} deleteStep={this.props.destroyStep} step={step} number={idx + 1} />
             </div>
-           </div>
       ))}
         </ul>
             <div className="bottom-buttons">

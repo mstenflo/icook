@@ -68,44 +68,40 @@ class EditRecipe extends React.Component {
         if (this.state.steps) {
             stepList = Object.values(this.state.steps)
         }
-        console.log('state: ', this.state)
-        console.log('props: ', this.props)
         return (
             <div className="new-edit-container">
-            <br/>
-        <br/>
-        <form onSubmit={this.handleSubmit}>
-          <div className="stepDetailBox">
-            <div className="new-recipe-title">
-              <h1>{this.state.title}</h1>
-            </div>
-            <label htmlFor="body">
-              <textarea
-                className="textEditor"
-                placeholder="Description of the Recipe"
-                onChange={this.update("body")}
-              />
-            </label>
-            
-            <ul>
-         { stepList.map((step, idx) => (
-            <div key={step.id} className="step-edit-container">
-              <EditStepListItem history={this.props.history} deleteStep={this.props.destroyStep} step={step} number={idx + 1} />
-              <div className="delete-step" onClick={this.handleDelete(step.id)}>x</div>
-            </div>
-      ))}
-        </ul>
-            <div className="bottom-buttons">
-              <div className="submit-button" onClick={ this.handleStep }>
-                  Add Step
-              </div>
-              <div className="submit-button" onClick={this.handleSubmit}>Submit</div>
-            </div>
-          </div>
+                <br/>
+                <br/>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="stepDetailBox">
+                        <div className="recipe-title-box">
+                            <div className="new-recipe-title">
+                                <h1>{this.state.title}</h1>
+                            </div>
+                            <p>{this.state.body}</p>
+                        </div>
+                        <ul>
+                            { stepList.map((step, idx) => (
+                                <div key={step.id} className="step-edit-container">
+                                    <EditStepListItem 
+                                        history={this.props.history} 
+                                        deleteStep={this.props.destroyStep} 
+                                        step={step} 
+                                        number={idx + 1} 
+                                    />
+                                    <div className="delete-step" onClick={this.handleDelete(step.id)}>x</div>
+                                </div>
+                            ))}
+                    </ul>
+                    <div className="bottom-buttons">
+                        <div className="submit-button" onClick={ this.handleStep }>
+                            Add Step
+                        </div>
+                        <div className="submit-button" onClick={this.handleSubmit}>Submit</div>
+                        </div>
+                    </div>
 
-        </form>
-                <div>
-                </div>
+                </form>
             </div>
         )
     }

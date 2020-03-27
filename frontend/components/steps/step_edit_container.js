@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   requestStep: (stepId) => dispatch(requestStep(stepId)),
-  updateStep: (stepId) => dispatch(updateStep(stepId)),
+  updateStep: (step) => dispatch(updateStep(step)),
   destroyStep: (stepId) => dispatch(destroyStep(stepId))
 });
 

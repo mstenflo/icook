@@ -21,31 +21,31 @@ class StepEdit extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateStep(this.props.match.params.stepId);
+    this.props.updateStep(this.state);
     this.props.history.push(`/recipes/${this.state.recipe_id}/edit`);
   }
   
   render() {
-    // console.log('props: ',this.props)
-    // console.log('state: ',this.state)
+    console.log(this.state)
     return (
       <div>
-     <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <div className="stepDetailBox">
-            <div className="new-recipe-title">
-              <input value={this.state.title} onChange={this.update("title")}></input>
-            </div>
+            <input 
+              className="edit-step-title" 
+              placeholder="Step Title" 
+              value={this.state.title} 
+              onChange={this.update("title")}>
+            </input>
             <label htmlFor="body">
               <textarea
+                placeholder="Enter the step description"
                 className="textEditor"
                 value={this.state.body}
                 onChange={this.update("body")}
               />
             </label>
             <div className="bottom-buttons">
-              {/* <div className="submit-button" onClick={ this.handleStep }>
-                  Add Step
-              </div> */}
               <div className="submit-button" onClick={this.handleSubmit}>Submit</div>
             </div>
           </div>

@@ -26,13 +26,14 @@ class StepEdit extends Component {
   }
   
   render() {
-    console.log(this.state)
+    console.log('props: ', this.props)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <div className="stepDetailBox">
             <input 
               className="edit-step-title" 
+              type="text"
               placeholder="Step Title" 
               value={this.state.title} 
               onChange={this.update("title")}>

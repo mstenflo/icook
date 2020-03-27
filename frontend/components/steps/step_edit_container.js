@@ -2,9 +2,8 @@ import { connect } from "react-redux";
 import StepEdit from './step_edit';
 import { requestStep, updateStep } from '../../actions/step_actions';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   currentUser: state.entities.users[state.session.id],
-  recipe: state.entities.recipes[ownProps.match.params.recipeId],
   steps: state.entities.steps
 })
 

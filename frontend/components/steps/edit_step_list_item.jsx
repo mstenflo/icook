@@ -21,7 +21,7 @@ class EditStepListItem extends React.Component {
     
     return (
       <div className="step-box" onClick={this.handleClick}>
-        <h2 className="recipe-step-title">Step {stepNumber}: {step.title}</h2>
+        <h2 className="edit-step-title">Step {stepNumber}: {step.title}</h2>
         <p> {step.body} </p>
       </div>
     );

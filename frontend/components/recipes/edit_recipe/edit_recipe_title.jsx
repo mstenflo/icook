@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class StepEdit extends Component {
+class EditRecipeTitle extends Component {
   constructor(props) {
     super(props);
 
@@ -9,8 +9,8 @@ class StepEdit extends Component {
   }
 
   componentDidMount() {
-    this.props.requestStep(this.props.match.params.stepId)
-      .then(res => this.setState(res.step))
+    this.props.requestRecipe(this.props.match.params.recipeId)
+      .then(res => this.setState(res.recipe))
   }
 
   update(field) {
@@ -21,11 +21,14 @@ class StepEdit extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateStep(this.state);
-    this.props.history.push(`/recipes/${this.state.recipe_id}/edit`);
+    console.log(this.props)
+    this.props.updateRecipe(this.state)
+      .then(res => this.props.history.push(`/recipes/${res.recipe.id}/edit`));
   }
   
   render() {
+    console.log('state: ', this.state)
+    console.log('props: ', this.props)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -56,4 +59,4 @@ class StepEdit extends Component {
   }
 }
 
-export default StepEdit;
+export default EditRecipeTitle;

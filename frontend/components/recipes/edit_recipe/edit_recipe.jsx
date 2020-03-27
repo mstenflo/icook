@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import EditStepListItem from '../../steps/edit_step_list_item';
 
 
@@ -10,10 +12,10 @@ class EditRecipe extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleStep = this.handleStep.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleTitle = this.handleTitle.bind(this);
     }
 
     componentDidMount() {
-        // this.props.clearSteps();
         this.props.requestRecipe(this.props.match.params.recipeId)
             .then(res => this.setState(res.recipe));
     }
@@ -63,19 +65,28 @@ class EditRecipe extends React.Component {
             })
     }
 
+    handleTitle(id) {
+        return e => {
+            e.preventDefault();
+            // console.log(id);
+            this.props.history.push(`/recipe_title/${id}/edit`);
+        }
+    }
+
     render() {
         let stepList = [];
         if (this.state.steps) {
             stepList = Object.values(this.state.steps)
         }
         console.log('state: ', this.state)
+        console.log('props: ', this.props)
         return (
             <div className="new-edit-container">
                 <br/>
                 <br/>
                 <form onSubmit={this.handleSubmit}>
                     <div className="stepDetailBox">
-                        <div className="recipe-title-box">
+                        <div onClick={this.handleTitle(this.state.id)} className="recipe-title-box">
                             <div className="new-recipe-title">
                                 <h1>{this.state.title}</h1>
                             </div>

@@ -17,6 +17,15 @@
   width: 94.5%;
 }
 
+.step-title-form {
+  font-size: 18px;
+  color: #333;
+  font-weight: 700;
+  margin: 10px;
+  padding: 7px;
+  width: 94.5%;
+}
+
 .recipe-step-title {
   font-size: 24px;
   color: #333;
@@ -26,7 +35,7 @@
   padding-top: 20px;
 }
 
-.recipe-step-title:hover {
+.edit-step-title:hover {
   cursor: pointer;
   text-decoration: underline;
 }
@@ -63,9 +72,11 @@
 
 .recipe-title-box p {
   margin: 20px;
+  color: #666;
 }
 .step-box p {
   margin: 20px;
+  color: #666;
 }
 
 .step-edit-container {

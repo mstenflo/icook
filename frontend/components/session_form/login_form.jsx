@@ -73,7 +73,8 @@ class LoginForm extends React.Component {
               <br/>
               <div className="centering-div">
                 <label>
-                  <input type="text"
+                  <input 
+                    type="text"
                     placeholder="Username"
                     value={this.state.username}
                     onChange={this.update('username')}
@@ -91,9 +92,7 @@ class LoginForm extends React.Component {
                 <br/>
                 {this.renderErrors()}
                 <br/>
-                <div className="submit-button">
-                  <input className="session-submit" type="submit" value="Login" />
-                </div>
+                <input className="session-submit" type="submit" value="Login" />
                 <p>
                   New to iCook? 
                   &nbsp;

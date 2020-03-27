@@ -173,3 +173,15 @@
   cursor: pointer;
   color: black;
 }
+
+.title-link {
+  text-decoration: none;
+}
+
+.title-link h1 {
+  color: black;
+}
+
+.title-link h1:hover {
+  text-decoration: underline;
+}

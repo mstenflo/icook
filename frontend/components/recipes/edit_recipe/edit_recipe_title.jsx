@@ -6,6 +6,7 @@ class EditRecipeTitle extends Component {
 
     this.state = {};
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +24,11 @@ class EditRecipeTitle extends Component {
     e.preventDefault();
     this.props.updateRecipe(this.state)
       .then(res => this.props.history.push(`/recipes/${res.recipe.id}/edit`));
+  }
+
+  handleCancel(e) {
+    e.preventDefault();
+    this.props.history.push(`/recipes/${this.state.id}/edit`);
   }
   
   render() {
@@ -46,6 +52,7 @@ class EditRecipeTitle extends Component {
               />
             </label>
             <div className="bottom-buttons">
+              <div className="submit-button" onClick={this.handleCancel}>Cancel</div>
               <div className="submit-button" onClick={this.handleSubmit}>Submit</div>
             </div>
           </div>

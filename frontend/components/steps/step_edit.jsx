@@ -6,6 +6,7 @@ class StepEdit extends Component {
 
     this.state = {};
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   componentDidMount() {
@@ -24,8 +25,14 @@ class StepEdit extends Component {
     this.props.updateStep(this.state);
     this.props.history.push(`/recipes/${this.state.recipe_id}/edit`);
   }
+
+  handleCancel(e) {
+    e.preventDefault();
+    this.props.history.push(`/recipes/${this.state.recipe_id}/edit`);
+  }
   
   render() {
+    if (!this.state.recipe_id) return null;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -46,6 +53,7 @@ class StepEdit extends Component {
               />
             </label>
             <div className="bottom-buttons">
+              <div className="submit-button" onClick={this.handleCancel}>Cancel</div>
               <div className="submit-button" onClick={this.handleSubmit}>Submit</div>
             </div>
           </div>

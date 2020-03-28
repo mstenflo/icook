@@ -135,6 +135,11 @@
   text-align: center;
 }
 
+.new-recipe-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .stepTitleInput {
   width: 99%;
   font-weight: 700;

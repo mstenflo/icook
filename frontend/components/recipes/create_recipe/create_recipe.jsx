@@ -59,7 +59,6 @@ class CreateRecipe extends Component {
     }
     this.props.createStep(emptyStep)
       .then(res => {
-        console.log('recipe_id: ', this.state)
         const recipeId = res.step.recipe_id
         this.props.requestRecipe(recipeId)
           .then(res => this.setState(res.recipe))
@@ -67,14 +66,10 @@ class CreateRecipe extends Component {
   }
   
   render() {
-    
-    console.log('props: ', this.props)
     let stepList = [];
     if (this.state.steps) {
       stepList = Object.values(this.state.steps)
     }
-    // const stepList = Object.values(this.state.steps)
-    // console.log('steplist: ', stepList)
     return (
       <div>
         <br/>

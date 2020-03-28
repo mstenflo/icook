@@ -1,7 +1,6 @@
 import React from 'react';
 
 const NewStep = (step) => {
-  console.log(this)
   return (
     <div>
     hello

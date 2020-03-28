@@ -21,14 +21,11 @@ class EditRecipeTitle extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.props)
     this.props.updateRecipe(this.state)
       .then(res => this.props.history.push(`/recipes/${res.recipe.id}/edit`));
   }
   
   render() {
-    console.log('state: ', this.state)
-    console.log('props: ', this.props)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

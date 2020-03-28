@@ -7,12 +7,6 @@ class CreateStep extends React.Component {
     
   }
 
-  componentDidMount() {
-    console.log(this.state)
-    console.log(this.props)
-  }
-  
-  
   render() {
       if (!this.props.steps) return null;
       const steps = Object.values(this.props.steps)

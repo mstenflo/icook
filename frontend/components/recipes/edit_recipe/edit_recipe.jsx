@@ -42,7 +42,6 @@ class EditRecipe extends React.Component {
     handleDelete(stepId) {
         return e => {
         e.preventDefault();
-        console.log('delete: ', this)
         this.props.destroyStep(stepId).then(
         this.props.requestRecipe(this.state.id)
             .then(res => this.setState(res.recipe)))
@@ -58,7 +57,6 @@ class EditRecipe extends React.Component {
         }
         this.props.createStep(emptyStep)
             .then(res => {
-                console.log('recipe_id: ', this.state)
                 const recipeId = res.step.recipe_id
                 this.props.requestRecipe(recipeId)
                     .then(res => this.setState(res.recipe))
@@ -68,7 +66,6 @@ class EditRecipe extends React.Component {
     handleTitle(id) {
         return e => {
             e.preventDefault();
-            // console.log(id);
             this.props.history.push(`/recipe_title/${id}/edit`);
         }
     }
@@ -78,8 +75,6 @@ class EditRecipe extends React.Component {
         if (this.state.steps) {
             stepList = Object.values(this.state.steps)
         }
-        console.log('state: ', this.state)
-        console.log('props: ', this.props)
         return (
             <div className="new-edit-container">
                 <br/>

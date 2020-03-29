@@ -75,6 +75,8 @@ class EditRecipe extends React.Component {
         if (this.state.steps) {
             stepList = Object.values(this.state.steps)
         }
+        if (!this.state.ingredients) return null;
+        console.log('state: ', this.state)
         return (
             <div className="new-edit-container">
                 <br/>
@@ -86,6 +88,14 @@ class EditRecipe extends React.Component {
                                 <h1>{this.state.title}</h1>
                             </div>
                             <p>{this.state.body}</p>
+                            
+                        </div>
+                        <div className="ingredient-container">
+                        {this.state.ingredients.map((ingredient, idx) => (
+                            <div className="ingredient-list" key={idx}>
+                                <li>{ingredient}</li>
+                            </div>
+                        ))}
                         </div>
                         <ul>
                             { stepList.map((step, idx) => (

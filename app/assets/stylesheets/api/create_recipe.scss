@@ -1,79 +1,4 @@
-// .centeredContainer {
-//   width: 1016px;
-//   border: 1px solid rgba(119, 130, 135, .4);
-//   padding: 10px;
-//   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-//   background-color: #f6f6f6;
-//   -webkit-border-radius: 10px 10px 0 0;
-//   min-height: 100px;
-//   margin: 40px auto 36px;
-// }
-
-// .attachedImages {
-//   position: relative;
-//   padding: 2px;
-//   width: 100%;
-//   z-index: 1;
-//   height: 137;
-//   -webkit-box-sizing: border-box;
-// }
-
-// .fileset_placeholder {
-//   background-color: #eee;
-//   padding: 40px;
-//   -webkit-box-shadow: inset 0 0 3px 3px #dfdfdf;
-//   text-align: center;
-//   left: 12px;
-//   right: 12px;
-//   top: 9px;
-//   bottom: 12px;
-//   color: #aaa;
-//   -webkit-border-radius: 10px;
-//   cursor: pointer;
-//   border: 1px solid #dedede;
-// }
-
-// .fileset_textTainer {
-//   font-size: 20px;
-//   vertical-align: text-top;
-//   margin-right: 6px;
-// }
-
-// .plus {
-//   font-size: 42px;
-//   vertical-align: text-top;
-//   margin-right: 6px;
-//   line-height: 20px;
-//   -webkit-font-smoothing: antialiased;
-// }
-
-// .addPlus {
-//   font-size: 20px;
-//   line-height: 20px;
-//   color: #b0b0b0;
-// }
-
-// .navBarButtons {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .stepButton {
-//   -webkit-border-radius: 4px;
-//   font-size: 14px;
-//   background-color: #f6f6f6;
-//   margin-top: 10px;
-//   margin-right: 10px;
-//   padding: 6px 12px;
-//   cursor: pointer;
-// }
-
-// .stepButton:hover {
-  //   background-color: #eee;
-  // }
-  
 .submit-button {
-  // border-color: #dedede;
   margin: 10px;
   background-color: #f6f6f6;
   border-radius: 4px;
@@ -155,4 +80,71 @@
   margin: 0 12px 12px 12px;
   resize: none;
   width: 95.8%;
+}
+
+.inline {
+  display: flex;
+}
+
+.ingredient-container {
+  border: 1px solid #ddd;
+  margin: 0 12px 12px 12px;
+  width: 93%;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: white;
+}
+
+.ingredient-list {
+  display: inline-flex;
+  margin: 0 10px;
+  line-height: 24px;
+  color: #555;
+}
+
+.add-ingredient {
+  font-size: 14px;
+  margin: 10px;
+  padding: 7px;
+  width: 50%;
+}
+
+.add-ingredient-list {
+  color: #333;
+  border: 1px solid #ccc;
+  line-height: 24px;
+  border-radius: 3px;
+  padding: 5px;
+  display: inline-flex;
+}
+
+.add-ingredient-container {
+  display: inline-flex;
+  margin: 10px;
+}
+
+.add-ingredient-button {
+  padding: 10px;
+  margin: 10px;
+  background-color: #f6f6f6;
+  border-radius: 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.add-ingredient-button:hover {
+  color:  white;
+  background-color: #e86c00;
+  border: 1px solid #cf6000;
+}
+
+.delete-ingredient {
+  margin: 0 10px;
+  color: #555;
+}
+
+.delete-ingredient:hover {
+  color: red;
+  cursor: pointer;
 }

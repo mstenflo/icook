@@ -29,19 +29,12 @@ class EditRecipeTitle extends Component {
 
   handleIngredient(e) {
     e.preventDefault();
-    let IngredientList = this.state.ingredients;
-    IngredientList.push(this.state.ingredient);
 
-    let newState = Object.assign({}, this.state);
-    newState.ingredients = IngredientList;
-    newState.ingredient = '';
-    
-    console.log('newState: ', newState)
-    this.setState(newState);
-    console.log('updated state: ', this.state)
-    this.props.updateRecipe(newState)
-      .then(res => console.log(res))
-    // console.log('ingredients state: ', this.state.ingredients)
+    const updatedIngredients = [...this.state.ingredients, this.state.ingredient]
+    this.setState({
+      ingredients: updatedIngredients,
+      ingredient: ''
+    })
   }
 
   handleCancel(e) {

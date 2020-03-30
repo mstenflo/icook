@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import EditStepListItem from '../../steps/edit_step_list_item';
 
@@ -90,13 +89,16 @@ class EditRecipe extends React.Component {
                             <p>{this.state.body}</p>
                             
                         </div>
-                        <div className="ingredient-container">
-                        {this.state.ingredients.map((ingredient, idx) => (
-                            <div className="ingredient-list" key={idx}>
-                                <li>{ingredient}</li>
-                            </div>
-                        ))}
-                        </div>
+                        {
+                            this.state.ingredients.length === 0 ? null :
+                                <div className="ingredient-container">
+                                    {this.state.ingredients.map((ingredient, idx) => (
+                                        <div className="ingredient-list" key={idx}>
+                                            <li>{ingredient}</li>
+                                        </div>
+                                    ))}
+                                </div>
+                        }
                         <ul>
                             { stepList.map((step, idx) => (
                                 <div key={step.id} className="step-edit-container">

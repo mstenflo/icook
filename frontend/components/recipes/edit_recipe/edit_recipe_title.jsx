@@ -8,6 +8,7 @@ class EditRecipeTitle extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleIngredient = this.handleIngredient.bind(this);
+    this.deleteIngredient = this.deleteIngredient.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +42,16 @@ class EditRecipeTitle extends Component {
     e.preventDefault();
     this.props.history.push(`/recipes/${this.state.id}/edit`);
   }
+
+  deleteIngredient(idx) {
+    return e => {
+      const { ingredients } = this.state;
+      const newIngredients = [...ingredients.slice(0,idx), ...ingredients.slice(idx + 1, ingredients.length)];
+      this.setState({ ingredients: newIngredients })
+      // return console.log(newIngredients)
+      // console.log('delete')
+    }
+  }
   
   render() {
     if (!this.state.ingredients) return null;
@@ -59,7 +70,7 @@ class EditRecipeTitle extends Component {
               <textarea
                 placeholder="Enter the step description"
                 className="textEditor"
-                value={this.state.body}
+                value={this.state.body || ''}
                 onChange={this.update("body")}
               />
             </label>
@@ -78,7 +89,7 @@ class EditRecipeTitle extends Component {
             {this.state.ingredients.map((ingredient, idx) => (
               <li className="add-ingredient-container" key={idx}>
                 <div className="add-ingredient-list">{ingredient}
-                  <div className="delete-ingredient">X</div>
+                  <div className="delete-ingredient" onClick={this.deleteIngredient(idx)}>X</div>
                 </div>
               </li>
             ))}

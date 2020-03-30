@@ -16,30 +16,6 @@ class StepEditBox extends React.Component {
         this.props.destroyStep(this.props.step.id);
     }
 
-    // redirect(e) {
-    //     const path = `/steps/${this.props.step.id}/edit`;
-    //     if (e.target.className.split(" ").includes("no-redirect")) {
-    //         return;
-    //     } else {
-    //         this.props.history.push(path);
-    //     }
-    // }
-
-    // handleStepFile(e) {
-    //     e.stopPropagation();
-    //     const reader = new FileReader();
-    //     const file = e.currentTarget.files[0];
-    //     reader.onloadend = () => {
-    //         this.setState({ imageUrl: reader.result, imageFile: file });
-    //     };
-    //     if (file) {
-    //         reader.readAsDataURL(file);
-    //         setTimeout(() => this.handleSubmit(), 100)
-    //     } else {
-    //         this.setState( { [imageUrl]: "", [imageFile]: null } );
-    //     }
-    // }
-
     handleSubmit() {
         const formData = new FormData();
         formData.append('step[recipe]', this.props.recipe);
@@ -54,47 +30,6 @@ class StepEditBox extends React.Component {
             // processData: false
         });        
     }
-
-    // imageForm() {
-    //     return (
-    //         <label className="no-redirect">
-    //             <div className="image-box-holder image-box no-redirect">
-    //                 <div className="no-redirect">Click to Add Image
-    //                     <input
-    //                         className='inputfile no-redirect'
-    //                         type="file"
-    //                         onChange={this.handleStepFile}
-    //                     />
-    //                 </div>
-    //             </div>
-    //         </label>
-    //     )
-    // }
-
-    // previewImage() {
-    //     let image;
-    //     if (this.state.imageUrl) {
-    //         image = this.state.imageUrl
-    //     } else if (this.props.step.imageUrl) {
-    //         image = this.props.step.imageUrl
-    //     }
-    //     return (
-    //         <label className="no-redirect">
-    //             <div className="image-box-holder image-box no-redirect">
-    //                 Click to Change Image
-    //             <div className="image-preview-box no-redirect">
-    //             <img className="image-preview no-redirect" src={image} />
-
-    //                 </div>
-    //                 <input
-    //                     className='inputfile no-redirect'
-    //                     type="file"
-    //                     onChange={this.handleStepFile}
-    //                 />
-    //             </div>
-    //         </label>
-    //     )
-    // }
 
     render() {
 

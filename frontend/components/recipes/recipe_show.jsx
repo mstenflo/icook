@@ -20,15 +20,15 @@ class RecipeShow extends React.Component {
     }
     
     
-    render () {
-      if (!this.state.recipe) return null;
-      if (!this.state.recipe.ingredients) return null;
-      const { recipe } = this.state;
-      let steps = [];
-      if (recipe.steps) {
-        steps = Object.values(recipe.steps)
-      }
-
+  render () {
+    if (!this.state.recipe) return null;
+    if (!this.state.recipe.ingredients) return null;
+    const { recipe } = this.state;
+    let steps = [];
+    if (recipe.steps) {
+      steps = Object.values(recipe.steps)
+    }
+    console.log('props: ', this.props)
     return (
       <div className="recipe-full-wrapper">
         <header className="article-header">
@@ -41,9 +41,13 @@ class RecipeShow extends React.Component {
             &nbsp; in &nbsp;
             <Link to="/" className="recipe-category">{recipe.category}</Link>
           </div>
-          <Link to={`/recipes/${this.state.recipe.id}/edit`} className="edit-recipe-link">
-            <p className="edit-recipe-button">Edit Recipe</p>
-          </Link>
+          {
+            (this.props.currentUser.username === recipe.username) ? <div> {
+              <Link to={`/recipes/${this.state.recipe.id}/edit`} className="edit-recipe-link">
+                <p className="edit-recipe-button">Edit Recipe</p>
+              </Link>
+            } </div> : null
+          }
         </header>
         <div className="article-body">
           <p>{recipe.body}</p>

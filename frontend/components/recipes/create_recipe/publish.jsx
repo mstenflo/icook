@@ -5,7 +5,7 @@ class Publish extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        author_id: this.props.recipe.author_id,
+        author_id: this.props.author_id,
         // body: "",
         // ingredients: [],
         // steps: []
@@ -26,6 +26,8 @@ class Publish extends React.Component {
   }
 
   render() {
+    console.log('props: ', this.props)
+    console.log('state: ', this.state)
     return(
       <div>
         <div className="new-recipe-image">

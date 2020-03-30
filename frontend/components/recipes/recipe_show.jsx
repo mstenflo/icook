@@ -21,8 +21,6 @@ class RecipeShow extends React.Component {
     
     
     render () {
-      console.log('this: ', this)
-      console.log('window: ', window.currentUser)
       if (!this.state.recipe) return null;
       if (!this.state.recipe.ingredients) return null;
       const { recipe } = this.state;
@@ -63,8 +61,8 @@ class RecipeShow extends React.Component {
                 }
             </ul>
             {
-              steps.map(step => (
-                <StepListItem step={step} idx={step.id % steps[0].id} key={step.id} />
+              steps.map((step, idx) => (
+                <StepListItem step={step} idx={idx + 1} key={idx} />
               ))
             }
           </div>

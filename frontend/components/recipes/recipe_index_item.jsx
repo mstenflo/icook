@@ -8,8 +8,6 @@ class RecipeIndexItem extends React.Component {
   }
   
   render () {
-    console.log(this.props.recipe)
-    
     return (
         <div className="recipe-index-item">
           <Link to={`/recipes/${this.props.recipe.id}`}>

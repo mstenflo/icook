@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class Publish extends React.Component {
 
@@ -7,9 +6,9 @@ class Publish extends React.Component {
     super(props);
     this.state = {
         author_id: this.props.recipe.author_id,
-        body: "",
-        ingredients: [],
-        steps: []
+        // body: "",
+        // ingredients: [],
+        // steps: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -68,11 +67,9 @@ class Publish extends React.Component {
                 </p>
               </div>
             </div>
-            {/* <Link to='/projects/new'> */}
               <button className="publishButton" onClick={this.handleSubmit}>
                 Create Recipe
               </button>
-            {/* </Link> */}
           </form>
         </div>
       </div>

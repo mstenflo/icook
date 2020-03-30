@@ -43,7 +43,6 @@ class EditRecipeTitle extends Component {
   }
   
   render() {
-    console.log('state: ', this.state)
     if (!this.state.ingredients) return null;
     return (
       <div>

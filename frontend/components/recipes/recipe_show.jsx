@@ -9,6 +9,7 @@ class RecipeShow extends React.Component {
     super(props);
 
     this.state = {}
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +20,10 @@ class RecipeShow extends React.Component {
       // this.props.requestSteps(this.props.match.params.recipeId);
     }
     
+  handleDelete() {
+    this.props.deleteRecipe(this.props.match.params.recipeId)
+      .then(this.props.history.push('/'));
+  }
     
   render () {
     if (!this.state.recipe) return null;
@@ -43,9 +48,14 @@ class RecipeShow extends React.Component {
           </div>
           {
             (this.props.currentUser.username === recipe.username) ? <div> {
-              <Link to={`/recipes/${this.state.recipe.id}/edit`} className="edit-recipe-link">
-                <p className="edit-recipe-button">Edit Recipe</p>
-              </Link>
+              <div>
+                <Link to={`/recipes/${this.state.recipe.id}/edit`} className="edit-recipe-link">
+                  <p className="edit-recipe-button">Edit Recipe</p>
+                </Link>
+                <div className="delete-recipe" onClick={this.handleDelete}>
+                  Delete
+                </div>
+              </div>
             } </div> : null
           }
         </header>

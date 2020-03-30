@@ -161,7 +161,7 @@
 .edit-recipe-button {
   color: #999;
   font-style: italic;
-  padding: 10px 0 40px;
+  padding: 10px;
 }
 
 .edit-recipe-link {
@@ -172,6 +172,16 @@
   text-decoration: underline;
   cursor: pointer;
   color: black;
+}
+
+.delete-recipe {
+  font-size: 14px;
+}
+
+.delete-recipe:hover {
+  text-decoration: underline;
+  color: red;
+  cursor: pointer;
 }
 
 .title-link {

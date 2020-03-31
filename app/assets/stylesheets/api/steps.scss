@@ -8,6 +8,21 @@
   color: #555;
 }
 
+.empty-step-title {
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+  font-weight: 700;
+  margin: 10px;
+  padding: 7px;
+  width: 94.5%;
+}
+
+.empty-step-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .edit-step-title {
   font-size: 18px;
   color: #333;

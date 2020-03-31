@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :steps, only: [:edit, :update, :show, :destroy]
     resources :recipes do
       resources :steps, except: [:edit, :update, :show, :destroy]
+      resources :comments
     end
   end
   root "static_pages#root"

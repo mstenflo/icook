@@ -22,8 +22,8 @@ class Api::RecipesController < ApplicationController
     def update
         @recipe = Recipe.find(params[:id])
         if @recipe
-            if @recipe.update(recipe_params)
-                render '/api/recipes/newrecipe', status: 200
+            if @recipe.update_attributes!(recipe_params)
+                render '/api/recipes/show', status: 200
             else
                 render json: @recipe.errors.full_messages, status: 422
             end

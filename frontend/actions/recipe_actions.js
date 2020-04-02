@@ -39,7 +39,14 @@ export const createRecipe = recipe => dispatch => (
 
 export const updateRecipe = recipe => dispatch => (
   RecipeAPIUtil.updateRecipe(recipe)
-  .then(recipe => dispatch(receiveRecipe(recipe)))
+  .then(recipe => {
+    console.log(recipe)
+    return (
+
+      dispatch(receiveRecipe(recipe))
+    )
+  }
+  )
 );
 
 export const deleteRecipe = recipeId => dispatch => (

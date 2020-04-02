@@ -8,8 +8,8 @@ const RecipesReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_RECIPES:
       return action.recipes;
     case RECEIVE_RECIPE:
-      const newRecipe = action.project;
-      return Object.assign({}, oldState, newRecipe);
+      nextState = action.recipe;
+      return nextState;
     case REMOVE_RECIPE:
       delete nextState[action.recipeId]
       return nextState;

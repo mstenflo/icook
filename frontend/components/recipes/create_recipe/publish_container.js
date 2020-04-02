@@ -5,14 +5,7 @@ import Publish from './publish';
 
 const mapSTP = (state) => ({
   currentUser: state.entities.users[state.session.id],
-  // recipe: {
-  //   title: "",
-  //   body: "",
-  //   ingredients: ['none'],
-  //   category: "new",
-    author_id: state.session.id,
-  //   steps: []
-  // },
+  author_id: state.session.id,
 });
 
 const mapDTP = dispatch => ({

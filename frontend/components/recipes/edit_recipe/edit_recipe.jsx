@@ -75,7 +75,6 @@ class EditRecipe extends React.Component {
             stepList = Object.values(this.state.steps)
         }
         if (!this.state.ingredients) return null;
-        console.log('state: ', this.state)
         return (
             <div className="new-edit-container">
                 <br/>

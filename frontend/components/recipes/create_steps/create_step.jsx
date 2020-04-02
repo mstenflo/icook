@@ -12,6 +12,7 @@ class CreateStep extends React.Component {
       const steps = Object.values(this.props.steps)
       return (
           <div>
+          {/* aaaaaaa
               <ul className="step-list">
                   {steps.map((step, idx) => (
                       <StepEditBox  
@@ -22,7 +23,7 @@ class CreateStep extends React.Component {
                           destroyStep={this.props.destroyStep}
                       />
                   ))}
-              </ul>
+              </ul> */}
           </div>
       )
   }

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 // import EditRecipeContainer from '../edit_recipe/edit_recipe_container';
-import CreateStep from '../../steps/create_step';
-import CreateStepList from '../../recipes/create_steps/create_step_list';
-import NewStep from '../../steps/new_step';
 import StepListItem from '../../steps/step_list_item';
 
 class CreateRecipe extends Component {
@@ -72,7 +69,8 @@ class CreateRecipe extends Component {
     }
     return (
       <div>
-        <br/>
+        {/* <br/>
+        aaaaaaaa
         <br/>
         <form onSubmit={this.handleSubmit}>
           <div className="stepDetailBox">
@@ -102,7 +100,7 @@ class CreateRecipe extends Component {
             </div>
           </div>
 
-        </form>
+        </form> */}
       </div>
     );
   }

@@ -2,6 +2,10 @@ class Api::CommentsController < ApplicationController
 
   before_action :require_logged_in
   # before_action :set_product
+
+  def index
+    @comments = @recipe.comments if @recipe
+  end
   
   def create
     @comment = @recipe.comments.build(comment_params)

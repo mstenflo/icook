@@ -4,10 +4,7 @@ class EditRecipeTitle extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      ...props,
-      ingredient: '',
-    };
+    this.state = {ingredient: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleIngredient = this.handleIngredient.bind(this);
@@ -27,8 +24,7 @@ class EditRecipeTitle extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // console.log(this.state)
-    // debugger
+    
     this.props.updateRecipe(this.state)
       .then(res => this.props.history.push(`/recipes/${res.recipe.id}/edit`));
   }
@@ -53,14 +49,11 @@ class EditRecipeTitle extends Component {
       const { ingredients } = this.state;
       const newIngredients = [...ingredients.slice(0,idx), ...ingredients.slice(idx + 1, ingredients.length)];
       this.setState({ ingredients: newIngredients })
-      // return console.log(newIngredients)
-      // console.log('delete')
     }
   }
   
   render() {
     if (!this.state.ingredients) return null;
-    // console.log(this.state)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

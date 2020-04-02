@@ -17,8 +17,8 @@ class RecipeIndex extends React.Component {
     return (
       <div className="recipe-index">
         {
-          recipes.map(recipe => (
-            <RecipeIndexItem recipe={recipe} users={users} key={recipe.id} />
+          recipes.map((recipe, idx) => (
+            <RecipeIndexItem recipe={recipe} users={users} key={idx} />
           ))
         }
       </div>

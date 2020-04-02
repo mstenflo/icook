@@ -34,7 +34,7 @@ class RecipeShow extends React.Component {
     if (recipe.steps) {
       steps = Object.values(recipe.steps)
     }
-    console.log('props: ', this.props)
+    
     return (
       <div className="recipe-full-wrapper">
         <header className="article-header">

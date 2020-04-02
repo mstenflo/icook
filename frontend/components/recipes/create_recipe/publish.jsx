@@ -6,9 +6,6 @@ class Publish extends React.Component {
     super(props);
     this.state = {
         author_id: this.props.author_id,
-        // body: "",
-        // ingredients: [],
-        // steps: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }

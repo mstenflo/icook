@@ -107,6 +107,7 @@
 
 .article-body {
   position: relative;
+  padding-top: 20px;
   display: block;
   color: #333;
   font-size: 20px;
@@ -118,7 +119,6 @@
   font-weight: 700;
   font-size: 28px;
   line-height: 34px;
-  padding-top: 30px;
 }
 
 .article-photo-container {
@@ -130,6 +130,7 @@
   // margin-right: auto;
   overflow: hidden;
   border-radius: 10px;
+  padding-bottom: 20px;
 }
 
 .article-photo-container img {

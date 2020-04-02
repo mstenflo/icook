@@ -7,7 +7,6 @@ class CreateStepListItem extends React.Component {
     this.state = this.props.step;
   }
   
-
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value

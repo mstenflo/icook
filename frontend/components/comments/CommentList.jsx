@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Comment from './Comment';
+import CommentForm from './CommentForm';
 
 class CommentList extends Component {
   render() {
@@ -14,6 +15,7 @@ class CommentList extends Component {
           <h2>
             Be the first to leave a comment!
           </h2>
+          <CommentForm />
         </div>
       );
     }

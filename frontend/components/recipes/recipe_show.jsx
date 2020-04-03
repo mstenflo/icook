@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import StepListItem from '../steps/step_list_item';
 import IngredientList from './ingredient_list';
-import CommentList from '../../../comments/CommentList';
+import CommentList from '../comments/CommentList';
 // import StepList from '../steps/step_list';
 
 class RecipeShow extends React.Component {

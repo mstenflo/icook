@@ -2,6 +2,7 @@ class Api::RecipesController < ApplicationController
     def index
         @recipes = Recipe.all
         @steps = Step.all
+        @comments = Comment.all
         render :index
     end
 

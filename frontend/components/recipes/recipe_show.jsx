@@ -82,7 +82,7 @@ class RecipeShow extends React.Component {
             }
           </div>
           <h1 className="comments">
-            <CommentList />
+            <CommentList comments={this.state.comments} />
           </h1>
         </div>
       </div>

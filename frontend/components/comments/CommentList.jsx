@@ -4,12 +4,18 @@ import Comment from './Comment';
 import CommentForm from './CommentForm';
 
 class CommentList extends Component {
+  constructor(props) {
+    super(props);
+    
+  }
+  
   render() {
     
-  const { comments } = this.props
-  let commentList = null
-
-  if (!comments || comments.length === 0) {
+    const { comments } = this.props
+    let commentList = null
+    
+    if (!comments || comments.length === 0) {
+      console.log('props: ', this.props)
       return (
         <div>
           <h2>

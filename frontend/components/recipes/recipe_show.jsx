@@ -28,11 +28,15 @@ class RecipeShow extends React.Component {
     
   render () {
     if (!this.state.recipe) return null;
-    if (!this.state.recipe.ingredients) return null;
+    // if (!this.state.recipe.ingredients) return null;
     const { recipe } = this.state;
     let steps = [];
+    let comments = [];
     if (recipe.steps) {
       steps = Object.values(recipe.steps)
+    }
+    if (recipe.comments) {
+      comments = Object.values(recipe.comments)
     }
     
     return (
@@ -82,7 +86,12 @@ class RecipeShow extends React.Component {
             }
           </div>
           <h1 className="comments">
-            <CommentList comments={this.state.comments} />
+            <CommentList 
+              comments={comments} 
+              createComment={this.props.createComment} 
+              currentUser={this.props.currentUser} 
+              recipeId={recipe.id}
+            />
           </h1>
         </div>
       </div>

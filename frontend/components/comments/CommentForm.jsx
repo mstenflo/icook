@@ -10,7 +10,7 @@ class CommentForm extends Component {
     }
     
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSubmit = this.handleCancel.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   update(field) {
@@ -21,14 +21,24 @@ class CommentForm extends Component {
   
   handleSubmit(e) {
     e.preventDefault();
+    const payload = {
+      body: this.state.body,
+      recipe_id: this.props.recipeId,
+      user_id: this.props.currentUser.id,
+    }
+    this.props.createComment(payload)
+      .then(this.setState({ body: '' }))
   }
 
   handleCancel() {
-    this.props.history.push(`/recipes`);
+    this.setState({
+      body: ''
+    });
   }
   
   render() {
-    console.log(this.props)
+    console.log('state: ', this.state)
+    console.log('props: ', this.props)
     return (
       <div className="discuss">
         <form onSubmit={this.handleSubmit}>
@@ -36,7 +46,7 @@ class CommentForm extends Component {
             <textarea 
               type="text"
               placeholder="Enter your comment here..."
-              value={this.state.comment}
+              value={this.state.body}
               onChange={this.update("body")}
             />
             <div className="bottom-buttons">

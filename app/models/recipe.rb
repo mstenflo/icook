@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
     class_name: 'User'
 
   has_many :steps
+  has_many :comments
 
   has_one_attached :photo
   

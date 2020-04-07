@@ -8,16 +8,11 @@ class Api::CommentsController < ApplicationController
   end
   
   def create
-    @comment = @recipe.comments.build(comment_params)
-    @comment.user = current_user
-
+    @comment = Comment.new(comment_params)
     if @comment.save
-      flash[:notice] = "Comment has been created"
-      redirect_to @recipe
+      render '/api/comments/show', status: 200
     else
-      @comments = @recipe.comments
-      flash.now[:alert] = "Comment has not been created"
-      render 'recipes/show'
+      render json: @comment.error.full_messages, status: 422
     end
   end
 
@@ -28,7 +23,7 @@ class Api::CommentsController < ApplicationController
   # end
   
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :user_id, :recipe_id)
   end
   
 end

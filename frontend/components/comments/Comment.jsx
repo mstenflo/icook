@@ -1,20 +1,22 @@
 import React from 'react';
+import moment from 'moment';
 
 const Comment = ({ comment }) => {
   return (
-    <div>
+    <div className="post">
       <div>
+        <span className="posted-by-author">
+          { comment.username } &nbsp;
+        </span>
+        <span className="posted-by-date">
+          {
+            moment(comment.created_at).startOf('minute').fromNow()
+          }
+        </span>
+      </div>
+      <div className="comment-body">
         { comment.body }
       </div>
-        <small>
-          <em>
-            Created 
-            <span>
-             { comment.created_at }
-            </span>  ago by: 
-          </em>
-          { comment.user.fullname }
-        </small>
     </div>
   );
 }

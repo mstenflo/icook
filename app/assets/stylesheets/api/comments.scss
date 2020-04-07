@@ -3,6 +3,40 @@
   padding: 20px;
 }
 
+.discussion h2 {
+  margin: 0 0 20px;
+  font-size: 26px;
+  text-align: center;
+}
+
+.post {
+  border-top: 1px solid #ddd;
+  padding: 20px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #999;
+  text-align: left;
+  font-weight: 400;
+}
+
+.posted-by-author {
+  color: #1e8439;
+}
+
+.posted-by-date {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.comment-body {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  color: #555;
+  overflow-x: hidden;
+  margin: 10px 0;
+}
+
 .discuss {
   border: 1px solid #ddd;
   border-radius: 6px;

@@ -16,22 +16,6 @@ class Footer extends Component {
         <div>
           <h1>About Me</h1>
           <ul>
-            <li>Who am I</li>
-            <li>Jobs</li>
-          </ul>
-        </div>
-        <div>
-          <h1>Resources</h1>
-          <ul>
-            <li>Sitemap</li>
-            <li>Help</li>
-            <li>Contact</li>
-          </ul>
-        </div>
-        <div>
-          <h1>Find me</h1>
-          <ul>
-            <li>Facebook</li>
             <li>LinkedIn</li>
           </ul>
         </div>

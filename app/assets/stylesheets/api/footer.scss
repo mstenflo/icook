@@ -17,6 +17,15 @@
   justify-content: space-between;
 }
 
+.footer-flex a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-flex a:hover {
+  text-decoration: underline;
+}
+
 .footer h1 {
   margin-right: 50px;
   font-size: 18px;

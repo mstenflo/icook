@@ -13,9 +13,9 @@ class Navbar extends Component {
               <img src={window.homeButtonURL} />
             </Link>
           </li>
-          <li>Appetizer</li>
+          {/* <li>Appetizer</li>
           <li>Main Dish</li>
-          <li>Dessert</li>
+          <li>Dessert</li> */}
         </ul>
         <GreetingContainer />
       </div>

@@ -18,7 +18,7 @@ class CommentForm extends Component {
       [field]: e.currentTarget.value
     })
   }
-  
+
   handleSubmit(e) {
     e.preventDefault();
     const payload = {
@@ -27,7 +27,7 @@ class CommentForm extends Component {
       user_id: this.props.currentUser.id,
     }
     this.props.createComment(payload)
-      .then(this.setState({ body: '' }))
+      .then(res => this.setState({ body: '' }))
   }
 
   handleCancel() {
@@ -37,8 +37,6 @@ class CommentForm extends Component {
   }
   
   render() {
-    console.log('state: ', this.state)
-    console.log('props: ', this.props)
     return (
       <div className="discuss">
         <form onSubmit={this.handleSubmit}>

@@ -88,6 +88,7 @@ class RecipeShow extends React.Component {
           <h1 className="comments">
             <CommentList 
               comments={comments} 
+              history={this.props.history}
               createComment={this.props.createComment} 
               currentUser={this.props.currentUser} 
               recipeId={recipe.id}

@@ -7,6 +7,7 @@ class CommentList extends Component {
   constructor(props) {
     super(props);
     
+    
   }
   
   render() {
@@ -23,9 +24,11 @@ class CommentList extends Component {
             Be the first to leave a comment!
           </h2>
           <CommentForm 
+            history={this.props.history}
             createComment={this.props.createComment}
             currentUser={this.props.currentUser} 
             recipeId={this.props.recipeId}
+
           />
         </div>
       );
@@ -38,6 +41,7 @@ class CommentList extends Component {
     return (
       <div className="discussion">
         <CommentForm 
+          history={this.props.history}
           createComment={this.props.createComment}
           currentUser={this.props.currentUser} 
           recipeId={this.props.recipeId}

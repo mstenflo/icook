@@ -7,11 +7,16 @@ class EditRecipe extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            photourl: null,
+            imageFile: null
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleStep = this.handleStep.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleTitle = this.handleTitle.bind(this);
+        this.handleImage = this.handleImage.bind(this);
+        this.handleUpload = this.handleUpload.bind(this);
     }
 
     componentDidMount() {
@@ -27,15 +32,31 @@ class EditRecipe extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.updateRecipe(this.state);
+        this.handleUpload();
         this.setState({
             recipe: {
                 title: this.state.title,
                 body: this.state.body,
-                steps: this.state.steps
+                steps: this.state.steps,
+                photourl: this.state.photourl
             }
         })
         this.props.history.push(`/recipes/${this.state.id}`)
+    }
+
+    handleUpload() {
+        const formData = new FormData();
+        formData.append('recipe[id]', this.state.id);
+        if (this.state.imageFile) {
+            formData.append('recipe[photo]', this.state.imageFile);
+        }
+        $.ajax({
+            url: `/api/recipes/${this.state.id}`,
+            method: 'PATCH',
+            data: formData,
+            contentType: false,
+            processData: false
+        })
     }
 
     handleDelete(stepId) {
@@ -47,6 +68,20 @@ class EditRecipe extends React.Component {
 
     }}
 
+    handleImage(e) {
+        e.preventDefault();
+        const reader = new FileReader();
+        const file = e.currentTarget.files[0];
+        reader.onloadend = () => {
+            this.setState({ photourl: reader.result, imageFile: file });
+        };
+        if (file) {
+            reader.readAsDataURL(file);
+            this.handleUpload();
+            setTimeout(() => this.handleUpload(), 100)
+        }
+    }
+    
     handleStep(e) {
         e.preventDefault();
         const emptyStep = {
@@ -70,6 +105,9 @@ class EditRecipe extends React.Component {
     }
 
     render() {
+        console.log(this.props)
+        console.log('state: ', this.state)
+
         let stepList = [];
         if (this.state.steps) {
             stepList = Object.values(this.state.steps)
@@ -81,13 +119,40 @@ class EditRecipe extends React.Component {
                 <br/>
                 <form onSubmit={this.handleSubmit}>
                     <div className="stepDetailBox">
-                        <div onClick={this.handleTitle(this.state.id)} className="recipe-title-box">
-                            <div className="new-recipe-title">
-                                <h1>{this.state.title}</h1>
+                        <div className="inline">
+                            <div onClick={this.handleTitle(this.state.id)} className="recipe-title-box">
+                                <div className="new-recipe-title">
+                                    <h1>{this.state.title}</h1>
+                                </div>
+                                <p>{this.state.body}</p>
+                                
                             </div>
-                            <p>{this.state.body}</p>
-                            
+                            <div className="image-container">
+                                {
+                                    !this.state.photourl &&
+                                    <label className="upload-image" htmlFor="newImage">upload an image:</label>
+                                }
+                                {   
+                                    !this.state.photourl &&
+                                        <input
+                                            type="file"
+                                            id="newImage"
+                                            title="image"
+                                            name="newImage"
+                                            onChange={this.handleImage}
+                                            placeholder="add an image"
+                                        />
+                                }
+                                {
+                                    this.state.photourl && 
+                                        <div className="thumbnail">
+                                            <img src={this.state.photourl} />
+                                        </div>
+                                }
+                            </div>
                         </div>
+
+                       
                         {
                             this.state.ingredients.length === 0 ? null :
                                 <div className="ingredient-container">

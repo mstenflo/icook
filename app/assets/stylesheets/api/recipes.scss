@@ -26,6 +26,11 @@
   object-fit: cover;
 }
 
+.inline {
+  display: flex;
+  // position: relative;
+}
+
 .recipe-info {
   padding: 10px 13px;
   margin-bottom: 10px;
@@ -147,6 +152,26 @@
   // max-width: 933.333px;
   // margin: 40px;
   // vertical-align: middle;
+}
+
+.upload-image {
+  display: block;
+  padding: 20px;
+}
+
+.image-container {
+  padding-left: 20px;
+  position: relative;
+  object-fit: contain;
+
+}
+
+.thumbnail img{
+  height: 120px;
+  // padding: 0 2;
+  // object-fit: contain;
+  border-radius: 4px;
+  margin: 15px;
 }
 
 .article-body p {

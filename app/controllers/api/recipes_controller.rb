@@ -47,6 +47,10 @@ class Api::RecipesController < ApplicationController
 
     def destroy
         @recipe = Recipe.find(params[:id])
+        comments = Comment.where(recipe_id: params[:id])
+        comments.each do |comment| 
+            comment.destroy 
+        end
         @recipe.destroy
         # render :index
     end
@@ -54,6 +58,6 @@ class Api::RecipesController < ApplicationController
     private
 
     def recipe_params
-        params.require(:recipe).permit(:id, :title, :body, {:ingredients => []}, :category, :author_id)
+        params.require(:recipe).permit(:id, :title, :body, {:ingredients => []}, :category, :author_id, :photo)
     end
 end

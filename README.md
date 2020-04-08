@@ -15,13 +15,13 @@ This app was part of a two week solo project. More features are expected to be i
 * Media stored and retrieved through AWS S3 services
 * Using Rails backend
 * React/Redux frontend
-
-# Upcoming Features
-
 * Members can post new recipes
 * Members can edit recipes they posted
 * Members can attach a photo to their recipe
 * Members can post comments on recipes
+
+# Upcoming Features
+
 * Database is searchable
-* Recipes are organized by categories
+* Recipes are displayed by categories
 * Members have their own show pages with personal info and a list of recipes they posted

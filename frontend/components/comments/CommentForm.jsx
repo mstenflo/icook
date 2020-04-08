@@ -27,7 +27,11 @@ class CommentForm extends Component {
       user_id: this.props.currentUser.id,
     }
     this.props.createComment(payload)
-      .then(res => this.setState({ body: '' }))
+      .then(res => {
+        this.setState({ body: '' })
+      })
+    this.props.refresh
+    setTimeout(() => this.props.refresh(), 100)
   }
 
   handleCancel() {

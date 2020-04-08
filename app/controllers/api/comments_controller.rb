@@ -12,7 +12,7 @@ class Api::CommentsController < ApplicationController
     if @comment.save
       render '/api/comments/show', status: 200
     else
-      render json: @comment.error.full_messages, status: 422
+      render json: ["error"], status: 422
     end
   end
 

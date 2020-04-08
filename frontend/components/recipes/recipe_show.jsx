@@ -11,7 +11,17 @@ class RecipeShow extends React.Component {
 
     this.state = {}
     this.handleDelete = this.handleDelete.bind(this);
+    this.refresh = this.refresh.bind(this);
   }
+
+refresh() {
+  this.props.requestRecipe(this.props.match.params.recipeId)
+    .then(response => {
+      this.setState({
+        recipe: response.recipe,
+      })
+    });
+}
 
   componentDidMount() {
     this.props.requestRecipe(this.props.match.params.recipeId)
@@ -92,6 +102,7 @@ class RecipeShow extends React.Component {
               createComment={this.props.createComment} 
               currentUser={this.props.currentUser} 
               recipeId={recipe.id}
+              refresh={this.refresh}
             />
           </h1>
         </div>

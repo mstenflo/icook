@@ -6,10 +6,9 @@ import CommentForm from './CommentForm';
 class CommentList extends Component {
   constructor(props) {
     super(props);
-    
-    
+
   }
-  
+
   render() {
     
     const { comments } = this.props
@@ -28,7 +27,7 @@ class CommentList extends Component {
             createComment={this.props.createComment}
             currentUser={this.props.currentUser} 
             recipeId={this.props.recipeId}
-
+            refresh={this.props.refresh}
           />
         </div>
       );
@@ -45,6 +44,7 @@ class CommentList extends Component {
           createComment={this.props.createComment}
           currentUser={this.props.currentUser} 
           recipeId={this.props.recipeId}
+          refresh={this.props.refresh}
         />
         <br />
         <h2>

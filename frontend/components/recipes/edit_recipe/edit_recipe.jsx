@@ -105,9 +105,6 @@ class EditRecipe extends React.Component {
     }
 
     render() {
-        console.log(this.props)
-        console.log('state: ', this.state)
-
         let stepList = [];
         if (this.state.steps) {
             stepList = Object.values(this.state.steps)

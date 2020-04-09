@@ -9,6 +9,7 @@ iCook is a recipe database and resource for people who like cooking great meals.
 # Features
 
 * User authentication and encrypted login using BCrypt
+Frontend error handling to catch any errors before sending info to the database. Display and clear error messages for proper registration and login.
 
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/LoginForm.png" width="500">
 

@@ -109,7 +109,7 @@ let discussion = "Discussion"
   commentList = comments && comments.map(comment => (
       <Comment key={comment.id} comment={comment} />
     ))
-    ```
+```
 
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/CommentForm.png" width="500">
 

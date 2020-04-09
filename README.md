@@ -4,13 +4,13 @@
 
 ![alt text](https://github.com/mstenflo/icook/blob/master/app/assets/images/README/ScreenShot.png "iCook Logo")
 
-iCook is a recipe database and resource for people who like cooking great meals. It allows members to post their own recipes, view other member recipes and comment on them. No membership is required to view the recipes in the database. The site was built using Rails in the backend and React/Redux in the frontend.
+iCook is a recipe database and resource for people who like cooking great meals. It allows members to post their own recipes, view other member recipes and comment on them. No membership is required to view the recipes in the database, login is only necessary to post, edit, or delete recipes or comments. The site was built using Rails in the backend and React/Redux in the frontend.
 
 # Features
 
 * User authentication and encrypted login using BCrypt
 
-Frontend error handling to catch any errors before sending info to the database. Catch, display and clear error messages for proper registration and login.
+Frontend error handling was implemented to catch any errors before sending info to the database. Errors are caught and added to the state, displayed and cleared for proper registration and login.
 
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/LoginForm.png" width="500">
 
@@ -37,7 +37,7 @@ export const createRecipe = recipe => (
 
 * Members can edit recipes they posted
 
-Allow users to add recipes which dynamically get added and displayed on the edit page. Only updates the local state render the new ingredients on the DOM and does not get added to the database until the user submits the changes, allowing the user to cancel the changes. The new ingredient is added to a new variable with the existing ingredients using the spread operator. The new ingredient that has been added then gets cleared to an empty string.
+Registered users can add ingredients which dynamically get added and displayed on the edit page. Adding ingredients only updates the local state and renders the new ingredients on the DOM and does not add them to the database until the user submits the changes, allowing the user to cancel the changes if they do not want to accept their changes. The new ingredient is added to a new variable with the existing ingredients using the spread operator. The new ingredient that has been added then gets cleared to an empty string.
 
 ```
 handleIngredient(e) {

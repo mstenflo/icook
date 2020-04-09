@@ -31,6 +31,7 @@ Creating a new recipe sends an ajax promise to the backend and redirects to the 
     }
   })
 );
+```
 
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/PublishRecipe.png" width="500">
 

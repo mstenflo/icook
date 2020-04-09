@@ -22,7 +22,8 @@ Frontend error handling to catch any errors before sending info to the database.
 
 Creating a new recipe sends an ajax promise to the backend and redirects to the recipe edit page
 
-```export const createRecipe = recipe => (
+```
+export const createRecipe = recipe => (
   $.ajax({
     method: "POST",
     url: "/api/recipes",
@@ -43,7 +44,8 @@ Creating a new recipe sends an ajax promise to the backend and redirects to the 
 
 Only ask to upload an image if no image has been added yet.
 
-```{
+```
+  {
       !this.state.photourl &&
       <label className="upload-image" htmlFor="newImage">upload an image:</label>
   }
@@ -51,7 +53,8 @@ Only ask to upload an image if no image has been added yet.
 
 If there is an image, display the thumbnail.
 
-```{
+```
+  {
       this.state.photourl && 
         <div className="thumbnail">
           <img src={this.state.photourl} />

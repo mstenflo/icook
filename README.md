@@ -10,7 +10,7 @@ iCook is a recipe database and resource for people who like cooking great meals.
 
 * User authentication and encrypted login using BCrypt
 
-![alt text](https://github.com/mstenflo/icook/blob/master/app/assets/images/README/LoginForm.png "Login Form"){ width: 200px; }
+![alt text](https://github.com/mstenflo/icook/blob/master/app/assets/images/README/LoginForm.png "Login Form"{ width: 200px; })
 
 * Members can browse database of recipes and steps associated with the recipe
 * Media stored and retrieved through AWS S3 services

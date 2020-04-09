@@ -2,7 +2,7 @@
 
 [Live App](https://icookapp.herokuapp.com/#/)
 
-![alt text](https://github.com/mstenflo/Full-stack/blob/master/app/assets/images/Fork_v2-01.png "iCook Logo")
+![alt text](https://github.com/mstenflo/Full-stack/blob/master/app/assets/images/ScreenShot.png "iCook Logo")
 
 iCook is a recipe database and resource for people who like cooking great meals. It allows members to post their own recipes and view other member recipes. No membership is required to view the recipes in the database. The site was built using Rails in the backend and React/Redux in the frontend.
 

@@ -18,6 +18,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'faker'
 gem 'aws-sdk-s3'
 gem 'carrierwave', '~> 2.1.0'
+gem "actionview", ">= 5.2.4.2"
+
 
 
 # Use CoffeeScript for .coffee assets and views

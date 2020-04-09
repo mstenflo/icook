@@ -9,7 +9,8 @@ iCook is a recipe database and resource for people who like cooking great meals.
 # Features
 
 * User authentication and encrypted login using BCrypt
-Frontend error handling to catch any errors before sending info to the database. Display and clear error messages for proper registration and login.
+
+Frontend error handling to catch any errors before sending info to the database. Catch, display and clear error messages for proper registration and login.
 
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/LoginForm.png" width="500">
 
@@ -18,6 +19,21 @@ Frontend error handling to catch any errors before sending info to the database.
 * Using Rails backend
 * React/Redux frontend
 * Members can post new recipes
+
+Creating a new recipe sends an ajax promise to the backend and redirects to the recipe edit page
+
+```export const createRecipe = recipe => (
+  $.ajax({
+    method: "POST",
+    url: "/api/recipes",
+    data: {
+      recipe
+    }
+  })
+);```
+
+<img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/PublishRecipe.png" width="500">
+
 * Members can edit recipes they posted
 * Members can attach a photo to their recipe
 * Members can post comments on recipes

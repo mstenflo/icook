@@ -22,7 +22,8 @@ Frontend error handling to catch any errors before sending info to the database.
 
 Creating a new recipe sends an ajax promise to the backend and redirects to the recipe edit page
 
-```export const createRecipe = recipe => (
+```
+export const createRecipe = recipe => (
   $.ajax({
     method: "POST",
     url: "/api/recipes",
@@ -36,6 +37,20 @@ Creating a new recipe sends an ajax promise to the backend and redirects to the 
 
 * Members can edit recipes they posted
 
+Allow users to add recipes which dynamically get added and displayed on the edit page. Only updates the local state render the new ingredients on the DOM and does not get added to the database until the user submits the changes, allowing the user to cancel the changes. The new ingredient is added to a new variable with the existing ingredients using the spread operator. The new ingredient that has been added then gets cleared to an empty string.
+
+```
+handleIngredient(e) {
+    e.preventDefault();
+
+    const updatedIngredients = [...this.state.ingredients, this.state.ingredient]
+    this.setState({
+      ingredients: updatedIngredients,
+      ingredient: ''
+    })
+  }
+  ```
+
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/EditRecipe.png" width="500">
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/EditTitleAndIngredients.png" width="500">
 
@@ -43,7 +58,8 @@ Creating a new recipe sends an ajax promise to the backend and redirects to the 
 
 Only ask to upload an image if no image has been added yet.
 
-```{
+```
+  {
       !this.state.photourl &&
       <label className="upload-image" htmlFor="newImage">upload an image:</label>
   }
@@ -51,7 +67,8 @@ Only ask to upload an image if no image has been added yet.
 
 If there is an image, display the thumbnail.
 
-```{
+```
+  {
       this.state.photourl && 
         <div className="thumbnail">
           <img src={this.state.photourl} />
@@ -62,6 +79,39 @@ If there is an image, display the thumbnail.
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/AddPhoto.png" width="500">
 
 * Members can post comments on recipes
+
+Used the json package "moment" to handle time in javascript. Has the ```.fromNow()``` command that displays how long ago the post was created, using the ```created_at``` timestamp from the comment model.
+
+```
+{
+  moment(comment.created_at).startOf('minute').fromNow()
+}
+```
+
+A different message is displayed, based on the number of comments that exist. If there are no comments yet, "Be the first to comment" is displayed, if there is a single comment, "discussion" is singular, otherwise "discussions" is used to display the number of existing discussions. 
+
+```
+let discussion = "Discussion"
+    if ( comments.length > 1 ) discussion = "Discussions"
+    
+    if (!comments || comments.length === 0) {
+      return (
+        <div className="discussion">
+          <h2>
+            Be the first to leave a comment!
+          </h2>
+          ...
+  ```
+  
+  Comments are displayed within its own presentational component. Comments are mapped through the array of existing comments, but only if there are comments present.
+  
+  ```
+  commentList = comments && comments.map(comment => (
+      <Comment key={comment.id} comment={comment} />
+    ))
+    ```
+
+<img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/CommentForm.png" width="500">
 
 # Upcoming Features
 

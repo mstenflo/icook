@@ -42,11 +42,16 @@ refresh() {
     const { recipe } = this.state;
     let steps = [];
     let comments = [];
+    let currentUser = '';
+
     if (recipe.steps) {
       steps = Object.values(recipe.steps)
     }
     if (recipe.comments) {
       comments = Object.values(recipe.comments)
+    }
+    if (this.props.currentUser.username) {
+      currentUser = this.props.currentUser.username;
     }
     
     return (
@@ -62,7 +67,7 @@ refresh() {
             <Link to="/" className="recipe-category">{recipe.category}</Link>
           </div>
           {
-            (this.props.currentUser.username === recipe.username) ? <div> {
+            (currentUser === recipe.username) ? <div> {
               <div>
                 <Link to={`/recipes/${this.state.recipe.id}/edit`} className="edit-recipe-link">
                   <p className="edit-recipe-button">Edit Recipe</p>

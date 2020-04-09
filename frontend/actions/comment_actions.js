@@ -24,22 +24,12 @@ export const requestComments = () => dispatch => (
   .then((comments) => dispatch(receiveComments(comments)))
 );
 
-export const requestComment = commentId => dispatch => (
-  CommentAPIUtil.fetchComment(commentId)
-  .then(comment => dispatch(receiveComment(comment)))
-);
-
 export const createComment = comment => dispatch => (
   CommentAPIUtil.createComment(comment)
     .then(comment => dispatch(receiveComment(comment)))
     // // .fail(errors => {
     // //   return dispatch(receiveErrors(errors));
     // })
-);
-
-export const updateComment = comment => dispatch => (
-  CommentAPIUtil.updateComment(comment)
-  .then(comment => dispatch(receiveComment(comment)))
 );
 
 export const deleteComment = commentId => dispatch => (

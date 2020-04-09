@@ -17,7 +17,7 @@ Frontend error handling to catch any errors before sending info to the database.
 * Members can browse database of recipes and steps associated with the recipe
 * Media stored and retrieved through AWS S3 services
 * Using Rails backend
-* React/Redux frontend
+* React for the frontend using Redux to manage the store and local state
 * Members can post new recipes
 
 Creating a new recipe sends an ajax promise to the backend and redirects to the recipe edit page
@@ -30,13 +30,37 @@ Creating a new recipe sends an ajax promise to the backend and redirects to the 
       recipe
     }
   })
-);
 ```
 
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/PublishRecipe.png" width="500">
 
 * Members can edit recipes they posted
+
+<img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/EditRecipe.png" width="500">
+<img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/EditTitleAndIngredients.png" width="500">
+
 * Members can attach a photo to their recipe
+
+Only ask to upload an image if no image has been added yet.
+
+```{
+      !this.state.photourl &&
+      <label className="upload-image" htmlFor="newImage">upload an image:</label>
+  }
+```
+
+If there is an image, display the thumbnail.
+
+```{
+      this.state.photourl && 
+        <div className="thumbnail">
+          <img src={this.state.photourl} />
+        </div>
+    }
+```
+
+<img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/AddPhoto.png" width="500">
+
 * Members can post comments on recipes
 
 # Upcoming Features

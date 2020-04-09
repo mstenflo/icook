@@ -37,6 +37,20 @@ export const createRecipe = recipe => (
 
 * Members can edit recipes they posted
 
+Allow users to add recipes which dynamically get added and displayed on the edit page. Only updates the local state render the new ingredients on the DOM and does not get added to the database until the user submits the changes, allowing the user to cancel the changes. The new ingredient is added to a new variable with the existing ingredients using the spread operator. The new ingredient that has been added then gets cleared to an empty string.
+
+```
+handleIngredient(e) {
+    e.preventDefault();
+
+    const updatedIngredients = [...this.state.ingredients, this.state.ingredient]
+    this.setState({
+      ingredients: updatedIngredients,
+      ingredient: ''
+    })
+  }
+  ```
+
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/EditRecipe.png" width="500">
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/EditTitleAndIngredients.png" width="500">
 
@@ -65,6 +79,16 @@ If there is an image, display the thumbnail.
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/AddPhoto.png" width="500">
 
 * Members can post comments on recipes
+
+Used the json package "moment" to handle time in javascript. Has the ```.fromNow()``` command that displays how long ago the post was created, using the ```created_at``` timestamp from the comment model.
+
+```
+{
+  moment(comment.created_at).startOf('minute').fromNow()
+}
+```
+
+<img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/CommentForm.png" width="500">
 
 # Upcoming Features
 

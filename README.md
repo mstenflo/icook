@@ -88,6 +88,29 @@ Used the json package "moment" to handle time in javascript. Has the ```.fromNow
 }
 ```
 
+A different message is displayed, based on the number of comments that exist. If there are no comments yet, "Be the first to comment" is displayed, if there is a single comment, "discussion" is singular, otherwise "discussions" is used to display the number of existing discussions. 
+
+```
+let discussion = "Discussion"
+    if ( comments.length > 1 ) discussion = "Discussions"
+    
+    if (!comments || comments.length === 0) {
+      return (
+        <div className="discussion">
+          <h2>
+            Be the first to leave a comment!
+          </h2>
+          ...
+  ```
+  
+  Comments are displayed within its own presentational component. Comments are mapped through the array of existing comments, but only if there are comments present.
+  
+  ```
+  commentList = comments && comments.map(comment => (
+      <Comment key={comment.id} comment={comment} />
+    ))
+    ```
+
 <img src="https://github.com/mstenflo/icook/blob/master/app/assets/images/README/CommentForm.png" width="500">
 
 # Upcoming Features

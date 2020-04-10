@@ -50,7 +50,7 @@ refresh() {
     if (recipe.comments) {
       comments = Object.values(recipe.comments)
     }
-    if (this.props.currentUser.username) {
+    if (this.props.currentUser && this.props.currentUser.username) {
       currentUser = this.props.currentUser.username;
     }
     
@@ -62,7 +62,7 @@ refresh() {
           </h1>
           <div className="sub-header">
             By &nbsp;
-            <Link to="/" className="recipe-author">{recipe.username}</Link>
+            <Link to={`/member/${recipe.username}`} className="recipe-author">{recipe.username}</Link>
             &nbsp; in &nbsp;
             <Link to="/" className="recipe-category">{recipe.category}</Link>
           </div>

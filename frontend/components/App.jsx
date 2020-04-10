@@ -15,6 +15,7 @@ import PublishContainer from "./recipes/create_recipe/publish_container";
 import EditRecipeContainer from './recipes/edit_recipe/edit_recipe_container';
 import StepEditContainer from './steps/step_edit_container';
 import EditRecipeTitleContainer from './recipes/edit_recipe/edit_recipe_title_container';
+import UserProfileContainer from "./user_profile/UserProfileContainer";
 
 const App = () => (
   <div>
@@ -30,6 +31,7 @@ const App = () => (
       <ProtectedRoute exact path="/steps/:stepId/edit" component={StepEditContainer} />
       <ProtectedRoute exact path="/recipes/:recipeId/edit" component={EditRecipeContainer} />
       <ProtectedRoute exact path="/recipe_title/:recipeId/edit" component={EditRecipeTitleContainer} />
+      <ProtectedRoute exact path="/member/:username" component={UserProfileContainer} />
       <Route exact path="/recipes" component={RecipeIndexContainer} />
       <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
       <Route component={NotFound}/>

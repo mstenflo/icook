@@ -12,8 +12,10 @@ const Greeting = ({ currentUser, logout }) => {
   const personalGreeting = () => (
     <div>
       <ul className="site-header-right">
-        <li>{currentUser.username}</li>
-        <li><img src={window.avatarIconURL} /></li>
+        <Link to={`/member/${currentUser.username}`}>
+          <li>{currentUser.username}</li>
+          <li><img src={window.avatarIconURL} /></li>
+        </Link>
         <button className="header-button" onClick={logout}>Log Out</button>
       </ul>
     </div>

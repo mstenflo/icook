@@ -32,12 +32,14 @@
   display: flex;
   align-items: center;
   font-size: 12px;
-  display: flex;
   color: #CACACA;
   padding: 20px;
 }
 
 .site-header-right a {
+  align-items: center;
+  padding: 20px;
+  display: inline-flex;
   color: white;
   margin: 2px;
 }
@@ -56,7 +58,7 @@
   font-weight: 900;
   height: 88px;
   align-items: center;
-  padding: 0 20px;
+  // padding: 0 20px;
 }
 
 .site-header-bottom-left a {

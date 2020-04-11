@@ -31,7 +31,7 @@ const App = () => (
       <ProtectedRoute exact path="/steps/:stepId/edit" component={StepEditContainer} />
       <ProtectedRoute exact path="/recipes/:recipeId/edit" component={EditRecipeContainer} />
       <ProtectedRoute exact path="/recipe_title/:recipeId/edit" component={EditRecipeTitleContainer} />
-      <ProtectedRoute exact path="/member/:username" component={UserProfileContainer} />
+      <Route exact path="/member/:username" component={UserProfileContainer} />
       <Route exact path="/recipes" component={RecipeIndexContainer} />
       <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
       <Route component={NotFound}/>

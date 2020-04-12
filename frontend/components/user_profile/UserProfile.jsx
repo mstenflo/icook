@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
-import NotFound from '../not_found/not_found';
+import moment from 'moment';
 
 class UserProfile extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {};
+  }
+
+  componentDidMount() {
+    this.props.requestUser(this.props.match.params.username)
+      .then(res => this.setState({
+        user: res.user
+      }));
+  }
+  
+  
   render() {
+    if (!this.state.user) return null;
     return (
       <div className="profile-header">
         <div className="profile-avatar-container">
@@ -12,7 +27,11 @@ class UserProfile extends Component {
           </div>
         </div>
         <div className="profile-header-stats">
-          Joined
+          <img className="join-icon" src={window.joinIcon} />
+          Joined &nbsp;
+          {
+            moment(this.state.user.created_at).format('LL')
+          }
         </div>
       </div>
     );

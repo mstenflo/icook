@@ -13,26 +13,46 @@ class UserProfile extends Component {
       .then(res => this.setState({
         user: res.user
       }));
+    this.props.requestRecipes()
+      .then(res => this.setState({
+        recipes: res.recipes
+      }))
   }
   
   
   render() {
-    if (!this.state.user) return null;
+    const { recipes, user } = this.state;
+
+    if (!user) return null;
+    if (!recipes) return null;
+    let userRecipes = [];
+
+    Object.values(recipes).forEach(recipe => {
+      if (recipe.username === user.username) userRecipes.push(recipe)
+    })
+
     return (
-      <div className="profile-header">
-        <div className="profile-avatar-container">
-          <img className="profile-avatar" src={window.avatarIconURL} />
-          <div className="profile-top">
-            <h1>{this.props.match.params.username}</h1>
+      <div>
+        <div className="profile-header">
+          <div className="profile-avatar-container">
+            <img className="profile-avatar" src={window.avatarIconURL} />
+            <div className="profile-top">
+              <h1>{user.username}</h1>
+            </div>
+          </div>
+          <div className="profile-header-stats">
+            <img className="join-icon" src={window.joinIcon} />
+            Joined &nbsp;
+            {
+              moment(user.created_at).format('LL')
+            }
           </div>
         </div>
-        <div className="profile-header-stats">
-          <img className="join-icon" src={window.joinIcon} />
-          Joined &nbsp;
-          {
-            moment(this.state.user.created_at).format('LL')
-          }
-        </div>
+        {
+          userRecipes.map((recipe, key) => (
+            <div key={key}>{recipe.title}</div>
+          ))
+        }
       </div>
     );
   }

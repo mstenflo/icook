@@ -74,19 +74,33 @@
   text-align: center;
 }
 
-.user-recipes {
+.user-recipes-wrapper {
   display: inline-block;
+  width: 180px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   margin: 9px 17px 9px 0;
   vertical-align: top;
-  width: 180px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  height: 150px;
   overflow: hidden;
+}
+
+.user-recipes {
+  overflow: hidden;
+  height: 150px;
 }
 
 .user-recipes img {
   max-width: 150%;
   position: relative;
   margin-bottom: 50%;
+}
+
+.caption {
+  height: 50px;
+  position: relative;
+  padding: 10px;
+  color: #555;
+  line-height: 20px;
+  overflow: hidden;
+  padding-bottom: 10px;
 }

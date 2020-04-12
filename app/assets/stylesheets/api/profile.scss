@@ -43,3 +43,50 @@
   margin-right: 5px;
   justify-content: center;
 }
+
+.background {
+  background-color: #eee;
+}
+
+.background a {
+  text-decoration: none;
+  color: black;
+}
+
+.background a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.profile-body {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 20px;
+}
+
+.module-title {
+  color: #999;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.user-recipes {
+  display: inline-block;
+  margin: 9px 17px 9px 0;
+  vertical-align: top;
+  width: 180px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  height: 150px;
+  overflow: hidden;
+}
+
+.user-recipes img {
+  max-width: 150%;
+  position: relative;
+  margin-bottom: 50%;
+}

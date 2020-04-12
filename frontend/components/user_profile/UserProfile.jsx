@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
+
+import UserRecipeItem from './UserRecipeItem';
 
 class UserProfile extends Component {
   constructor(props) {
@@ -32,7 +35,7 @@ class UserProfile extends Component {
     })
 
     return (
-      <div>
+      <div className="background">
         <div className="profile-header">
           <div className="profile-avatar-container">
             <img className="profile-avatar" src={window.avatarIconURL} />
@@ -48,11 +51,20 @@ class UserProfile extends Component {
             }
           </div>
         </div>
-        {
-          userRecipes.map((recipe, key) => (
-            <div key={key}>{recipe.title}</div>
-          ))
-        }
+        <div className="profile-body">
+          <h2 className="module-title">{user.username}'s Recipes</h2>
+          <div className="inline">
+            {
+              userRecipes.map((recipe, key) => (
+                <div key={key} >
+                  <Link to={`/recipes/${recipe.id}`}>
+                    <UserRecipeItem recipe={recipe} />
+                  </Link>
+                </div>
+              ))
+            }
+          </div>
+        </div>
       </div>
     );
   }

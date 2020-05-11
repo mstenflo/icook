@@ -1,3 +1,5 @@
+@import 'config';
+
 .not-found {
   background-image: image-url("broken-plate.jpg");
   background-size: cover;
@@ -7,7 +9,7 @@
 
 .not-found-text {
   position: fixed;
-  color: white;
+  color: $white-color;
   width: 60%;
   position: relative;
   margin-left: auto;
@@ -34,5 +36,5 @@
 }
 
 .not-found-text a {
-  color: white;
+  color: $white-color;
 }

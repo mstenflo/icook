@@ -1,3 +1,5 @@
+@import 'config';
+
 .home-content-adspot {
   height: 450px;
   background-image: image-url("batch_cooking.jpg");
@@ -10,7 +12,7 @@
 }
 
 .adspot-text {
-  color: white;
+  color: $white-color;
   width: 400px;
   position: relative;
   top: 80px;

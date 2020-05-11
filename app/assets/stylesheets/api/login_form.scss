@@ -1,3 +1,5 @@
+@import 'config';
+
 .login-form-container {
   height: 100%;
   background-color: rgba(255, 255, 255, 0.3);
@@ -22,7 +24,7 @@
 .login-form span {
   position: relative;
   text-align: center;
-  color: white;
+  color: $white-color;
   top: -7px;
   font-size: 14px;
   padding: 0 30px;
@@ -60,7 +62,7 @@
   cursor: pointer;
   border: none;
   margin-bottom: 20px;
-  color: white;
+  color: $white-color;
   font-size: 1.1em;
   border-radius: 5px;
   width: 60%;
@@ -87,7 +89,7 @@
   border-radius: 5px;
   background: #f9ac17;
   border: 1px solid #e5991e;
-  color: white;
+  color: $white-color;
   margin-bottom: 15px;
 }
 
@@ -102,7 +104,7 @@
   list-style: none;
   border-radius: 5px;
   padding: 10px;
-  color: white;
+  color: $white-color;
   font-weight: bold;
   font-size: 10pt;
 }

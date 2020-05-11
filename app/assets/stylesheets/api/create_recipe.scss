@@ -90,7 +90,7 @@
   width: 93%;
   border-radius: 4px;
   padding: 10px;
-  background-color: white;
+  background-color: $white-color;
 }
 
 .ingredient-list {
@@ -132,7 +132,7 @@
 }
 
 .add-ingredient-button:hover {
-  color:  white;
+  color: $white-color;
   background-color: #e86c00;
   border: 1px solid #cf6000;
 }

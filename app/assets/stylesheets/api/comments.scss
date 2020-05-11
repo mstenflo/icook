@@ -1,3 +1,5 @@
+@import 'config';
+
 .comments {
   text-align: center;
   padding: 20px;
@@ -32,7 +34,7 @@
   font-size: 16px;
   line-height: 24px;
   text-align: left;
-  color: #555;
+  color: $medium-color;
   overflow-x: hidden;
   margin: 10px 0;
 }

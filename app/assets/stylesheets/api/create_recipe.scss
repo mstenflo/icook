@@ -1,3 +1,5 @@
+@import 'config';
+
 .submit-button {
   margin: 10px;
   background-color: #f6f6f6;
@@ -69,7 +71,7 @@
   width: 99%;
   font-weight: 700;
   font-size: 18px;
-  color: #555;
+  color: $medium-color;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
@@ -95,7 +97,7 @@
   display: inline-flex;
   margin: 0 10px;
   line-height: 24px;
-  color: #555;
+  color: $medium-color;
 }
 
 .add-ingredient {
@@ -106,7 +108,7 @@
 }
 
 .add-ingredient-list {
-  color: #333;
+  color: $dark-color;
   border: 1px solid #ccc;
   line-height: 24px;
   border-radius: 3px;
@@ -137,7 +139,7 @@
 
 .delete-ingredient {
   margin: 0 10px;
-  color: #555;
+  color: $medium-color;
 }
 
 .delete-ingredient:hover {

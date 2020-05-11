@@ -1,3 +1,5 @@
+@import 'config';
+
 .profile-header {
   background: #fff;
   border-bottom: 1px solid #ddd;
@@ -99,7 +101,7 @@
   height: 50px;
   position: relative;
   padding: 15px;
-  color: #555;
+  color: $medium-color;
   line-height: 20px;
   overflow: hidden;
   padding-bottom: 10px;

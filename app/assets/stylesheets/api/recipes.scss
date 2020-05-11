@@ -1,3 +1,5 @@
+@import 'config';
+
 .recipe-index {
   margin: 0 auto;
   width: 70%;
@@ -41,7 +43,7 @@
   text-decoration: none;
   font-weight: 700;
   font-size: 14px;
-  color: #333;
+  color: $dark-color;
 }
 
 .recipe-title:hover {
@@ -49,7 +51,7 @@
 }
 
 .recipe-author {
-  color: #555;
+  color: $medium-color;
   text-decoration: none;
 }
 
@@ -58,7 +60,7 @@
 }
 
 .recipe-category {
-  color: #555;
+  color: $medium-color;
   text-decoration: none;
 }
 
@@ -95,7 +97,7 @@
 }
 
 .header-title {
-  color: #333;
+  color: $dark-color;
   font-weight: 700;
   font-size: 28px;
   line-height: 34px;
@@ -110,13 +112,13 @@
   position: relative;
   padding-top: 20px;
   display: block;
-  color: #333;
+  color: $dark-color;
   font-size: 20px;
   line-height: 32px;
 }
 
 .article-body h1 {
-  color: #333;
+  color: $dark-color;
   font-weight: 700;
   font-size: 28px;
   line-height: 34px;
@@ -165,7 +167,7 @@
   line-height: 32px;
   font-weight: 300;
   text-align: left;
-  color: #555;
+  color: $medium-color;
   word-wrap: break-word;
 }
 

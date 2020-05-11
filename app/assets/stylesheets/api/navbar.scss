@@ -21,12 +21,12 @@
 
 .site-header-top li {
   padding: 10px;
-  color: #CACACA;
+  color: $shade-color;
   font-size: 0.8em;
 }
 
 .site-header-top a {
-  color: #CACACA;
+  color: $shade-color;
   text-decoration: none;
 }
 
@@ -34,7 +34,7 @@
   display: flex;
   align-items: center;
   font-size: 12px;
-  color: #CACACA;
+  color: $shade-color;
   padding: 20px;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .site-header-bottom {
-  border-bottom: 1px solid #CACACA;
+  border-bottom: 1px solid $shade-color;
   display: flex;
   background: #eee;
   justify-content: space-between;
@@ -74,7 +74,7 @@
   display: flex;
   margin: 30px;
   padding: 6px 12px;
-  color: #333;
+  color: $dark-color;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.55em;
   border-radius: 5px;
@@ -89,13 +89,13 @@
 .site-header-bottom-right {
   display: flex;
   font-size: 0.8em;
-  color: #333;
+  color: $dark-color;
   align-items: center;
   margin: 20px;
 }
 
 .site-header-bottom-right a {
-  color: #333;
+  color: $dark-color;
   text-decoration: none;
 }
 

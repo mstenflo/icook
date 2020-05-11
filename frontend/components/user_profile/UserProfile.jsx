@@ -35,7 +35,7 @@ class UserProfile extends Component {
     })
 
     return (
-      <div className="background">
+      <div>
         <div className="profile-header">
           <div className="profile-avatar-container">
             <img className="profile-avatar" src={window.avatarIconURL} />
@@ -44,25 +44,27 @@ class UserProfile extends Component {
             </div>
           </div>
           <div className="profile-header-stats">
-            <img className="join-icon" src={window.joinIcon} />
+            <i className="fas fa-user-plus"></i>
             Joined &nbsp;
             {
               moment(user.created_at).format('LL')
             }
           </div>
         </div>
-        <div className="profile-body">
-          <h2 className="module-title">{user.username}'s Recipes</h2>
-          <div className="inline">
-            {
-              userRecipes.map((recipe, key) => (
-                <div key={key} >
-                  <Link to={`/recipes/${recipe.id}`}>
-                    <UserRecipeItem recipe={recipe} />
-                  </Link>
-                </div>
-              ))
-            }
+        <div className="background">
+          <div className="profile-body">
+            <h2 className="module-title">{user.username}'s Recipes</h2>
+            <div className="inline">
+              {
+                userRecipes.map((recipe, key) => (
+                  <div key={key} >
+                    <Link to={`/recipes/${recipe.id}`}>
+                      <UserRecipeItem recipe={recipe} />
+                    </Link>
+                  </div>
+                ))
+              }
+            </div>
           </div>
         </div>
       </div>

@@ -2,6 +2,9 @@
 
 .site-header {
   &-top {
+    position: sticky;
+    top: 0;
+    left: 0;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     align-items: center;
@@ -93,7 +96,7 @@
       }
       
       img {
-        height: 90px;
+        height: 80px;
       }
     }
 

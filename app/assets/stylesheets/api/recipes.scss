@@ -34,7 +34,7 @@
   margin-bottom: 10px;
   height: 50px;
   overflow: hidden;
-  color: #999;
+  color: $light-text;
   font-size: 13px;
 }
 
@@ -92,7 +92,7 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  color: #999;
+  color: $light-text;
   text-align: center;
 }
 
@@ -172,7 +172,7 @@
 }
 
 .edit-recipe-button {
-  color: #999;
+  color: $light-text;
   font-style: italic;
   padding: 10px;
 }

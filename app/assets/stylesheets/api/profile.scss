@@ -1,108 +1,87 @@
 @import 'config';
 
-.profile-header {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  padding: 20px;
-  text-align: center;
-}
+.profile {
+  &-header {
+    background: $white-color;
+    border-bottom: 1px solid $shade-color;
+    padding: 20px;
+    text-align: center;
+    
+    &-stats {
+      margin: 20px 0 15px;
+      color: $medium-color;
+      
+      i {
+        height: 25px;
+        color: $alt-color;
+        margin-right: 5px;
+        justify-content: center;
+      }
+    }
+  }
+  
+  &-avatar {
+    width: 116px;
+    
+    &-container {
+      display: inline-flex;
+    }
+  }
 
-.profile-avatar-container {
-  display: inline-flex;
-  position: relative;
-}
-
-.profile-avatar {
-  margin: 10px 0 0;
-  width: 116px;
-  height: 116px;
-  border-radius: 58px;
-  -webkit-border-radius: 58px;
-}
-
-.profile-top {
-  display: inline-block;
-  vertical-align: middle;
-  padding: 20px;
-  text-align: left;
-}
-
-.profile-top h1 {
-  font-size: 20px;
-  margin: 10px 0 0;
-  font-weight: 700;
-}
-
-.profile-header-stats {
-  margin: 20px 0 15px;
-  color: #777;
-  font-weight: 400;
-}
-
-.join-icon {
-  height: 25px;
-  vertical-align: middle;
-  margin-right: 5px;
-  justify-content: center;
+  &-top {
+    padding: 20px;
+    
+    h1 {
+      font-size: 20px;
+    }
+  }
+  
+  &-body {
+    background-color: $white-color;
+    padding: 20px;
+    border: 1px solid $shade-color;
+    border-radius: 6px;
+  }
 }
 
 .background {
   background-color: $background-color;
-}
-
-.background a {
-  text-decoration: none;
-  color: black;
-}
-
-.background a:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.profile-body {
-  background-color: #fff;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  margin: 20px;
 }
 
 .module-title {
-  color: #999;
+  color: $light-text;
   font-weight: 700;
   font-size: 20px;
   text-transform: uppercase;
   text-align: center;
 }
 
-.user-recipes-wrapper {
-  display: inline-block;
-  width: 180px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin: 9px 17px 9px 0;
-  vertical-align: top;
-  overflow: hidden;
-}
-
 .user-recipes {
   overflow: hidden;
   height: 150px;
-}
-
-.user-recipes img {
-  max-width: 150%;
-  position: relative;
-  margin-bottom: 50%;
+  
+  &-wrapper {
+    display: inline-block;
+    width: 180px;
+    border: 1px solid $light-color;
+    border-radius: 5px;
+    margin: 9px 17px 9px 0;
+    overflow: hidden;
+    
+    img {
+      max-width: 150%;
+      position: relative;
+    }
+  }
 }
 
 .caption {
-  height: 50px;
+  height: 60px;
   position: relative;
-  padding: 15px;
+  padding: 8px;
+  text-align: center;
   color: $medium-color;
   line-height: 20px;
   overflow: hidden;
-  padding-bottom: 10px;
 }

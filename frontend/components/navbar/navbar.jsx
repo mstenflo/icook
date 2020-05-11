@@ -13,7 +13,6 @@ class Navbar extends Component {
           <li>
             <Link to="/">
               <i className="fas fa-home"></i>
-              {/* <img src='/assets/home-button.png' /> */}
             </Link>
           </li>
           {/* <li>Appetizer</li>

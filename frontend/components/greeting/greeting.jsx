@@ -23,13 +23,13 @@ class Greeting extends Component {
       );
     } else {
       return (
-        <div>
-          <ul className="site-header-right">
+        <div className="site-header-right">
+          <ul>
             <Link to={`/member/${this.state.currentUser.username}`}>
               <li>{this.state.currentUser.username}</li>
-              <li><img src={window.avatarIconURL} /></li>
             </Link>
-            <button className="header-button" onClick={this.props.logout}>Log Out</button>
+            <li><img src={window.avatarIconURL} /></li>
+            <button onClick={this.props.logout}>Log Out</button>
           </ul>
         </div>
       )

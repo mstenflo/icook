@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 import GreetingContainer from '../greeting/greeting_container';
 
-
 class Navbar extends Component {
+  
   render() {
+
     return (
       <div className="site-header-top">
         <ul>
           <li>
             <Link to="/">
-              <img src={window.homeButtonURL} />
+              <img src='/assets/home-button.png' />
             </Link>
           </li>
           {/* <li>Appetizer</li>

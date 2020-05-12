@@ -12,12 +12,19 @@ class Navbar extends Component {
         <ul>
           <li>
             <Link to="/">
-              <i className="fas fa-home"></i>
+              <i className="fas fa-home home-icon"></i>
             </Link>
           </li>
-          {/* <li>Appetizer</li>
-          <li>Main Dish</li>
-          <li>Dessert</li> */}
+          <li>
+            <Link to="/recipes">
+              <i className="fas fa-utensils"><span>Recipe List</span></i>
+            </Link>
+          </li>
+          <li>
+            <Link to="/publish">
+              <i className="fas fa-pencil-alt"><span>Create a Recipe</span></i>
+            </Link>
+          </li>
         </ul>
         <GreetingContainer />
       </div>

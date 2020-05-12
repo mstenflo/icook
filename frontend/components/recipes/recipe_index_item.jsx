@@ -13,7 +13,7 @@ class RecipeIndexItem extends React.Component {
     return (
       <div className="recipe-index-item">
         <Link to={`/recipes/${this.props.recipe.id}`}>
-          <img src={recipe.photourl ? recipe.photourl : '/assets/Fork_placeholder.png'} />
+          <img src={recipe.photourl ? recipe.photourl : window.placeholder} />
         </Link>
         <div className="recipe-info">
           <Link to={`/recipes/${recipe.id}`} className="recipe-title">{recipe.title}</Link>

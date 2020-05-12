@@ -6,7 +6,7 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer-flex">
-        <img src='/assets/Fork_v2-01.png' />
+        <img src={window.logoURL} />
         <div>
           <h1>Categories</h1>
           <ul>

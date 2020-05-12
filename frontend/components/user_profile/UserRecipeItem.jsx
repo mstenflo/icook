@@ -11,7 +11,7 @@ class UserRecipeItem extends Component {
     return (
       <div className="user-recipes-wrapper">
         <div className="user-recipes">
-          <img src={recipe.photourl ? recipe.photourl : '/assets/Fork_placeholder.png'} />
+          <img src={recipe.photourl ? recipe.photourl : window.placeholder} />
         </div>
         <div className="caption">
           {recipe.title}

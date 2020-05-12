@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Footer extends Component {
+
   render() {
     return (
       <div className="footer-flex">
-        <img src={window.logoURL} />
+        <img src='/assets/Fork_v2-01.png' />
         <div>
           <h1>Categories</h1>
           <ul>

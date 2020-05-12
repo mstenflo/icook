@@ -35,7 +35,7 @@ class Greeting extends Component {
             <Link to={`/member/${this.state.currentUser.username}`}>
               <li>{this.state.currentUser.username}</li>
             </Link>
-            <li><img src={window.avatarIconURL} /></li>
+            <li><img src='/assets/avatar-icon.png' /></li>
             <button onClick={this.handleLogout}>Log Out</button>
           </ul>
         </div>

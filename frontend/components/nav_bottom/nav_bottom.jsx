@@ -7,7 +7,7 @@ class NavBottom extends Component {
       <div className="site-header-bottom">
         <div className="site-header-bottom-left">
           <Link to='/'>
-            <img src={window.logoURL} />
+            <img src='/assets/Fork_v2-01.png' />
             iCook
           </Link>
           <button>

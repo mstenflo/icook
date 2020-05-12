@@ -38,7 +38,7 @@ class UserProfile extends Component {
       <div>
         <div className="profile-header">
           <div className="profile-avatar-container">
-            <img className="profile-avatar" src='/assets/avatar-icon.png' />
+            <img className="profile-avatar" src={window.avatarIconURL} />
             <div className="profile-top">
               <h1>{user.username}</h1>
             </div>

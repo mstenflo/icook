@@ -4,40 +4,35 @@
   height: 450px;
   background-image: image-url("batch_cooking.jpg");
   background-size: cover;
+  
+  hr {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    width: 90%;
+  }
 }
 
-.home-content-adspot hr {
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-  width: 90%;
-}
-
-.adspot-text {
-  color: $white-color;
-  width: 400px;
-  position: relative;
-  top: 80px;
-  left: 120px;
-  font-size: 3em;
-  padding: 30px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.15);
-  background-color: rgba(0,0,0,0.5);
-  border-radius: 5px;
-}
-
-.adspot-text h1 {
-  font-family: 'BenchNine', sans-serif;
-  font-size: 44pt;
-  letter-spacing: 0,02em;
-  font-weight: 700;
-}
-
-.adspot-text p {
-  font-size: 18px;
-  line-height: 1.4;
-}
-
-.adspot-image {
-  height: 450px;
-  background-size: cover;
-  background-image: image-url("cutting_board.png");
+.adspot {
+  &-text {
+    color: $white-color;
+    width: 450px;
+    position: relative;
+    top: 80px;
+    left: 120px;
+    font-size: 3em;
+    padding: 30px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    
+    h1 {
+      font-family: 'BenchNine', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    
+    p {
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+  }
 }

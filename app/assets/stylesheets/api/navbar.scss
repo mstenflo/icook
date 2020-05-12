@@ -77,6 +77,10 @@
         opacity: .8;
       }
     }
+
+    nav a:hover {
+      color: $white-color;
+    }
   }
   
   &-bottom {

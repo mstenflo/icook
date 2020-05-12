@@ -8,13 +8,20 @@ class Greeting extends Component {
       currentUser: this.props.currentUser,
       logout: this.props.logout
     }
+    this.handleLogout = this.handleLogout.bind(this);
   }
-  
+
+  handleLogout(e) {
+    e.preventDefault();
+    this.props.logout()
+      .then(() => window.location.href = '/')
+  } 
+
   render() {
     if (!this.state.currentUser) {
       return (
-        <div>
-          <nav className="site-header-right">
+        <div className="site-header-right">
+          <nav>
             <Link to="/login">Login</Link>
             &nbsp; | &nbsp;
             <Link to="/signup">Sign Up</Link>
@@ -29,7 +36,7 @@ class Greeting extends Component {
               <li>{this.state.currentUser.username}</li>
             </Link>
             <li><img src={window.avatarIconURL} /></li>
-            <button onClick={this.props.logout}>Log Out</button>
+            <button onClick={this.handleLogout}>Log Out</button>
           </ul>
         </div>
       )

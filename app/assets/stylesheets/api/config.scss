@@ -8,3 +8,7 @@ $nav-color: #555;
 $background-color: #eee;
 $white-color: #fff;
 $alt-color: rgb(160, 0, 160);
+
+::placeholder {
+  color: $light-text;
+}

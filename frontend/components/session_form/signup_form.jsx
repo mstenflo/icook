@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SplashImageNoText from '../splash-content/splash_image/splash-image-no-text';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -46,14 +45,14 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-bg">
         <div className="login-form-container">
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <br/>
             <div className="login-form">
               <div className="centering-div">
                 <label>
-                  <input type="text"
+                  <input type="email"
                     placeholder="Email"
                     value={this.state.email}
                     onChange={this.update('email')}
@@ -79,11 +78,6 @@ class SignupForm extends React.Component {
                   />
                 </label>
                 <br/>
-                <br/>
-                <p>
-                  By clicking "Sign Me Up you agree to our Terms and to our Privacy Statement."
-                </p>
-                <br/>
                 {this.renderErrors()}
                 <br/>
                 <input className="session-submit" type="submit" value="Sign Me Up!" />
@@ -97,7 +91,6 @@ class SignupForm extends React.Component {
             </div>
           </form>
         </div>
-        <SplashImageNoText />
       </div>
     );
   }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SplashImageNoText from '../splash-content/splash_image/splash-image-no-text';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -8,8 +7,9 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       username: '',
-      password: ''
+      password: '',
     };
+    // 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
@@ -37,8 +37,7 @@ class LoginForm extends React.Component {
     this.setState({
       username: 'demoUser',
       password: 'demodemo',
-    }, () => this.props.processForm(this.state)
-      .then(this.props.history.push('/')));
+    }, () => this.props.processForm(this.state))
   }
   
   renderErrors() {
@@ -57,7 +56,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-bg">
         <div className="login-form-container">
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <br/>
@@ -102,7 +101,6 @@ class LoginForm extends React.Component {
             </div>
           </form>
         </div>
-        <SplashImageNoText />
       </div>
     );
   }

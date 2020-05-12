@@ -1,37 +1,76 @@
 @import 'config';
 
-.login-form-container {
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.3);
-  width: 400px;
-  position: absolute;
-  backdrop-filter: opacity(50%);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  margin-left: 50px;
-}
+.login {
 
-.login-form hr {
-  border-top: 1 px solid #fff;
-  width: 34%;
-  display: inline-block;
-}
+  &-bg {
+    background-image: image-url("cutting_board.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px;
+  }
+  
+  &-form {
+    margin-bottom: 10px;
 
-.login-form {
-  margin-bottom: 10px;
-}
+    hr {
+      border-top: 1 px solid #fff;
+      width: 34%;
+      display: inline-block;
+    }
+    
+    span {
+      position: relative;
+      text-align: center;
+      color: $white-color;
+      top: -7px;
+      font-size: 14px;
+      padding: 0 30px;
+    }
 
-.login-form span {
-  position: relative;
-  text-align: center;
-  color: $white-color;
-  top: -7px;
-  font-size: 14px;
-  padding: 0 30px;
-}
+    &-container {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      width: 400px;
+      backdrop-filter: opacity(50%);
+      backdrop-filter: blur(10px);
+      margin-left: 50px;
+    }
+    
+    &-box {
+      padding: 70px 30px;
+      
+      p {
+        text-align: center;
+        font-size: 14px;
+        color: #fff;
+      }
+      
+      a {
+        color: #fff;
 
-.login-form-box {
-  padding: 70px 30px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
+  &-demo-user {
+    text-align: center;
+    background-color: #008ae6;
+    cursor: pointer;
+    border: none;
+    margin-bottom: 20px;
+    color: $white-color;
+    font-size: 1.1em;
+    border-radius: 5px;
+    width: 60%;
+    height: 42px;
+  }
+  
+  &:hover {
+    background: #31B0D5;
+  }
 }
 
 .input-text {
@@ -40,46 +79,12 @@
   height: 35px;
   border-radius: 5px;
   border: 1px solid lightgrey;
-}
-
-.login-form-box p {
-  text-align: center;
-  font-size: 14px;
-  color: #fff;
-}
-
-.login-form-box a {
-  color: #fff;
-}
-
-.centering-div {
-  text-align: center;
-}
-
-.login-demo-user {
-  text-align: center;
-  background-color: #008ae6;
-  cursor: pointer;
-  border: none;
-  margin-bottom: 20px;
-  color: $white-color;
-  font-size: 1.1em;
-  border-radius: 5px;
-  width: 60%;
-  height: 42px;
-}
-
-.login-demo-user:hover {
-  background: #31B0D5;
-}
-
-.input-text {
   padding-left: 10px;
   margin-bottom: 15px;
 }
 
-::placeholder {
-  color: $light-text;
+.centering-div {
+  text-align: center;
 }
 
 .session-submit {
@@ -91,11 +96,11 @@
   border: 1px solid #e5991e;
   color: $white-color;
   margin-bottom: 15px;
-}
-
-.session-submit:hover {
-  background: #e68a00;
-  cursor: pointer;
+  
+  &:hover {
+    background: #e68a00;
+    cursor: pointer;
+  }
 }
 
 .errors {

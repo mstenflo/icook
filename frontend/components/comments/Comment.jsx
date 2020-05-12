@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 const Comment = ({ comment }) => {
@@ -6,7 +7,8 @@ const Comment = ({ comment }) => {
     <div className="post">
       <div>
         <span className="posted-by-author">
-          { comment.username } &nbsp;
+          <Link to={`/member/${comment.username}`}>
+          { comment.username }</Link> &nbsp;
         </span>
         <span className="posted-by-date">
           {

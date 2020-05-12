@@ -14,7 +14,6 @@ class RecipeIndex extends React.Component {
   render () {
     const { recipes, users } = this.props;
     if (!recipes) return null;
-    // recipes.reverse();
     return (
       <div className="recipe-index">
         {

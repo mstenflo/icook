@@ -41,6 +41,7 @@ class CommentForm extends Component {
   }
   
   render() {
+    if (!this.props.currentUser) return null;
     return (
       <div className="discuss">
         <form onSubmit={this.handleSubmit}>

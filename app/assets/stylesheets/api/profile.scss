@@ -67,10 +67,9 @@
     border: 1px solid $light-color;
     border-radius: 5px;
     margin: 9px 17px 9px 0;
-    overflow: hidden;
     
     img {
-      max-width: 150%;
+      width: 150%;
       position: relative;
     }
   }

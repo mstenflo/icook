@@ -8,7 +8,6 @@ class SplashImage extends Component {
           <h1>
             WELCOME TO iCOOK
           </h1>
-          <br/>
           <p>
             iCook is a community for people who like to cook.
             <br/>

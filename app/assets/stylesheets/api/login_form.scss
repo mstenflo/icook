@@ -13,7 +13,7 @@
     margin-bottom: 10px;
 
     hr {
-      border-top: 1 px solid #fff;
+      border-top: 1 px solid $white-color;
       width: 34%;
       display: inline-block;
     }
@@ -42,11 +42,11 @@
       p {
         text-align: center;
         font-size: 14px;
-        color: #fff;
+        color: $white-color;
       }
       
       a {
-        color: #fff;
+        color: $white-color;
 
         &:hover {
           text-decoration: underline;
@@ -57,7 +57,7 @@
   
   &-demo-user {
     text-align: center;
-    background-color: #008ae6;
+    background-color: $demo-user;
     cursor: pointer;
     border: none;
     margin-bottom: 20px;

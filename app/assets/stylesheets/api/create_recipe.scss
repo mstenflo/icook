@@ -2,41 +2,41 @@
 
 .submit-button {
   margin: 10px;
-  background-color: #f6f6f6;
+  background-color: $almost-white-color;
   border-radius: 4px;
   font-size: 14px;
   margin-top: 10px;
   padding: 6px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid $light-color;
   text-align: center;
   cursor: pointer;
+  
+  &:hover {
+    color: $white-color;
+    border-color: $submit-color;
+    background-color: $submit-border-color;
+  }
 }
 
 .title {
-  color: black;
-}
-
-.submit-button:hover {
-  color: #fff;
-  border-color: #cf6000;
-  background-color: #e86c00;
+  color: $black-color;
 }
 
 .publishButton {
   display: flex;
   justify-content: center;
-  background-color: #f6f6f6;
+  background-color: $almost-white-color;
   border-radius: 4px;
   font-size: 14px;
   margin-top: 30px;
   padding: 6px 12px;
   cursor: pointer;
-}
-
-.publishButton:hover {
-  color: #fff;
-  border-color: #cf6000;
-  background-color: #e86c00;
+  
+  &:hover {
+    color: $white-color;
+    border-color: $submit-color;
+    background-color: $submit-border-color;
+  }
 }
 
 .bottom-buttons {
@@ -48,23 +48,22 @@
   width: 800px;
   margin: 30px auto;
   border: 1px solid #ccc;
-  background-color: #f6f6f6;
+  background-color: $almost-white-color;
   border-radius: 12px;
 }
 
 .new-recipe-title {
-  margin: 12px 12px 0 12px;
-  font-size: 24px;
+  padding: 1rem;
   font-weight: 700;
   height: 33px;
-  line-height: 26px;
+  line-height: 2rem;
   opacity: 100%;
   text-align: center;
-}
-
-.new-recipe-title:hover {
-  text-decoration: underline;
-  cursor: pointer;
+  
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
 .stepTitleInput {
@@ -78,26 +77,28 @@
 
 .textEditor {
   min-height: 70px;
-  border: 1px solid #ddd;
+  border: 1px solid $shade-color;
   margin: 0 12px 12px 12px;
   resize: none;
   width: 95.8%;
 }
 
-.ingredient-container {
-  border: 1px solid #ddd;
-  margin: 0 12px 12px 12px;
-  width: 93%;
-  border-radius: 4px;
-  padding: 10px;
-  background-color: $white-color;
-}
-
-.ingredient-list {
-  display: inline-flex;
-  margin: 0 10px;
-  line-height: 24px;
-  color: $medium-color;
+.ingredient {
+  &-container {
+    border: 1px solid $shade-color;
+    margin: 0 12px 12px 12px;
+    width: 93%;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: $white-color;
+  }
+  
+  &-list {
+    display: inline-flex;
+    margin: 0 10px;
+    line-height: 24px;
+    color: $medium-color;
+  }
 }
 
 .add-ingredient {
@@ -105,44 +106,44 @@
   margin: 10px;
   padding: 7px;
   width: 50%;
-}
-
-.add-ingredient-list {
-  color: $dark-color;
-  border: 1px solid #ccc;
-  line-height: 24px;
-  border-radius: 3px;
-  padding: 5px;
-  display: inline-flex;
-}
-
-.add-ingredient-container {
-  display: inline-flex;
-  margin: 10px;
-}
-
-.add-ingredient-button {
-  padding: 10px;
-  margin: 10px;
-  background-color: #f6f6f6;
-  border-radius: 4px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
-
-.add-ingredient-button:hover {
-  color: $white-color;
-  background-color: #e86c00;
-  border: 1px solid #cf6000;
+  
+  &-list {
+    color: $dark-color;
+    border: 1px solid $light-color;
+    line-height: 24px;
+    border-radius: 3px;
+    padding: 5px;
+    display: inline-flex;
+  }
+  
+  &-container {
+    display: inline-flex;
+    margin: 10px;
+  }
+  
+  &-button {
+    padding: 10px;
+    margin: 10px;
+    background-color: $almost-white-color;
+    border-radius: 4px;
+    font-size: 14px;
+    border: 1px solid $light-color;
+    cursor: pointer;
+    
+    &:hover {
+      color: $white-color;
+      background-color: $submit-color;
+      border: 1px solid $submit-border-color;
+    }
+  }
 }
 
 .delete-ingredient {
   margin: 0 10px;
   color: $medium-color;
-}
-
-.delete-ingredient:hover {
-  color: red;
-  cursor: pointer;
+  
+  &:hover {
+    color: $error-color;
+    cursor: pointer;
+  }
 }

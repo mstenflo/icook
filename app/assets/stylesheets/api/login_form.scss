@@ -66,10 +66,10 @@
     border-radius: 5px;
     width: 60%;
     height: 42px;
-  }
-  
-  &:hover {
-    background: #31B0D5;
+    
+    &:hover {
+      background-color: $demo-hover;
+    }
   }
 }
 
@@ -92,20 +92,20 @@
   font-size: 16px;
   height: 35px;
   border-radius: 5px;
-  background: #f9ac17;
-  border: 1px solid #e5991e;
+  background: $submit-color;
+  border: 1px solid $submit-border-color;
   color: $white-color;
   margin-bottom: 15px;
   
   &:hover {
-    background: #e68a00;
+    background: $submit-border-color;
     cursor: pointer;
   }
 }
 
 .errors {
   box-sizing: border-box;
-  background-color: red;
+  background-color: $error-color;
   list-style: none;
   border-radius: 5px;
   padding: 10px;

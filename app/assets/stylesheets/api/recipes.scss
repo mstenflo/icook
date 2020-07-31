@@ -130,11 +130,19 @@
     
     img {
       border-radius: 10px;
-      width: 100%;
+      width: 60vw;
       max-height: 500px;
-      object-fit: none;
+      object-fit: cover;
     }
   }
+
+  &-photo-ingredients {
+    display: flex;
+  }
+}
+
+.steps {
+  display: inline-block;
 }
 
 .header-title {

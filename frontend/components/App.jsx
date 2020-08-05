@@ -16,6 +16,7 @@ import EditRecipeContainer from './recipes/edit_recipe/edit_recipe_container';
 import StepEditContainer from './steps/step_edit_container';
 import EditRecipeTitleContainer from './recipes/edit_recipe/edit_recipe_title_container';
 import UserProfileContainer from "./user_profile/UserProfileContainer";
+import SearchRecipes from "./search_recipes/SearchRecipes";
 
 const App = () => (
   <div>
@@ -32,6 +33,7 @@ const App = () => (
       <Route exact path="/member/:username" component={UserProfileContainer} />
       <Route exact path="/recipes" component={RecipeIndexContainer} />
       <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
+      <Route exact path="/search" component={SearchRecipes} />
       <Route component={NotFound}/>
     </Switch>
     <footer className="footer">

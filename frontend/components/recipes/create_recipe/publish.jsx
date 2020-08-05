@@ -18,6 +18,7 @@ class Publish extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state)
     this.props.createRecipe(this.state)
       .then(res => this.props.history.push(`/recipes/${res.recipe.id}/edit`));
   }

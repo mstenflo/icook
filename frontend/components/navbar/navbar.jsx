@@ -25,6 +25,11 @@ class Navbar extends Component {
               <i className="fas fa-pencil-alt"><span>Create a Recipe</span></i>
             </Link>
           </li>
+          <li>
+            <Link to="/search">
+              <i className="fas fa-search"><span>Search Recipes</span></i>
+            </Link>
+          </li>
         </ul>
         <GreetingContainer />
       </div>

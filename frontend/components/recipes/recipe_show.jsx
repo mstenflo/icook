@@ -92,7 +92,7 @@ refresh() {
               }
             </ul>
             <div className="article-photo-container">
-              <img src={recipe.photourl} />
+              <img src={recipe.photo_url} />
             </div>
           </div>
           <div className="steps">

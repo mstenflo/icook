@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 const SearchRecipeItem = ({ data }) => {
-  console.log(data)
   const { title, id } = data;
   return (
     <div className="recipe-index-item">

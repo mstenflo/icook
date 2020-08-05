@@ -7,7 +7,7 @@ class Footer extends Component {
     return (
       <div className="footer-flex">
         <img src={window.logoURL} />
-        <div>
+        <div className="footer-categories">
           <h1>Categories</h1>
           <ul>
             <li><Link to="/"><i className="fas fa-home"></i> Home</Link></li>

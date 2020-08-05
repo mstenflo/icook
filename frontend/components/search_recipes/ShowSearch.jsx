@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ShowSearch = ({ recipe }) => {
+const ShowSearch = (id) => {
   return (
     <div>
-      
+      Hello
     </div>
   );
 }

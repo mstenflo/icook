@@ -9,12 +9,14 @@ class SearchRecipes extends Component {
     
     this.state = {
       recipe: [],
-      searchWord: ''
+      searchWord: '',
+      apiKey: '1a974bca59804d718e18d36625f1dceb'
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
+    this.handleRandom = this.handleRandom.bind(this);
   }
 
   handleChange(e) {
@@ -28,9 +30,9 @@ class SearchRecipes extends Component {
   }
 
   handleSearch(searchWord) {
-    let apiKey = '1a974bca59804d718e18d36625f1dceb';
+    let number = 25;
     if (searchWord) {
-      axios.get('https://api.spoonacular.com/recipes/search?query=' + searchWord + '&apiKey=' + apiKey)
+      axios.get('https://api.spoonacular.com/recipes/complexSearch?query=' + searchWord + '&apiKey=' + this.state.apiKey + '&number=' + number)
         .then(res => {
           this.setState({
             recipe: res.data.results
@@ -42,9 +44,19 @@ class SearchRecipes extends Component {
     })
   }
 
+  handleRandom() {
+    axios.get('https://api.spoonacular.com/recipes/random?number=1' + '&apiKey=' + this.state.apiKey)
+      .then(res => {
+        console.log(res.data.recipes[0].id);
+    })
+  }
+
   render() {
     return (
       <div>
+        <p className="search-info">
+          Search a database with over 350'000 recipes  
+        </p>
         <div className="search">
           <input
             type='text'
@@ -60,6 +72,11 @@ class SearchRecipes extends Component {
             <i className="fa fa-search"></i>
           </button>
         </div>
+        <br />
+        <button
+          className="search-random"
+          onClick={this.handleRandom}>Random Recipe
+        </button>
         <div className="recipe-index">
           {this.state.recipe && this.state.recipe.map(recipe => (
             <SearchRecipeItem data={recipe} key={recipe.id} />

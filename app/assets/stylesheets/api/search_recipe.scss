@@ -2,11 +2,27 @@
   width: 30%;
   margin: auto;
   margin-top: 30px;
-  margin-bottom: 30px;
   position: relative;
   display: flex;
   border: 1px solid #999;
   border-radius: 6px;
+
+  &-info {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+  
+  &-random {
+    font-size: 1rem;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+  }
 }
 
 .searchTerm {

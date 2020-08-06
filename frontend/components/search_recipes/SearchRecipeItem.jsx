@@ -5,11 +5,11 @@ const SearchRecipeItem = ({ data }) => {
   const { title, id } = data;
   return (
     <div className="recipe-index-item">
-      <Link to={'/recipes'}>
-        <img src={'https://spoonacular.com/recipeImages/'+id+'-480x360'} />
+      <Link to={'/search/' + id}>
+        <img src={'https://spoonacular.com/recipeImages/' + id + '-480x360'} />
       </Link>
       <div className="recipe-info">
-        <Link to={'/recipes'} className="recipe-title">
+        <Link to={'/search/' + id} className="recipe-title">
           {title}
         </Link>
       </div>

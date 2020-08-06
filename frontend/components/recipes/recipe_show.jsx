@@ -64,7 +64,7 @@ refresh() {
             By &nbsp;
             <Link to={`/member/${recipe.username}`} className="recipe-author">{recipe.username}</Link>
             &nbsp; in &nbsp;
-            <Link to="/" className="recipe-category">{recipe.category}</Link>
+            <span>{recipe.category}</span>
           </div>
           {
             (currentUser === recipe.username) ? <div> {

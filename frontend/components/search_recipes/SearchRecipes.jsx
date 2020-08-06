@@ -48,6 +48,7 @@ class SearchRecipes extends Component {
     axios.get('https://api.spoonacular.com/recipes/random?number=1' + '&apiKey=' + this.state.apiKey)
       .then(res => {
         console.log(res.data.recipes[0].id);
+        this.props.history.push('/search/' + res.data.recipes[0].id)
     })
   }
 

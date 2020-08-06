@@ -1,0 +1,1 @@
+json.extract! @recipe, :id, :title, :body, :ingredients, :category, :author_id, :photo_url

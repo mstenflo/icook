@@ -1,0 +1,39 @@
+@import 'config';
+
+.footer {
+  height: 150px;
+  background-color: $nav-color;
+  padding: 30px;
+  
+  &-flex {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 150px;
+    
+    a {
+     color: $light-color;
+     margin-right: 10px;
+     font-size: 0.9rem;
+     
+     &:hover {
+       color: $white-color;
+     }
+    }
+  }
+  
+  h1 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: $white-color;
+    margin-bottom: 10px;
+  }
+  
+  li i {
+    padding-right: 10px;
+  }
+  
+  img {
+    width: 130px;
+    height: 100%;
+  }
+}

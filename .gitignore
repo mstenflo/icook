@@ -37,5 +37,9 @@ bundle.js.map
 
 # Ignore master key for decrypting credentials and more.
 master.key
+.env
+.DS_Store
 
 public/assets/*
+# Ignore application configuration
+/config/application.yml

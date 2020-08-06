@@ -1,0 +1,149 @@
+@import 'config';
+
+.submit-button {
+  margin: 10px;
+  background-color: $almost-white-color;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: 1px solid $light-color;
+  text-align: center;
+  cursor: pointer;
+  
+  &:hover {
+    color: $white-color;
+    border-color: $submit-color;
+    background-color: $submit-border-color;
+  }
+}
+
+.title {
+  color: $black-color;
+}
+
+.publishButton {
+  display: flex;
+  justify-content: center;
+  background-color: $almost-white-color;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 6px 12px;
+  cursor: pointer;
+  
+  &:hover {
+    color: $white-color;
+    border-color: $submit-color;
+    background-color: $submit-border-color;
+  }
+}
+
+.bottom-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stepDetailBox {
+  width: 800px;
+  margin: 30px auto;
+  border: 1px solid $border-color;
+  background-color: $almost-white-color;
+  border-radius: 12px;
+}
+
+.new-recipe-title {
+  padding: 1rem;
+  font-weight: 700;
+  height: 33px;
+  line-height: 2rem;
+  opacity: 100%;
+  text-align: center;
+  
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.stepTitleInput {
+  width: 99%;
+  font-weight: 700;
+  font-size: 18px;
+  color: $medium-color;
+  border-radius: 4px;
+  border: 1px solid $border-color;
+}
+
+.textEditor {
+  min-height: 70px;
+  border: 1px solid $shade-color;
+  margin: 0 12px 12px 12px;
+  resize: none;
+  width: 95.8%;
+}
+
+.ingredient {
+  &-container {
+    border: 1px solid $shade-color;
+    margin: 0 12px 12px 12px;
+    width: 93%;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: $white-color;
+  }
+  
+  &-list {
+    display: inline-flex;
+    margin: 0 10px;
+    line-height: 24px;
+    color: $medium-color;
+  }
+}
+
+.add-ingredient {
+  font-size: 14px;
+  margin: 10px;
+  padding: 7px;
+  width: 50%;
+  
+  &-list {
+    color: $dark-color;
+    border: 1px solid $light-color;
+    line-height: 24px;
+    border-radius: 3px;
+    padding: 5px;
+    display: inline-flex;
+  }
+  
+  &-container {
+    display: inline-flex;
+    margin: 10px;
+  }
+  
+  &-button {
+    padding: 10px;
+    margin: 10px;
+    background-color: $almost-white-color;
+    border-radius: 4px;
+    font-size: 14px;
+    border: 1px solid $light-color;
+    cursor: pointer;
+    
+    &:hover {
+      color: $white-color;
+      background-color: $submit-color;
+      border: 1px solid $submit-border-color;
+    }
+  }
+}
+
+.delete-ingredient {
+  margin: 0 10px;
+  color: $medium-color;
+  
+  &:hover {
+    color: $error-color;
+    cursor: pointer;
+  }
+}

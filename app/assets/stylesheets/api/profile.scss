@@ -1,0 +1,86 @@
+@import 'config';
+
+.profile {
+  &-header {
+    background: $white-color;
+    border-bottom: 1px solid $shade-color;
+    padding: 20px;
+    text-align: center;
+    
+    &-stats {
+      margin: 20px 0 15px;
+      color: $medium-color;
+      
+      i {
+        height: 25px;
+        color: $alt-color;
+        margin-right: 5px;
+        justify-content: center;
+      }
+    }
+  }
+  
+  &-avatar {
+    width: 116px;
+    
+    &-container {
+      display: inline-flex;
+    }
+  }
+
+  &-top {
+    padding: 20px;
+    
+    h1 {
+      font-size: 20px;
+    }
+  }
+  
+  &-body {
+    background-color: $white-color;
+    padding: 20px;
+    border: 1px solid $shade-color;
+    border-radius: 6px;
+  }
+}
+
+.background {
+  background-color: $background-color;
+  padding: 20px;
+}
+
+.module-title {
+  color: $light-text;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.user-recipes {
+  overflow: hidden;
+  height: 150px;
+  
+  &-wrapper {
+    display: inline-block;
+    width: 180px;
+    border: 1px solid $light-color;
+    border-radius: 5px;
+    margin: 9px 17px 9px 0;
+    
+    img {
+      width: 150%;
+      position: relative;
+    }
+  }
+}
+
+.caption {
+  height: 60px;
+  position: relative;
+  padding: 8px;
+  text-align: center;
+  color: $medium-color;
+  line-height: 20px;
+  overflow: hidden;
+}

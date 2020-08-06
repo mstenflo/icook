@@ -1,0 +1,23 @@
+$dark-color: #333;
+$medium-color: #555;
+$light-color: #bbb;
+$shade-color: #CACACA;
+$light-text: #999;
+
+$nav-color: #555;
+$background-color: #eee;
+$border-color: #ddd;
+$almost-white-color: #f6f6f6;
+$black-color: #000;
+$white-color: #fff;
+$alt-color: rgb(160, 0, 160);
+$user-color: #1e8439;
+$submit-color: #f9ac17;
+$submit-border-color: #e5991e;
+$error-color: red;
+$demo-user: #008ae6;
+$demo-hover: #0077c7;
+
+::placeholder {
+  color: $light-text;
+}

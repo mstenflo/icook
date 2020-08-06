@@ -1,0 +1,121 @@
+@import 'config';
+
+.recipe {
+
+  &-title-box {
+    border: 1px solid $shade-color;
+    border-radius: 4px;
+    margin: 15px;
+    width: 95%;
+    background-color: $white-color;
+
+    p {
+     margin: 20px;
+     color: #666;
+    }
+  }
+
+  &-step {
+    margin: 32px 0;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 300;
+    text-align: left;
+    color: $medium-color;
+
+    &-title {
+      font-size: 24px;
+      color: $dark-color;
+      text-align: left;
+      font-weight: 700;
+      margin: 0 0 20px;
+      padding-top: 20px;
+
+      input {
+        font-size: 18px;
+        margin: 10px;
+        width: 60%;
+      }
+    }
+  }
+}
+
+.empty-step-title {
+  font-size: 18px;
+  color: $medium-color;
+  text-align: center;
+  font-weight: 700;
+  margin: 10px;
+  padding: 7px;
+  width: 94.5%;
+  
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.edit-step-title {
+  font-size: 18px;
+  color: $dark-color;
+  font-weight: 700;
+  margin: 10px;
+  padding: 7px;
+  width: 94.5%;
+  
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.step {
+
+  &-title-form {
+    font-size: 18px;
+    color: $dark-color;
+    font-weight: 700;
+    margin: 10px;
+    padding: 7px;
+    width: 94.5%;
+  }
+
+  &-box {
+    border: 1px solid $shade-color;
+    border-radius: 4px;
+    margin: 15px;
+    width: 88%;
+    background-color: $white-color;
+    
+    p {
+      margin: 20px;
+      color: #666;
+    }
+  }
+
+  &-edit-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.ingredients {
+  color: $medium-color;
+  margin: 0 30px;
+  list-style: disc;
+  line-height: 36px;
+  overflow: initial;
+}
+
+.delete-step {
+  color: rgb(139, 139, 139);
+  font-size: 24px;
+  margin-left: 20px;
+  margin-right: auto;
+  
+  &:hover {
+    color: $error-color;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,144 @@
+@import 'config';
+
+.site-header {
+  &-top {
+    z-index: 2;
+    position: sticky;
+    top: 0;
+    left: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    background-color: $nav-color;
+    height: 40px;
+    padding: 0 10px;
+    justify-content: space-between;
+    
+    img {
+      height: 18px;
+    }
+
+    ul {
+      display: inline-flex;
+      font-size: 0.8rem;
+  
+      li {
+        padding-left: 1rem;
+        color: $shade-color;
+        font-size: 0.8rem;
+
+        i {
+          font-size: 1rem;
+          
+          &:hover {
+            color: $background-color;
+          }
+          span {
+            font-size: 0.8rem;
+            padding: 0 2rem 0 1rem;
+            color: $light-color;
+            font-family: 'Arial, Helvetica', sans-serif;
+
+            &:hover {
+              color: $white-color;
+            }
+          }
+        }
+
+      }
+    }
+    
+    a {
+      color: $shade-color;
+    }
+  }
+  
+  &-right {
+    color: $shade-color;
+    font-size: 0.8rem;
+    padding: 20px;
+
+    ul {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    li:hover {
+      color: $white-color;
+    }
+
+    button {
+      padding: 2px 6px;
+      margin-left: 10px;
+      border-radius: 5px;
+
+      &:hover {
+        cursor: pointer;
+        opacity: .8;
+      }
+    }
+
+    nav a:hover {
+      color: $white-color;
+    }
+  }
+  
+  &-bottom {
+    border-bottom: 1px solid $shade-color;
+    display: flex;
+    background: $background-color;
+    justify-content: space-between;
+    
+    &-left {
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      font-size: 1.6rem;
+      font-weight: 900;
+      height: 88px;
+      
+      a {
+        display: flex;
+        align-items: center;
+        color: black;
+      }
+      
+      button {
+        display: flex;
+        margin: 30px;
+        padding: 6px 12px;
+        color: $dark-color;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.55em;
+        border-radius: 5px;
+        background: $white-color;
+        cursor: pointer;
+      }
+      
+      img {
+        height: 80px;
+      }
+    }
+
+    &-right {
+      display: flex;
+      font-size: 0.8em;
+      color: $dark-color;
+      align-items: center;
+      margin: 20px;
+      
+      a {
+        color: $dark-color;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.home-icon {
+  padding-right: 20px;
+}

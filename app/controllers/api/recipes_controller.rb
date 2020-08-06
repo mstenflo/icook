@@ -58,6 +58,6 @@ class Api::RecipesController < ApplicationController
     private
 
     def recipe_params
-        params.require(:recipe).permit(:id, :title, :body, {:ingredients => []}, :category, :author_id, :photo)
+        params.require(:recipe).permit(:id, :title, :body, {:ingredients => []}, :category, :author_id, :photo_url)
     end
 end

@@ -64,7 +64,7 @@ refresh() {
             By &nbsp;
             <Link to={`/member/${recipe.username}`} className="recipe-author">{recipe.username}</Link>
             &nbsp; in &nbsp;
-            <Link to="/" className="recipe-category">{recipe.category}</Link>
+            <span>{recipe.category}</span>
           </div>
           {
             (currentUser === recipe.username) ? <div> {
@@ -81,19 +81,21 @@ refresh() {
         </header>
         <div className="article-body">
           <p>{recipe.body}</p>
-          <div className="article-photo-container">
-            <img src={recipe.photourl} />
-          </div>
-          <div>
-            <h1>Ingredients: </h1>
+          <h1>Ingredients: </h1>
             <br />
+          <div className="article-photo-ingredients">
             <ul>
-                {
-                  recipe.ingredients.map((ingredient, idx) => (
-                    <IngredientList ingredient={ingredient} key={idx} />
-                  ))
-                }
+              {
+                recipe.ingredients.map((ingredient, idx) => (
+                  <IngredientList ingredient={ingredient} key={idx} />
+                ))
+              }
             </ul>
+            <div className="article-photo-container">
+              <img src={recipe.photo_url} />
+            </div>
+          </div>
+          <div className="steps">
             {
               steps.map((step, idx) => (
                 <StepListItem step={step} idx={idx + 1} key={idx} />

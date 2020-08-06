@@ -8,26 +8,26 @@
 
 require 'open-uri'
 
-User.destroy_all
+Comment.destroy_all
 Recipe.destroy_all
 Step.destroy_all
+User.destroy_all
+
+demo = User.create({
+    username: 'demoUser',
+    password: 'demodemo',
+    email: 'demo@user.com'
+})
+
+Martin = User.create({
+    username: 'martin',
+    password: 'martin',
+    email: 'stenflo@gmail.com'
+})
 
 10.times do 
     User.create(username: Faker::Name.first_name, email: Faker::Internet.email, password: 'password')
 end
-
-demo = User.create({
-  username: 'demoUser',
-  password: 'demodemo',
-  email: 'demo@user.com'
-})
-
-Martin = User.create({
-  username: 'martin',
-  password: 'martin',
-  email: 'martin@martin.com'
-})
-
 
 r1 = Recipe.create!(
     title: 'Broccoli and cream cheese soup',
@@ -36,10 +36,11 @@ r1 = Recipe.create!(
     ingredients: ['1 head broccoli, but into florets', '2 tablespoons salted butter', '1 onion finely chopped', '1 clove garlic, minced', '150mL vegetable stock', '300mL full fat milk', '300g cream cheese', 'salt and pepper, to taste', '2 tablespoons chopped fresh chervil', '55g grated Parmesan cheese'],
     author_id: User.order('RANDOM()').first.id,
     id: 1,
+    photo_url: 'https://icook-seeds.s3-us-west-1.amazonaws.com/Broccoli-Cheese-Soup-Recipe.jpg'
 )
 
-file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/Broccoli-Cheese-Soup-Recipe.jpg')
-r1.photo.attach(io: file, filename: 'Broccoli-Cheese-Soup-Recipe.jpg')
+# file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/Broccoli-Cheese-Soup-Recipe.jpg')
+# r1.photo.attach(io: file, filename: 'Broccoli-Cheese-Soup-Recipe.jpg')
 
 r1Steps = Step.create!(
     [{
@@ -64,10 +65,11 @@ r2 = Recipe.create!(
     ingredients: ['2 cups crumbled cornbread', '1 (10 ounce) can enchilada sauce, divided', '1/2 teaspoon salt', '1 1/2 pounds ground beef chuck', '1 (10 ounce) can tomato sauce', '1 cup shredded Mexican cheese blend, divided'],
     author_id: User.order('RANDOM()').first.id,
     id: 2,
+    photo_url: 'https://icook-seeds.s3-us-west-1.amazonaws.com/enchilada-meatballs.jpg'
 )
 
-file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/enchilada-meatballs.jpg')
-r2.photo.attach(io: file, filename: 'enchilada-meatballs.jpg')
+# file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/enchilada-meatballs.jpg')
+# r2.photo.attach(io: file, filename: 'enchilada-meatballs.jpg')
 
 r2Steps = Step.create!(
     [{
@@ -96,10 +98,11 @@ r3 = Recipe.create!(
     ingredients: ['1 bunch kale', '1 tablespoon olive oil', '1 teaspoon seasoned salt'],
     author_id: User.order('RANDOM()').first.id,
     id: 3,
+    photo_url: 'https://icook-seeds.s3-us-west-1.amazonaws.com/baked-kale-chips.jpg'
 )
 
-file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/baked-kale-chips.jpg')
-r3.photo.attach(io: file, filename: 'baked-kale-chips.jpg')
+# file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/baked-kale-chips.jpg')
+# r3.photo.attach(io: file, filename: 'baked-kale-chips.jpg')
 
 r3Steps = Step.create!(
     [{
@@ -126,10 +129,11 @@ r4 = Recipe.create!(
     ingredients: ['1 tbsp. olive oil', '1 small onion, chopped (3/4 cup)', '1 medium red pepper, chopped (1 cup)', '6 garlic cloves, crushed', '3 tablespoons tomato paste (50 grams / 2 oz)', '5 medium tomatoes, chopped (800 grams / 28 oz)', '2 tablespoons paprika', 'pinch cumin (1/8 teaspoon)', '1 teaspoon salt', '1/2 cup water', '4 eggs', 'chopped parsley', 'hearty bread for serving'],
     author_id: User.order('RANDOM()').first.id,
     id: 4,
+    photo_url: 'https://icook-seeds.s3-us-west-1.amazonaws.com/shakshuka.jpg'
 )
 
-file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/shakshuka.jpg')
-r4.photo.attach(io: file, filename: 'shakshuka.jpg')
+# file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/shakshuka.jpg')
+# r4.photo.attach(io: file, filename: 'shakshuka.jpg')
 
 r4Steps = Step.create!(
     [{
@@ -170,10 +174,11 @@ r5 = Recipe.create!(
     ingredients: ['12 whole fresh mushrooms1', 'tablespoon vegetable oil', '1 tablespoon minced garlic', '1 (8 ounce) package cream cheese, softened', '1/4 cup grated Parmesan cheese', '1/4 teaspoon ground black pepper', '1/4 teaspoon onion powder', '1/4 teaspoon ground cayenne pepper'],
     author_id: User.order('RANDOM()').first.id,
     id: 5,
+    photo_url: 'https://icook-seeds.s3-us-west-1.amazonaws.com/stuffed-mushrooms.jpg'
 )
 
-file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/stuffed-mushrooms.jpg')
-r5.photo.attach(io: file, filename: 'stuffed-mushrooms.jpg')
+# file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/stuffed-mushrooms.jpg')
+# r5.photo.attach(io: file, filename: 'stuffed-mushrooms.jpg')
 
 r5Steps = Step.create!(
     [{
@@ -202,10 +207,11 @@ r6 = Recipe.create!(
     ingredients: ['2 tablespoons butter', '2 tablespoons minced green onion', '1 cup cooked crabmeat, finely chopped', '1/2 cup dry bread crumbs', '1/4 cup shredded Monterey Jack cheese', '1 egg, beaten', '1 teaspoon lemon juice', '1/2 teaspoon dried dill weed', '1/2 cup butter, melted', '1 1/2 pounds fresh button mushrooms, stems removed', '1/2 cup shredded Monterey Jack cheese', '1/4 cup dry white wine'],
     author_id: User.order('RANDOM()').first.id,
     id: 6,
+    photo_url: 'https://icook-seeds.s3-us-west-1.amazonaws.com/Crab-Stuffed-Mushrooms.jpg'
 )
 
-file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/Crab-Stuffed-Mushrooms.jpg')
-r6.photo.attach(io: file, filename: 'Crab-Stuffed-Mushrooms.jpg')
+# file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/Crab-Stuffed-Mushrooms.jpg')
+# r6.photo.attach(io: file, filename: 'Crab-Stuffed-Mushrooms.jpg')
 
 r6Steps = Step.create!(
     [{
@@ -234,10 +240,11 @@ r7 = Recipe.create!(
     ingredients: ['3/4 cup melted butter', '1 1/2 tablespoons Dijon mustard', '1 1/2 teaspoons Worcestershire sauce', '1 1/2 tablespoons poppy seeds', '1 tablespoon dried minced onion', '24 mini sandwich rolls', '1 pound thinly sliced cooked deli ham', '1 pound thinly sliced Swiss cheese'],
     author_id: User.order('RANDOM()').first.id,
     id: 7,
+    photo_url: 'https://icook-seeds.s3-us-west-1.amazonaws.com/baked-ham-sandwiches.jpg'
 )
 
-file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/baked-ham-sandwiches.jpg')
-r7.photo.attach(io: file, filename: 'baked-ham-sandwiches.jpg')
+# file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/baked-ham-sandwiches.jpg')
+# r7.photo.attach(io: file, filename: 'baked-ham-sandwiches.jpg')
 
 r7Steps = Step.create!(
     [{
@@ -262,10 +269,11 @@ r8 = Recipe.create!(
     ingredients: ['2 pounds boneless pork chops', '1/2 teaspoon paprika', '1 pinch kosher salt and ground black pepper to taste', '1/4 cup butter, divided', '1 (8 ounce) package sliced fresh mushrooms', '4 cloves garlic, minced', '1 teaspoon Dijon mustard', '2 tablespoons all-purpose flour', '2 cups beef broth'],
     author_id: User.order('RANDOM()').first.id,
     id: 8,
+    photo_url: 'https://icook-seeds.s3-us-west-1.amazonaws.com/Garlic-Pork-Chops-in-Creamy-Mushroom-Sauce.jpg'
 )
 
-file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/Garlic-Pork-Chops-in-Creamy-Mushroom-Sauce.jpg')
-r8.photo.attach(io: file, filename: 'Garlic-Pork-Chops-in-Creamy-Mushroom-Sauce.jpg')
+# file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/Garlic-Pork-Chops-in-Creamy-Mushroom-Sauce.jpg')
+# r8.photo.attach(io: file, filename: 'Garlic-Pork-Chops-in-Creamy-Mushroom-Sauce.jpg')
 
 r8Steps = Step.create!(
     [{
@@ -298,10 +306,11 @@ r9 = Recipe.create!(
     ingredients: ['1 pound sweet Italian sausage', '3/4 pound lean ground beef', '1/2 cup minced onion', '2 cloves garlic, crushed', '1 (28 ounce) can crushed tomatoes', '2 (6 ounce) cans tomato paste', '2 (6.5 ounce) cans canned tomato sauce', '1/2 cup water', '2 tablespoons white sugar', '1 1/2 teaspoons dried basil leaves', '1/2 teaspoon fennel seeds', '1 teaspoon Italian seasoning', '1 1/2 teaspoons salt, divided, or to taste', '1/4 teaspoon ground black pepper', '4 tablespoons chopped fresh parsley', '12 lasagna noodles', '16 ounces ricotta cheese', '1 egg', '3/4 pound mozzarella cheese, sliced', '3/4 cup grated Parmesan cheese'],
     author_id: User.order('RANDOM()').first.id,
     id: 9,
+    photo_url: 'https://icook-seeds.s3-us-west-1.amazonaws.com/lasagna.jpg'
 )
 
-file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/lasagna.jpg')
-r9.photo.attach(io: file, filename: 'lasagna.jpg')
+# file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/lasagna.jpg')
+# r9.photo.attach(io: file, filename: 'lasagna.jpg')
 
 r9Steps = Step.create!(
     [{
@@ -334,10 +343,11 @@ r10 = Recipe.create!(
     ingredients: ['4 pounds prime rib roast', '1/4 cup unsalted butter, softened', '1 tablespoon freshly ground black pepper', '1 teaspoon herbes de Provence', 'kosher salt'],
     author_id: User.order('RANDOM()').first.id,
     id: 10,
+    photo_url: 'https://icook-seeds.s3-us-west-1.amazonaws.com/perfect-prime-rib.jpg'
 )
 
-file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/perfect-prime-rib.jpg')
-r10.photo.attach(io: file, filename: 'perfect-prime-rib.jpg')
+# file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/perfect-prime-rib.jpg')
+# r10.photo.attach(io: file, filename: 'perfect-prime-rib.jpg')
 
 r10Steps = Step.create!(
     [{
@@ -366,10 +376,11 @@ r11 = Recipe.create!(
     ingredients: ['1 1/2 pounds cubed beef stew meat', 'salt and ground black pepper to taste', '1 onion, chopped', '1 (10.75 ounce) can condensed cream of mushroom soup', '1/4 cup water', '1 tablespoon dried chives', '2 cloves garlic, minced', '1 tablespoon Worcestershire sauce', '1 cube beef bouillon', '1/2 cup red wine', '1 tablespoon cornstarch', '1 tablespoon all-purpose flour', '1 (8 ounce) container sour cream', '1 (8 ounce) package sliced fresh mushrooms', '4 ounces cream cheese', '1/2 cup chopped fresh parsley'],
     author_id: User.order('RANDOM()').first.id,
     id: 11,
+    photo_url: 'https://icook-seeds.s3-us-west-1.amazonaws.com/Beef-Stroganoff.JPG'
 )
 
-file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/Beef-Stroganoff.JPG')
-r11.photo.attach(io: file, filename: 'Beef-Stroganoff.JPG')
+# file = open('https://icook-seeds.s3-us-west-1.amazonaws.com/Beef-Stroganoff.JPG')
+# r11.photo.attach(io: file, filename: 'Beef-Stroganoff.JPG')
 
 r11Steps = Step.create!(
     [{

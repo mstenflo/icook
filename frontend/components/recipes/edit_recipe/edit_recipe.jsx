@@ -8,7 +8,7 @@ class EditRecipe extends React.Component {
         super(props);
 
         this.state = {
-            photourl: null,
+            photo_url: null,
             imageFile: null
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,7 +38,7 @@ class EditRecipe extends React.Component {
                 title: this.state.title,
                 body: this.state.body,
                 steps: this.state.steps,
-                photourl: this.state.photourl
+                photo_url: this.state.photo_url
             }
         })
         this.props.history.push(`/recipes/${this.state.id}`)
@@ -73,7 +73,7 @@ class EditRecipe extends React.Component {
         const reader = new FileReader();
         const file = e.currentTarget.files[0];
         reader.onloadend = () => {
-            this.setState({ photourl: reader.result, imageFile: file });
+            this.setState({ photo_url: reader.result, imageFile: file });
         };
         if (file) {
             reader.readAsDataURL(file);
@@ -126,11 +126,11 @@ class EditRecipe extends React.Component {
                             </div>
                             <div className="image-container">
                                 {
-                                    !this.state.photourl &&
+                                    !this.state.photo_url &&
                                     <label className="upload-image" htmlFor="newImage">upload an image:</label>
                                 }
                                 {   
-                                    !this.state.photourl &&
+                                    !this.state.photo_url &&
                                         <input
                                             type="file"
                                             id="newImage"
@@ -141,9 +141,9 @@ class EditRecipe extends React.Component {
                                         />
                                 }
                                 {
-                                    this.state.photourl && 
+                                    this.state.photo_url && 
                                         <div className="thumbnail">
-                                            <img src={this.state.photourl} />
+                                            <img src={this.state.photo_url} />
                                         </div>
                                 }
                             </div>

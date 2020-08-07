@@ -7,15 +7,19 @@ class SplashInfo extends Component {
     
     this.state = {
       joke: '',
-      apiKey: '1a974bca59804d718e18d36625f1dceb'
+      apiKey: '1a974bca59804d718e18d36625f1dceb',
+      fact: ''
     }
   }
 
   componentDidMount() {
     axios.get('https://api.spoonacular.com/food/jokes/random?apiKey=' + this.state.apiKey)
       .then(res => {
-        console.log(res.data.text);
         this.setState({ joke: res.data.text });
+      });
+    axios.get('https://api.spoonacular.com/food/trivia/random?apiKey=' + this.state.apiKey)
+      .then(res => {
+        this.setState({ fact: res.data.text });
     })
   }
   
@@ -45,6 +49,10 @@ class SplashInfo extends Component {
             online communities anywhere.</p>
           </div>
           <br/>
+        </div>
+        <div className="fact">
+          <h2>Did You Know...?</h2>
+          {this.state.fact}
         </div>
       </div>
     );

@@ -1,5 +1,11 @@
 @import 'config';
 
+h2 {
+  font-family: 'BenchNine', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
 .splash-info {
   display: inline-flex;
   margin: 10px;
@@ -8,12 +14,6 @@
     padding: 40px;
     color: $dark-color;
     
-    h2 {
-      font-family: 'BenchNine', sans-serif;
-      font-size: 34px;
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
     
     p {
       font-size: 18px;
@@ -27,4 +27,13 @@
   font-size: 1.3rem;
   text-align: center;
   font-style: italic;
+}
+
+.fact {
+  width: 80%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.3rem;
+  padding-bottom: 30px;
 }

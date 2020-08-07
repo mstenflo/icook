@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SplashInfo extends Component {
   constructor(props) {
     super(props);
     
     this.state = {
-      joke: 'Here is an example of a joke, it could be long or short'
+      joke: '',
+      apiKey: '1a974bca59804d718e18d36625f1dceb'
     }
   }
 
   componentDidMount() {
-    
+    axios.get('https://api.spoonacular.com/food/jokes/random?apiKey=' + this.state.apiKey)
+      .then(res => {
+        console.log(res.data.text);
+        this.setState({ joke: res.data.text });
+    })
   }
   
   render() {
-    console.log(process.env)
     return (
       <div>
         <div className="joke">
-          {this.state.joke}
+          "{this.state.joke}"
         </div>
         <div className="splash-info">
           <div className="splash-info-block">

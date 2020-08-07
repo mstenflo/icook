@@ -22,13 +22,24 @@ class SplashInfo extends Component {
         this.setState({ fact: res.data.text });
     })
   }
+
+  showJoke() {
+    return this.state.joke === '' ? null : (<div className="joke">
+          "{this.state.joke}"
+        </div>)
+  }
+
+  showFact() {
+    return this.state.fact === '' ? null : (<div className="fact">
+          <h2>Did You Know...?</h2>
+          {this.state.fact}
+        </div>)
+  }
   
   render() {
     return (
       <div>
-        <div className="joke">
-          "{this.state.joke}"
-        </div>
+        {this.showJoke()}
         <div className="splash-info">
           <div className="splash-info-block">
             <h2>STEP-BY-STEP</h2>
@@ -50,10 +61,7 @@ class SplashInfo extends Component {
           </div>
           <br/>
         </div>
-        <div className="fact">
-          <h2>Did You Know...?</h2>
-          {this.state.fact}
-        </div>
+        {this.showFact()}
       </div>
     );
   }

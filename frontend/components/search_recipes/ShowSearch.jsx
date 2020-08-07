@@ -20,7 +20,6 @@ class ShowSearch extends Component {
     let id = this.props.match.params.recipeId;
     axios.get('https://api.spoonacular.com/recipes/' + id + '/information?includeNutrition=false' + '&apiKey=' + this.state.apiKey)
       .then(res => {
-        console.log(res.data)
         this.setState({ recipe: res.data });
       });
     axios.get('https://api.spoonacular.com/recipes/' + id + '/analyzedInstructions' + '?apiKey=' + this.state.apiKey)

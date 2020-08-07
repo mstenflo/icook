@@ -11,7 +11,7 @@ h2 {
   margin: 10px;
   
   &-block {
-    padding: 40px;
+    padding: 20px 40px;
     color: $dark-color;
     
     
@@ -23,6 +23,9 @@ h2 {
 }
 
 .joke {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 20px;
   font-size: 1.3rem;
   text-align: center;

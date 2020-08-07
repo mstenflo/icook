@@ -30,7 +30,7 @@ class SearchRecipes extends Component {
   }
 
   handleSearch(searchWord) {
-    let number = 25;
+    let number = 99;
     if (searchWord) {
       axios.get('https://api.spoonacular.com/recipes/complexSearch?query=' + searchWord + '&apiKey=' + this.state.apiKey + '&number=' + number)
         .then(res => {

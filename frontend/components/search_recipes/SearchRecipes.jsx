@@ -37,6 +37,7 @@ class SearchRecipes extends Component {
 
   handleSearch(searchWord) {
     let number = 99;
+    this.setState({ items: [] });
     this.setState({ hasMore: true });
     if (searchWord) {
       axios.get('https://api.spoonacular.com/recipes/complexSearch?query=' + searchWord + '&apiKey=' + this.state.apiKey + '&number=' + number)
@@ -51,9 +52,6 @@ class SearchRecipes extends Component {
       recipes: []
     });
     this.fetchMoreData();
-    // this.setState({
-    //   items: this.state.items.concat(this.state.recipes.splice(0, 6))
-    // });
   }
 
   handleRandom() {

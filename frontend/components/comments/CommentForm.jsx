@@ -1,66 +1,55 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class CommentForm extends Component {
+const CommentForm = props => {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      body: ""
-    }
+  const [body, setBody] = useState('');
     
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
+  const updateBody = (e) => {
+    setBody(e.target.value)
+    // return e => this.setState({
+    //   [field]: e.currentTarget.value
+    // })
   }
 
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    })
-  }
-
-  handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const payload = {
-      body: this.state.body,
-      recipe_id: this.props.recipeId,
-      user_id: this.props.currentUser.id,
+      body: body,
+      recipe_id: props.recipeId,
+      user_id: props.currentUser.id,
     }
-    this.props.createComment(payload)
+    props.createComment(payload)
       .then(res => {
-        this.setState({ body: '' })
+        setBody('');
       })
-    this.props.refresh
-    setTimeout(() => this.props.refresh(), 100)
+    props.refresh
+    setTimeout(() => props.refresh(), 100)
   }
 
-  handleCancel() {
-    this.setState({
-      body: ''
-    });
+  const handleCancel = () => {
+    setBody('');
   }
   
-  render() {
-    if (!this.props.currentUser) return null;
-    return (
-      <div className="discuss">
-        <form onSubmit={this.handleSubmit}>
-          <div className="comment-form">
-            <textarea 
-              type="text"
-              placeholder="Enter your comment here..."
-              value={this.state.body}
-              onChange={this.update("body")}
-            />
-            <div className="bottom-buttons">
-              <div className="submit-button" onClick={this.handleCancel}>Cancel</div>
-              <div className="submit-button" onClick={this.handleSubmit}>Submit</div>
-            </div>
+  if (!props.currentUser) return null;
+
+  return (
+    <div className="discuss">
+      <form onSubmit={handleSubmit}>
+        <div className="comment-form">
+          <textarea 
+            type="text"
+            placeholder="Enter your comment here..."
+            value={body}
+            onChange={updateBody}
+          />
+          <div className="bottom-buttons">
+            <div className="submit-button" onClick={handleCancel}>Cancel</div>
+            <div className="submit-button" onClick={handleSubmit}>Submit</div>
           </div>
-        </form>
-      </div>
-    );
-  }
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default CommentForm;

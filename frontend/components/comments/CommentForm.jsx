@@ -6,9 +6,6 @@ const CommentForm = props => {
     
   const updateBody = (e) => {
     setBody(e.target.value)
-    // return e => this.setState({
-    //   [field]: e.currentTarget.value
-    // })
   }
 
   const handleSubmit = (e) => {

@@ -1,78 +1,74 @@
-import React from "react";
+import React, { useState } from 'react';
 
-class Publish extends React.Component {
+import { updateObject } from '../../../shared/utility';
 
-  constructor(props) {
-    super(props);
-    this.state = {
-        author_id: this.props.author_id,
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+const Publish = props => {
 
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    })
-  }
+  const [publishForm, setPublishForm] = useState(
+    {
+      author_id: props.author_id,
+      category: '',
+      title: ''
+    }
+  );
 
-  handleSubmit(e) {
+  const handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state)
-    this.props.createRecipe(this.state)
-      .then(res => this.props.history.push(`/recipes/${res.recipe.id}/edit`));
+    props.createRecipe(publishForm)
+      .then(res => props.history.push(`/recipes/${res.recipe.id}/edit`));
   }
 
-  render() {
-    return(
-      <div>
-        <div className="new-recipe-image">
-          <div className="new-recipe-text">
-            <h1>SHARE WHAT YOU MAKE WITH iCook</h1>
-            <br/>
-            <p>
-              iCook is a platform for you to share what you like to cook for yourself and for your friends.
-              From a one step recipe to a 100 step multi-course meal, everyone has something to share.
-              Join our community of cooking enthusiasts.
-            </p>
-            <br/>
-            <br/>
-          </div>
+  const update = (e, inputIdentifier) => {
+    const updatedForm = updateObject(publishForm, { [inputIdentifier]: e.target.value });
+    setPublishForm(updatedForm);
+  }
 
-          <form onSubmit={this.handleSubmit}>
-            
-            <div className="new-recipe-wrapper">
-              {/* <div className="new-title"> */}
-                <label htmlFor="title">
-                  <input 
-                    className="stepTitleInput" 
-                    type="text"
-                    placeholder="Recipe Title"
-                    onChange={this.update("title")}
-                  />
-                </label>
-              {/* </div> */}
-              <div className="new-category">
-                <p>Category:
-                 <label htmlFor="category">
-                  <input 
-                    className="category-input" 
-                    type="text"
-                    placeholder="Appetizer, Dessert, etc."
-                    onChange={this.update("category")}
-                  />
-                </label>
-                </p>
-              </div>
-            </div>
-              <button className="publishButton" onClick={this.handleSubmit}>
-                Create Recipe
-              </button>
-          </form>
+  return(
+    <div>
+      <div className="new-recipe-image">
+        <div className="new-recipe-text">
+          <h1>SHARE WHAT YOU MAKE WITH iCook</h1>
+          <br/>
+          <p>
+            iCook is a platform for you to share what you like to cook for yourself and for your friends.
+            From a one step recipe to a 100 step multi-course meal, everyone has something to share.
+            Join our community of cooking enthusiasts.
+          </p>
+          <br/>
+          <br/>
         </div>
+
+        <form onSubmit={handleSubmit}>
+          
+          <div className="new-recipe-wrapper">
+            <label htmlFor="title">
+              <input 
+                className="stepTitleInput" 
+                type="text"
+                placeholder="Recipe Title"
+                onChange={e => update(e, "title")}
+              />
+            </label>
+            <div className="new-category">
+              <p>Category:
+                <label htmlFor="category">
+                <input 
+                  className="category-input" 
+                  type="text"
+                  placeholder="Appetizer, Dessert, etc."
+                  onChange={e => update(e, "category")}
+                />
+              </label>
+              </p>
+            </div>
+          </div>
+            <button className="publishButton" onClick={handleSubmit}>
+              Create Recipe
+            </button>
+        </form>
       </div>
-    )
-  }
-};
+    </div>
+  )
+}
 
 export default Publish;

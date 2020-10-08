@@ -1,7 +1,8 @@
 import React from 'react';
+
 import CreateStepListItem from './create_step_list_item';
 
-const CreateStepList = (steps) => {
+const CreateStepList = steps => {
   
     if (!steps) return null;
 

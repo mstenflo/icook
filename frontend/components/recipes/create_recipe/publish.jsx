@@ -18,8 +18,8 @@ const Publish = props => {
       .then(res => props.history.push(`/recipes/${res.recipe.id}/edit`));
   }
 
-  const update = (e, inputIdentifier) => {
-    const updatedForm = updateObject(publishForm, { [inputIdentifier]: e.target.value });
+  const update = (e, field) => {
+    const updatedForm = updateObject(publishForm, { [field]: e.target.value });
     setPublishForm(updatedForm);
   }
 

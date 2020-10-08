@@ -3,16 +3,16 @@ import { createRecipe, requestRecipes, requestRecipe } from '../../../actions/re
 import { createStep } from '../../../actions/step_actions';
 import Publish from './publish';
 
-const mapSTP = (state) => ({
+const mapSTP = state => ({
   currentUser: state.entities.users[state.session.id],
   author_id: state.session.id,
 });
 
 const mapDTP = dispatch => ({
-  requestRecipe: (recipeId) => dispatch(requestRecipe(recipeId)),
+  requestRecipe: recipeId => dispatch(requestRecipe(recipeId)),
   requestRecipes: () => dispatch(requestRecipes()),
-  createRecipe: (recipe) => dispatch(createRecipe(recipe)),
-  createStep: (step) => dispatch(createStep(step)),
+  createRecipe: recipe => dispatch(createRecipe(recipe)),
+  createStep: step => dispatch(createStep(step)),
 });
 
 export default connect(mapSTP, mapDTP)(Publish);

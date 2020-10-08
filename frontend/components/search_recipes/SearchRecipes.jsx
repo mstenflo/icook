@@ -1,124 +1,103 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import SearchRecipeItem from './SearchRecipeItem';
 
-class SearchRecipes extends Component {
+const SearchRecipes = props => {
 
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      recipes: [],
-      items: [],
-      hasMore: false,
-      searchWord: '',
-      length: 0,
-      apiKey: '1a974bca59804d718e18d36625f1dceb'
-    }
+  const [recipes, setRecipes] = useState([]);
+  const [items, setItems] = useState([]);
+  const [hasMore, setHasMore] = useState(false);
+  const [searchWord, setSearchWord] = useState('');
+  const [length, setLength] = useState(0);
+  const apiKey = '1a974bca59804d718e18d36625f1dceb';
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
-    this.handleEnter = this.handleEnter.bind(this);
-    this.handleRandom = this.handleRandom.bind(this);
-    this.fetchMoreData = this.fetchMoreData.bind(this);
+  const handleChange = (e) => {
+    setSearchWord(e.target.value);
   }
 
-  handleChange(e) {
-    this.setState({
-      searchWord: e.target.value
-    })
+  const handleEnter = (e) => {
+    if (e.keyCode === 13) handleSearch(searchWord);
   }
 
-  handleEnter(e) {
-    if (e.keyCode === 13) this.handleSearch(this.state.searchWord);
-  }
-
-  handleSearch(searchWord) {
+  const handleSearch = (searchWord) => {
     let number = 99;
-    this.setState({ items: [] });
-    this.setState({ hasMore: true });
+    setRecipes([])
+    setItems([]);
+    setHasMore(true);
+
     if (searchWord) {
-      axios.get('https://api.spoonacular.com/recipes/complexSearch?query=' + searchWord + '&apiKey=' + this.state.apiKey + '&number=' + number)
-      .then(res => {
-        this.setState({
-          recipes: res.data.results,
-          length: res.data.results.length
-        });
-      })
-      .catch(err => console.log(err))
-    } else this.setState({
-      recipes: []
-    });
-    this.fetchMoreData();
+      axios.get('https://api.spoonacular.com/recipes/complexSearch?query=' + searchWord + '&apiKey=' + apiKey + '&number=' + number)
+        .then(res => {
+          setRecipes(res.data.results);
+          setLength(res.data.results.length);
+        })
+        .catch(err => console.log(err));
+    } else setRecipes([]);
+    fetchMoreData();
   }
 
-  handleRandom() {
-    axios.get('https://api.spoonacular.com/recipes/random?number=1' + '&apiKey=' + this.state.apiKey)
+  const handleRandom = () => {
+    axios.get('https://api.spoonacular.com/recipes/random?number=1' + '&apiKey=' + apiKey)
       .then(res => {
-        this.props.history.push('/search/' + res.data.recipes[0].id)
+        props.history.push('/search/' + res.data.recipes[0].id)
     })
   }
 
-  fetchMoreData() {
-    if (this.state.items.length >= this.state.length) {
-      this.setState({ hasMore: false });
-    }
+  const fetchMoreData = () => {
+    if (items.length >= length) setHasMore(false);
+
     setTimeout(() => {
-      this.setState({
-        items: this.state.items.concat(this.state.recipes.splice(0, 6))
-      });
-    }, 1500)
-  };
-
-  showLoader() {
-    return this.state.hasMore ? <h4 style={{ textAlign: "center" }}>Loading...</h4> : null;
+      let remainingRecipes = recipes;
+      setItems(items.concat(remainingRecipes.splice(0, 6)));
+      setRecipes(remainingRecipes);
+    }, 1500);
   }
 
-  render() {
-    return (
-      <div>
-        <p className="search-info">
-          Search a database with over 350'000 recipes  
-        </p>
-        <div className="search">
-          <input
-            type='text'
-            className="searchTerm"
-            placeholder="Search a recipe" 
-            onChange={this.handleChange}
-            onKeyUp={this.handleEnter}
-            autoFocus
-          />
-          <button
-            className="searchButton"
-            onClick={() => this.handleSearch(this.state.searchWord)}>
-            <i className="fa fa-search"></i>
-          </button>
-        </div>
-        <br />
+  return (
+    <div>
+      <p className="search-info">
+        Search a database with over 350'000 recipes  
+      </p>
+      <div className="search">
+        <input
+          type='text'
+          className="searchTerm"
+          placeholder="Search a recipe" 
+          onChange={handleChange}
+          onKeyUp={handleEnter}
+          autoFocus
+        />
+        
         <button
-          className="search-random"
-          onClick={this.handleRandom}>Random Recipe
+          className="searchButton"
+          onClick={() => handleSearch(searchWord)}>
+          <i className="fa fa-search"></i>
         </button>
-        <div id="scrollableDiv" className="recipe-index">
-          <InfiniteScroll
-            dataLength={this.state.items.length}
-            next={this.fetchMoreData}
-            hasMore={this.state.hasMore}
-            loader={<h4 style={{ textAlign: "center" }}>Loading...</h4>}
-            // scrollableTarget="scrollableDiv"
-          >
-            {this.state.items && this.state.items.map(recipe => (
-              <SearchRecipeItem data={recipe} key={recipe.id} />
-              )
-            )}
-          </InfiniteScroll>
-        </div>
       </div>
-    );
-  }
+      <br />
+
+      <button
+        className="search-random"
+        onClick={handleRandom}>Random Recipe
+      </button>
+
+      <div id="scrollableDiv" className="recipe-index">
+        <InfiniteScroll
+          dataLength={items.length}
+          next={fetchMoreData}
+          hasMore={hasMore}
+          loader={<h4 style={{ textAlign: "center" }}>Loading...</h4>}
+        >
+          {items && items.map(recipe => (
+            <SearchRecipeItem data={recipe} key={recipe.id} />
+            )
+          )}
+        </InfiniteScroll>
+      </div>
+    </div>
+  );
 }
 
 export default SearchRecipes;

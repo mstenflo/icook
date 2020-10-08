@@ -1,29 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import RecipeIndexItem from './recipe_index_item';
 
-class RecipeIndex extends React.Component {
-  constructor(props) {
-    super(props); 
-  }
+const RecipeIndex = props => {
 
-  componentDidMount() {
-    this.props.requestRecipes();
-    this.props.requestUsers();
-  }
-  
-  render () {
-    const { recipes, users } = this.props;
-    if (!recipes) return null;
-    return (
-      <div className="recipe-index">
-        {
-          recipes.map((recipe, idx) => (
-            <RecipeIndexItem recipe={recipe} users={users} key={idx} />
-          ))
-        }
-      </div>
-    );
-  }
-};
+  useEffect(() => {
+    props.requestRecipes();
+    props.requestUsers();
+  }, []);
+
+  const { recipes, users } = props;
+
+  if (!recipes) return null;
+
+  return (
+    <div className="recipe-index">
+      {
+        recipes.map((recipe, idx) => (
+          <RecipeIndexItem recipe={recipe} users={users} key={idx} />
+        ))
+      }
+    </div>
+  );
+}
 
 export default RecipeIndex;

@@ -22,7 +22,7 @@ const SearchRecipes = props => {
   }
 
   const handleSearch = (searchWord) => {
-    let number = 99;
+    let number = 33;
     setRecipes([])
     setItems([]);
     setHasMore(true);

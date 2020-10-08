@@ -18,7 +18,7 @@ const ShowSearch = props => {
       });
     axios.get('https://api.spoonacular.com/recipes/' + id + '/analyzedInstructions' + '?apiKey=' + apiKey)
       .then(res => setSteps(res.data[0].steps));
-  });
+  }, []);
   
   const { title, sourceName, image, extendedIngredients } = recipe;
 

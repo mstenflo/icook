@@ -1,52 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      username: '',
-      password: '',
-    };
-    // 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.demoLogin = this.demoLogin.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+import { updateObject } from '../../shared/utility';
+
+const LoginForm = props => {
+
+  const [userData, setUserData] = useState('');
+
+  useEffect(() => {
+    props.clearErrors();
+  }, [])
+
+  const update = (e, field) => {
+    const udpateData = updateObject(userData, { [field]: e.currentTarget.value });
+    setUserData(udpateData);
   }
 
-  componentDidMount() {
-    this.props.clearErrors();
-  }
-  
-
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
-  }
-
-  handleSubmit(e) {
+  const handleSubmit = e => {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user)
+
+    props.processForm(userData)
       .then(() => window.location.href = '/');
   }
 
-  demoLogin(e) {
-    e.preventDefault();
-    this.setState({
+  const demoLogin = () => {
+    setUserData({
       username: 'demoUser',
       password: 'demodemo',
-    }, () => this.props.processForm(this.state)
-    .then(() => window.location.href = '/'))
+    });
+
+    handleSubmit();
   }
   
-  renderErrors() {
-    if (this.props.errors.length > 0) {
-      return(
+  const renderErrors = () => {
+    if (props.errors.length > 0) {
+      return (
         <ul className="errors">
-          {this.props.errors.map((error, i) => (
+          {props.errors.map((error, i) => (
             <li key={`error-${i}`}>
               {error}
             </li>
@@ -56,56 +46,52 @@ class LoginForm extends React.Component {
     } else return null;
   }
 
-  render() {
-    return (
-      <div className="login-bg">
-        <div className="login-form-container">
-          <form onSubmit={this.handleSubmit} className="login-form-box">
-            <br/>
-            <p>
-            </p>
-            <div className="login-form">
-              <div className="centering-div">
-                <button className="login-demo-user" onClick={this.demoLogin}>Demo User</button>
-              </div>
-              <br/>
-              <span><hr/>&nbsp; OR &nbsp;<hr/></span>
-              <br/>
-              <br/>
-              <div className="centering-div">
-                <label>
-                  <input 
-                    type="text"
-                    placeholder="Username"
-                    value={this.state.username}
-                    onChange={this.update('username')}
-                    className="input-text"
-                  />
-                </label>
-                <label>
-                  <input type="password"
-                    placeholder="Password"
-                    value={this.state.password}
-                    onChange={this.update('password')}
-                    className = "input-text"
-                  />
-                </label>
-                <br/>
-                {this.renderErrors()}
-                <br/>
-                <input className="session-submit" type="submit" value="Login" />
-                <p>
-                  New to iCook? 
-                  &nbsp;
-                  <Link to="/signup">Sign Up »</Link>
-                </p>
-              </div>
+  return (
+    <div className="login-bg">
+      <div className="login-form-container">
+        <form onSubmit={handleSubmit} className="login-form-box">
+          <br/>
+          <div className="login-form">
+            <div className="centering-div">
+              <button className="login-demo-user" onClick={demoLogin}>Demo User</button>
             </div>
-          </form>
-        </div>
+            <br/>
+            <span><hr/>&nbsp; OR &nbsp;<hr/></span>
+            <br/>
+            <br/>
+            <div className="centering-div">
+              <label>
+                <input 
+                  type="text"
+                  placeholder="Username"
+                  value={userData.username || ''}
+                  onChange={e => update(e, 'username')}
+                  className="input-text"
+                />
+              </label>
+              <label>
+                <input type="password"
+                  placeholder="Password"
+                  value={userData.password || ''}
+                  onChange={e => update(e, 'password')}
+                  className = "input-text"
+                />
+              </label>
+              <br/>
+              {renderErrors()}
+              <br/>
+              <input className="session-submit" type="submit" value="Login" />
+              <p>
+                New to iCook? 
+                &nbsp;
+                <Link to="/signup">Sign Up »</Link>
+              </p>
+            </div>
+          </div>
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default LoginForm;

@@ -1,100 +1,93 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { updateObject } from '../../shared/utility';
 
-class SignupForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      username: '',
-      password: ''
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  
-  componentDidMount() {
-    this.props.clearErrors();
+const SignupForm = props => {
+
+  const [userData, setUserData] = useState('');
+  useEffect(() => {
+    props.clearErrors();
+  }, [])
+
+  const update = (e, field) => {
+    const updateData = updateObject(userData, { [field]: e.currentTarget.value });
+    setUserData(updateData);
   }
 
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
-  }
-
-  handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user)
+
+    props.processForm(userData)
       .then(() => window.location.href = '/');
   }
 
-  renderErrors() {
-    if (this.props.errors.length > 0) {
-    return(
-      <div className="centering-div">
-      <ul className="errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-      </div>
+  const renderErrors = () => {
+    if (props.errors.length > 0) {
+      return (
+        <div className="centering-div">
+          <ul className="errors">
+            {props.errors.map((error, i) => (
+              <li key={`error-${i}`}>
+                {error}
+              </li>
+            ))}
+          </ul>
+        </div>
     );
   }}
 
-  render() {
-    return (
-      <div className="login-bg">
-        <div className="login-form-container">
-          <form onSubmit={this.handleSubmit} className="login-form-box">
-            <br/>
-            <div className="login-form">
-              <div className="centering-div">
-                <label>
-                  <input type="email"
-                    placeholder="Email"
-                    value={this.state.email}
-                    onChange={this.update('email')}
-                    className = "input-text"
-                  />
-                </label>
-                <br/>
-                <label>
-                  <input type="text"
-                    placeholder="Username"
-                    value={this.state.username}
-                    onChange={this.update('username')}
-                    className = "input-text"
-                  />
-                </label>
-                <br/>
-                <label>
-                  <input type="password"
-                    placeholder="Password"
-                    value={this.state.password}
-                    onChange={this.update('password')}
-                    className = "input-text"
-                  />
-                </label>
-                <br/>
-                {this.renderErrors()}
-                <br/>
-                <input className="session-submit" type="submit" value="Sign Me Up!" />
-                <br/>
-                <p>
-                  Already a member? 
-                  &nbsp;
-                  <Link to="/login">Login</Link>
-                </p>
-              </div>
+  return (
+    <div className="login-bg">
+      <div className="login-form-container">
+        <form onSubmit={handleSubmit} className="login-form-box">
+          <br/>
+          <div className="login-form">
+            <div className="centering-div">
+              <label>
+                <input type="email"
+                  placeholder="Email"
+                  value={userData.email || ''}
+                  onChange={e => update(e, 'email')}
+                  className="input-text"
+                />
+              </label>
+
+              <br/>
+              <label>
+                <input type="text"
+                  placeholder="Username"
+                  value={userData.username || ''}
+                  onChange={e => update(e, 'username')}
+                  className="input-text"
+                />
+              </label>
+
+              <br/>
+              <label>
+                <input type="password"
+                  placeholder="Password"
+                  value={userData.password || ''}
+                  onChange={e => update(e, 'password')}
+                  className="input-text"
+                />
+              </label>
+
+              <br/>
+              {renderErrors()}
+              <br/>
+              <input className="session-submit" type="submit" value="Sign Me Up!" />
+              <br/>
+              <p>
+                Already a member? 
+                &nbsp;
+                <Link to="/login">Login</Link>
+              </p>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default SignupForm;

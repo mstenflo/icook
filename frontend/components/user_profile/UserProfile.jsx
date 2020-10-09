@@ -1,75 +1,64 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 import UserRecipeItem from './UserRecipeItem';
 
-class UserProfile extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {};
-  }
+const UserProfile = props => {
 
-  componentDidMount() {
-    this.props.requestUser(this.props.match.params.username)
-      .then(res => this.setState({
-        user: res.user
-      }));
-    this.props.requestRecipes()
-      .then(res => this.setState({
-        recipes: res.recipes
-      }))
-  }
-  
-  
-  render() {
-    const { recipes, user } = this.state;
+  const [user, setUser] = useState('');
+  const [recipes, setRecipes] = useState('');
 
-    if (!user) return null;
-    if (!recipes) return null;
-    let userRecipes = [];
+  useEffect(() => {
+    props.requestUser(props.match.params.username)
+      .then(res => setUser(res.user));
+    props.requestRecipes()
+      .then(res => setRecipes(res.recipes));
+  }, []);
 
-    Object.values(recipes).forEach(recipe => {
-      if (recipe.username === user.username) userRecipes.push(recipe)
-    })
+  if (!user) return null;
+  if (!recipes) return null;
+  let userRecipes = [];
 
-    return (
-      <div>
-        <div className="profile-header">
-          <div className="profile-avatar-container">
-            <img className="profile-avatar" src={window.avatarIconURL} />
-            <div className="profile-top">
-              <h1>{user.username}</h1>
-            </div>
+  Object.values(recipes).forEach(recipe => {
+    if (recipe.username === user.username) userRecipes.push(recipe);
+  });
+
+  return (
+    <div>
+      <div className="profile-header">
+        <div className="profile-avatar-container">
+          <img className="profile-avatar" src={window.avatarIconURL} />
+          <div className="profile-top">
+            <h1>{user.username}</h1>
           </div>
-          <div className="profile-header-stats">
-            <i className="fas fa-user-plus"></i>
-            Joined &nbsp;
+        </div>
+        <div className="profile-header-stats">
+          <i className="fas fa-user-plus"></i>
+          Joined &nbsp;
+          {
+            moment(user.created_at).format('LL')
+          }
+        </div>
+      </div>
+      <div className="background">
+        <div className="profile-body">
+          <h2 className="module-title">{user.username}'s Recipes</h2>
+          <div className="inline">
             {
-              moment(user.created_at).format('LL')
+              userRecipes.map((recipe, key) => (
+                <div key={key} >
+                  <Link to={`/recipes/${recipe.id}`}>
+                    <UserRecipeItem recipe={recipe} />
+                  </Link>
+                </div>
+              ))
             }
           </div>
         </div>
-        <div className="background">
-          <div className="profile-body">
-            <h2 className="module-title">{user.username}'s Recipes</h2>
-            <div className="inline">
-              {
-                userRecipes.map((recipe, key) => (
-                  <div key={key} >
-                    <Link to={`/recipes/${recipe.id}`}>
-                      <UserRecipeItem recipe={recipe} />
-                    </Link>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default UserProfile;

@@ -1,32 +1,23 @@
 import React from 'react'
 
-class EditStepListItem extends React.Component {
+const EditStepListItem = props => {
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
+  const handleClick = e => {
     e.preventDefault();
-    this.props.history.push(`/steps/${this.props.step.id}/edit`)
+
+    props.history.push(`/steps/${props.step.id}/edit`)
   }
 
-  render() {
-    if (!this.props.step) return null;
-    
-    const {step} = this.props;
-    const stepNumber = this.props.number
-    
-    return (
-      <div className="step-box" onClick={this.handleClick}>
-        <h2 className="edit-step-title">Step {stepNumber}: {step.title}</h2>
-        <p> {step.body} </p>
-      </div>
-    );
-
-    }
+  if (!props.step) return null;
+  
+  const { step, number } = props;
+  
+  return (
+    <div className="step-box" onClick={handleClick}>
+      <h2 className="edit-step-title">Step {number}: {step.title}</h2>
+      <p> {step.body} </p>
+    </div>
+  );
 }
 
 export default EditStepListItem;

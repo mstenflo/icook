@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 gem 'faker'
 gem 'aws-sdk-s3'
-gem 'carrierwave', '~> 2.1.0'
+gem 'carrierwave', '~> 2.1.1'
 gem "actionview", ">= 5.2.4.2"
 
 
